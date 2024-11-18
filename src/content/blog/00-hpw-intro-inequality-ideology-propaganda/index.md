@@ -17,7 +17,8 @@ Speaking more specifically about the relationship between inequality, flawed ide
 
 In a nutshell this looks something like:
 
-_Inequality ➡️ flawed ideology ➡️ propaganda that further cuts off paths for rational discourse_
+**Inequality ➡️ flawed ideology ➡️ propaganda that further cuts off paths for rational discourse.**
+
 
 In the USA we’ve had inequality built into the system from the very beginning, and that has led to some deeply entrenched flawed ideologies.
 
