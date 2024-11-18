@@ -6,8 +6,8 @@ export default {
   theme: {
     extend: {
       fontFamily: {
-        serif: ["Abril Fatface", ...defaultTheme.fontFamily.serif],
-        sans: ["Josefin Sans Variable", ...defaultTheme.fontFamily.sans],
+        serif: ["Lobster", ...defaultTheme.fontFamily.serif],
+        sans: ["Arimo Variable", ...defaultTheme.fontFamily.sans],
         mono: ["JetBrains Mono Variable", ...defaultTheme.fontFamily.mono],
       },
     },

@@ -57,6 +57,6 @@ date: "2024-03-20";
 draft: false;
 ---
 
-## Astro Micro 🔬
+## Astro Micro 📚
 <!-- content -->
 ```

@@ -2,6 +2,7 @@
 import Container from "@components/Container.astro";
 import { SITE } from "@consts";
 import BackToTop from "@components/BackToTop.astro";
+import Link from "@components/Link.astro";
 ---
 
 <footer class="animate">
@@ -11,9 +12,7 @@ import BackToTop from "@components/BackToTop.astro";
         <BackToTop />
       </div>
     </div>
-    <div class="flex items-center justify-between">
-      <div>&copy; {new Date().getFullYear()} • {SITE.TITLE} 🔬</div>
-      <div class="flex flex-wrap items-center gap-1.5">
+      <div class="flex flex-wrap items-center justify-center gap-1.5 py-3">
         <button
           id="light-theme-button"
           aria-label="Light theme"
@@ -85,6 +84,8 @@ import BackToTop from "@components/BackToTop.astro";
           </svg>
         </button>
       </div>
+    <div class="flex items-center justify-center text-center py-3">
+      <div>{SITE.TITLE} &copy; {new Date().getFullYear()} • Powered by <Link href="https://astro.build/">Astro</Link></div>
     </div>
   </Container>
 </footer>
