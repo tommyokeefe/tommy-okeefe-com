@@ -1,11 +1,9 @@
 ---
 title: "How Propaganda Works: Inequality, Flawed Ideology, & Propaganda"
 description: "Thoughts from the introduction of Jason Stanley's book \"How Propaganda Works\" on how inequalites in a democracy lead to flawed ideologies & those provide a fertile ground for the production and proliferation of propoganda."
-date: "2024-11-12"
+date: "2024-11-11"
 draft: false
 ---
-
-![How Propaganda Works: Inequality, Flawed Ideology, & Propaganda](./hpw_ifip.png)
 
 I started reading “How Propaganda Works” by Jason Stanley this past weekend. Though it was originally published in 2015 (before Trump’s first term) it feels more relevant than ever. As I read the book I'll be sharing thoughts along the way. This quote from the introduction seems to setup Stanley's goal well:
 
@@ -18,7 +16,6 @@ Speaking more specifically about the relationship between inequality, flawed ide
 In a nutshell this looks something like:
 
 **Inequality ➡️ flawed ideology ➡️ propaganda that further cuts off paths for rational discourse.**
-
 
 In the USA we’ve had inequality built into the system from the very beginning, and that has led to some deeply entrenched flawed ideologies.
 
