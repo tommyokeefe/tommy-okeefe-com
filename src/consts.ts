@@ -2,7 +2,7 @@ import type { Metadata, Site, Socials } from "@types";
 
 export const SITE: Site = {
   TITLE: "Tommy O'Keefe",
-  DESCRIPTION: "A repository of my ADHD fueled rants and ramblings",
+  DESCRIPTION: "This is primarily a space for me to talk about how I see the world",
   EMAIL: "tommyokeefe81@gmail.com",
   NUM_POSTS_ON_HOMEPAGE: 5,
   NUM_PROJECTS_ON_HOMEPAGE: 0,

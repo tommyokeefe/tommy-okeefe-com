@@ -30,7 +30,12 @@ header {
   @apply saturate-200 backdrop-blur-sm;
 }
 
-h1, h2, h3, h4, h5, h6 {
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
   @apply font-serif antialiased;
 }
 
@@ -42,7 +47,10 @@ h2 {
   @apply text-xl;
 }
 
-h3, h4, h5, h6 {
+h3,
+h4,
+h5,
+h6 {
   @apply text-lg;
 }
 
@@ -66,6 +74,7 @@ article {
     @apply decoration-black/30 dark:decoration-white/30;
     @apply transition-colors duration-300 ease-in-out;
   }
+
   article a:hover {
     @apply text-black dark:text-white;
     @apply decoration-black/50 dark:decoration-white/50;
@@ -133,4 +142,9 @@ pre {
 
 .copy-code:active {
   @apply scale-90 transition-transform;
+}
+
+section {
+  padding-top: 10px;
+  padding-bottom: 10px
 }
