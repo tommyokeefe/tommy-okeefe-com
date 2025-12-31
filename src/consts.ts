@@ -30,10 +30,6 @@ export const SOCIALS: Socials = [
     HREF: "https://bsky.app/profile/tommyokeefe.com",
   },
   {
-    NAME: "Instagram",
-    HREF: "https://www.instagram.com/tommyokeefe/",
-  },
-  {
     NAME: "LinkedIn",
     HREF: "https://www.linkedin.com/in/tommyokeefe/",
   },

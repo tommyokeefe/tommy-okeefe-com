@@ -31,45 +31,43 @@ const blog = (await getCollection("blog"))
           <article class="space-y-4">
             <span class="animate">
               <p>
-                This is mostly just a space for me to dump my ADHD fueled rants and ramblings.
-                Expect content about things I'm reading, listening to, watching and thinking about.
-                I figure if I'm going to shout into the void I might as well share the shouting somewhere.
+                This is primarily a space for me to talk about how I see the
+                world. You'll find my thoughts about the things I'm watching,
+                reading, listening to, and thinking about. Because I am a bit of
+                a "jack of all trades, master of none", the subject matter is
+                likely to be pretty diverse. "I find this interesting" is
+                probably the only real thread that ties it all together.
               </p>
               <p>
                 When I'm not here you can occassionally find me posting on
                 <Link href="https://bsky.app/profile/tommyokeefe.com">
                   Bluesky
                 </Link>
-                &
-                <Link href="https://www.instagram.com/tommyokeefe/">
-                  Instagram
-                </Link>
-                . </br>
-                I hope to see you around!
+                .
               </p>
+              I hope to see you around!
             </span>
           </article>
         </section>
+      </div>
 
-        <section class="animate space-y-6">
-          <div class="flex flex-wrap items-center justify-between gap-y-2">
-            <h2 class="font-semibold text-black dark:text-white">
-              Latest posts
-            </h2>
-            <Link href="/blog"> See all posts </Link>
-          </div>
-          <ul class="not-prose flex flex-col gap-4">
-            {
-              blog.map((post) => (
-                <li>
-                  <ArrowCard entry={post} />
-                </li>
-              ))
-            }
-          </ul>
-        </section>
+      <section class="animate space-y-6">
+        <div class="flex flex-wrap items-center justify-between gap-y-2">
+          <h2 class="font-semibold text-black dark:text-white">Latest posts</h2>
+          <Link href="/blog"> See all posts </Link>
+        </div>
+        <ul class="not-prose flex flex-col gap-4">
+          {
+            blog.map((post) => (
+              <li>
+                <ArrowCard entry={post} />
+              </li>
+            ))
+          }
+        </ul>
+      </section>
 
-<!--         <section class="animate space-y-6">
+      <!--         <section class="animate space-y-6">
           <div class="flex flex-wrap items-center justify-between gap-y-2">
             <h2 class="font-semibold text-black dark:text-white">
               Recent projects
@@ -87,42 +85,39 @@ const blog = (await getCollection("blog"))
           </ul>
         </section> -->
 
-        <section class="animate space-y-4">
-          <h2 class="font-semibold text-black dark:text-white">
-            Let's Connect
-          </h2>
-          <article>
-            <p>
-              If you want to get in touch with me about something or just say
-              hi, reach out on social media or send me an email.
-            </p>
-          </article>
-          <ul class="not-prose flex flex-wrap gap-2">
-            {
-              SOCIALS.map((SOCIAL) => (
-                <li class="flex gap-x-2 text-nowrap">
-                  <Link
-                    href={SOCIAL.HREF}
-                    external
-                    aria-label={`${SITE.TITLE} on ${SOCIAL.NAME}`}
-                  >
-                    {SOCIAL.NAME}
-                  </Link>
-                  {"/"}
-                </li>
-              ))
-            }
-            <li class="line-clamp-1">
-              <Link
-                href={`mailto:${SITE.EMAIL}`}
-                aria-label={`Email ${SITE.TITLE}`}
-              >
-                {SITE.EMAIL}
-              </Link>
-            </li>
-          </ul>
-        </section>
-      </div>
+      <section class="animate space-y-4">
+        <h2 class="font-semibold text-black dark:text-white">Let's Connect</h2>
+        <article>
+          <p>
+            If you want to get in touch with me about something or just say hi,
+            reach out on social media or send me an email.
+          </p>
+        </article>
+        <ul class="not-prose flex flex-wrap gap-2">
+          {
+            SOCIALS.map((SOCIAL) => (
+              <li class="flex gap-x-2 text-nowrap">
+                <Link
+                  href={SOCIAL.HREF}
+                  external
+                  aria-label={`${SITE.TITLE} on ${SOCIAL.NAME}`}
+                >
+                  {SOCIAL.NAME}
+                </Link>
+                {"/"}
+              </li>
+            ))
+          }
+          <li class="line-clamp-1">
+            <Link
+              href={`mailto:${SITE.EMAIL}`}
+              aria-label={`Email ${SITE.TITLE}`}
+            >
+              {SITE.EMAIL}
+            </Link>
+          </li>
+        </ul>
+      </section>
     </aside>
   </Container>
 </Layout>
