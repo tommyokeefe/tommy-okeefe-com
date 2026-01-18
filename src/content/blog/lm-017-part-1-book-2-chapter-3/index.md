@@ -11,7 +11,7 @@ In a state of desperation Valjean decides to get things out on the table immedia
 
 Here it isn't thief, brigand, vagabond, or any other word that would have centered what Valjean had done. Instead it was a word that reminded Valjean that he was a child of God, and as such, he was Myriel's brother. 
 
-Many human relationships occupy a tension where the desire is to be fully known and fully loved, but the overriding fear is that if we are truly known we will be rejected completely and find ourselves unloved. As a result many people are hesitant to reveal themselves or become vulnerable, even when they have found love, because of a combination of past experiences and often a view that they are in fact unloveable or undeserving of love. 
+Many human relationships occupy a tension where the desire is to be fully known and fully loved, but the overriding fear is that if we are truly known we will be rejected completely and find ourselves unloved. As a result many people are hesitant to reveal themselves or become vulnerable, even when they have found love, because of a combination of past experiences and often a view that they are in fact unlovable or undeserving of love. 
 
 Valjean has tried to hide who he was but it keeps slipping out. Not only is he unloved, but he receives full rejection, bordering on hate. He is made out to be a monster, something that should be feared, and it is tormenting him. When he throws his truth before Myriel he expects the same response, but Myriel takes reality and reframes things. Valjean is not a monster, he is a man, just as deserving as anyone else who may come to this place. Valjean is not a terror, he is a brother, a child of God worthy of love. 
 
