@@ -1,0 +1,22 @@
+---
+title: "Les Miserables: We Meet Javert"
+description: "Part one, book five, chapter four - Everyone has a backstory, and Javert's is an important one"
+date: "2026-02-13"
+draft: false
+---
+
+In this chapter we meet Javert, get a bit of his back story, find out that he is somewhat obsessed with M. Madeleine, and end on the note that next chapter we will learn about when Madeleine first took note of him. I want to focus specifically on a bit of Javert's background that I had forgotten that ties nicely into the stuff we have already seen about the damage that society as it is structured can do to those who find themselves pushed out of it. 
+
+Hugo tells us that if Javert was an animal he would be a wolf - specifically the whelp that would have been killed by it's mother to prevent it from devouring the rest of her young when it grew. That tells us that Javert, as much as he may work for the law, is a predator to be feared, one who wouldn't hesitate to destroy his own in his quest to assert his authority and dominance. 
+
+My immediate reaction to reading that was "why is Javert this way?" and that is exactly what Hugo proceeds to answer:
+
+> [Javert] had been born in prison, the son of a fortune-teller whose husband was in the galleys. As he grew older he came to believe that he was outside society with no prospect of ever entering it. But he noted that there were two classes of men whom society keeps inexorably at arms length - those who prey upon it, and those who protect it. The only choice open to him was between those two. At the same time, he was a man with a profound instinct for correctitude, regularity, and probity, and with a consuming hatred for the vagabond order to which he himself belonged. He joined the police.
+
+Quick note - the "galleys" here refer to galley ships - Javert's father was a prisoner and slave rowing on galley ships as a punishment for his crimes (whatever they may have been). 
+
+In this case we see Javert as someone who like Valjean was outside society and had come to what he saw as a fork in the road. If we recall, for Valjean that came after an incredible gift of grace, and the choice was plunge into a deeper evil and darkness, or commit to a path of love, mercy and forgiveness in response to this radical gift. In essence grace gave Valjean a path back into society, but in a way that also allowed others to re-enter and challenged societies bent and broken structures. For Javert the situation is different. He was _born_ in a prison and sees himself as fundamentally on the outside with _no way_ to get in. In Javert's calculus there is no grace, there is no mercy, thewre is no possibility for reentry. The options are to wage war against evil as a self appointed protector or to become a criminal. With a deep hatred for the palce he found himself and the people he was surrounded by Javert becomes a cop and commits to a life of unwavering enforcement of "justice" as he sees it. 
+
+Two people pushed out by the world, surrounded by a sea of others who have been cast aside. Many of those others have turned to criminal enterprise with varying degrees of violence. These two men represent two very different views and responses to that world, and this initial introduction sets us up for an unfolding story of the difference between authority that enacts it's power violently, and love that seeks to manifest mercy in acts of selfless giving and forgiveness. 
+
+It's worth pointing out that in both cases Valjean and Javert are victims of a heinously constructed society that was built to serve those who have at the expense of the disposable entities (like Valjean and Javert) who do not. Neither of them begins life as a villain, the actual villain is a structure and the forces behind that structure that have created these circumstances. There responses are radically different, and much of our discussion as this novel unfolds will explore those differences, but it's key we don't miss the shared root identity here. Javert is a victim. in addition to all we will say about him in the future, we need to hold a place of pity for him. He desperately needed love, mercy and grace and did not receive it. In the vacuum, pushed by hate, he chose a violent authoritarian response that carved out a "righteous" position for him while actively harming and destroying others like him. 
