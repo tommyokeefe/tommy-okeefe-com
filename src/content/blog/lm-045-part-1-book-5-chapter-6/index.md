@@ -1,6 +1,6 @@
 ---
 title: "Les Miserables: Madeliene Notices Javert's Attention"
-description: "Part one, book five, chapter five - We have seen that Javert took note of Madeleine, but here is the first instance we have of Madeleine perceiving that for himself."
+description: "Part one, book five, chapter six - We have seen that Javert took note of Madeleine, but here is the first instance we have of Madeleine perceiving that for himself."
 date: "2026-02-14"
 draft: false
 ---

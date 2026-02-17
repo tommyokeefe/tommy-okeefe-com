@@ -1,6 +1,6 @@
 ---
 title: "Les Miserables: We Meet Javert"
-description: "Part one, book five, chapter four - Everyone has a backstory, and Javert's is an important one"
+description: "Part one, book five, chapter five - Everyone has a backstory, and Javert's is an important one"
 date: "2026-02-13"
 draft: false
 ---

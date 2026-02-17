@@ -1,6 +1,6 @@
 ---
 title: "Les Miserables: Fantine's Demise"
-description: "Part one, book five, chapter six - Fantine's single parent identity is uncovered and used against her."
+description: "Part one, book five, chapter eight - Fantine's single parent identity is uncovered and used against her."
 date: "2026-02-16"
 draft: false
 ---
