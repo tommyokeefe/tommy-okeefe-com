@@ -3,6 +3,7 @@ title: "Les Miserables: A Dreadful Surprise"
 description: "Part one, book three, chapter nine - The boys deliver their surprise and the readers get a surprise of their own from Fantine"
 date: "2026-02-05"
 draft: false
+series: "lm"
 ---
 
 This chapter is a tough one. 

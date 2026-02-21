@@ -3,6 +3,7 @@ title: "Les Miserables: Myriel's own way of looking at things"
 description: "Part one, book one, chapter four - more on the simple but challenging work of aligning your work and your words"
 date: "2026-01-04"
 draft: false
+series: "lm"
 ---
 
 > As we can see, he had his own way of looking at things. I think he derived it from the gospel.

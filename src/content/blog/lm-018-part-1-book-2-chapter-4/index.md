@@ -3,6 +3,7 @@ title: "Les Miserables: The Gift of Normalcy"
 description: "Part one, book two, chapter four - how bishop Myriel uses cheese as a vehicle to rehumanize Valjean"
 date: "2026-01-18"
 draft: false
+series: "lm"
 ---
 
 In this chapter, presented mostly in the form of a letter written by Mlle. Baptistine (Myriel's sister) to her friend, we have a seemingly mundane conversation about the way cheese was made in that part of France used as a vehicle for re-humanizing Valjean. 

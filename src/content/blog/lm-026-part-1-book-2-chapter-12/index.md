@@ -3,6 +3,7 @@ title: "Les Miserables: Tangible Mercy & Grace"
 description: "Part one, book two, chapter twelve - The bishop shows a love that goes beyond all expectation"
 date: "2026-01-26"
 draft: false
+series: "lm"
 ---
 
 Bishop Myriel is out in his garden the following morning when it is discovered that the silver has been stolen and Valjean is missing. From the jump Myriel's response is to essentially say the silver wasn't really his to begin with and he should have given it to the poor a long time ago. He then concludes that Valjean was poor so he's essentially good with Valjean having it. 

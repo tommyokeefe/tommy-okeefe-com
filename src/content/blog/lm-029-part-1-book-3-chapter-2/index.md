@@ -3,6 +3,7 @@ title: "Les Miserables: Double Foursome"
 description: "Part one, book three, chapter two - Eight new characters are introduced, and one of them is brought into focus"
 date: "2026-01-29"
 draft: false
+series: "lm"
 ---
 
 Here we leave the telling of Jean Valjean's story and the world of bishop Myriel in Digne and find ourselves in Paris in 1817 (the same year and location the previous chapter showed us through a series of historical vignettes). We meet four students in Paris who have become friends, and the four young "grisettes" they are currently dating. This term grisette is an interesting one. It primarily refers to a working class woman in Paris, but it carries a coqutteish / flirtatious element with it. We get the idea that these young women who are somewhat impoverished and living a working class life are hoping these relationships can pull them out of that place and change their experience and station. 

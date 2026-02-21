@@ -3,6 +3,7 @@ title: "Les Miserables: Is Love an Orbit?"
 description: "Part one, book five, chapter four - Some deficient and outdated ideas about what constitutes love."
 date: "2026-02-12"
 draft: false
+series: "lm"
 ---
 
 This chapter is actually about the death of bishop Myriel and the fact that it sent Père Madeleine into mourning (another indicator that he is indeed Jean Valjean) though the bulk of the words are spent on a soliloquy from Hugo on the nature of love based on a reflection of Myriel's sister caring for him in his blindness in the last years of his life. 

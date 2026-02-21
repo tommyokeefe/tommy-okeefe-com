@@ -3,6 +3,7 @@ title: "Les Miserables: A Dead Horse"
 description: "Part one, book three, chapter eight - Fantine once again shows her humanity"
 date: "2026-02-04"
 draft: false
+series: "lm"
 ---
 
 In this chapter we have more ranting from Tholomyès. He is again pointing his attention and affection away from Fantine and toward others, often fictional imagined people he wishes he could have. He sucks. In the midst of all of this there is a bit of commotion outside as a aging horse harnessed to a heavy cart stumbles and falls. The driver of the cart cursing loudly begins to whip the horse and it collapses again, this time unable to rise. 

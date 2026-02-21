@@ -1,8 +1,9 @@
 ---
 title: "Les Miserables: Mercy For Fantine"
-description: "Part one, book five, chapter twelve - Fantine, Javert, & Madeleine have a defining moment together"
+description: "Part one, book five, chapter thirteen - Fantine, Javert, & Madeleine have a defining moment together"
 date: "2026-02-21"
 draft: false
+series: "lm"
 ---
 
 As is becoming a pattern with Hugo's approach in this novel, this last chapter in the current "book" is long and climactic, providing both insight into and resolution for particular characters. In this chapter, the characters of note who come together are Javert, Fantine, and Madeleine. 

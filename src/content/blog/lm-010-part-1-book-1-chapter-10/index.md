@@ -3,6 +3,7 @@ title: "Les Miserables: Shared Humanity"
 description: "Part one, book one, chapter ten - the power of seeing yourself in the other"
 date: "2026-01-10"
 draft: false
+series: "lm"
 ---
 
 The tenth chapter of Les Miserables is the best one so far. It is titled "The bishop confronted by a strange light" and details his attendance at the death of a local man who had been part of the revolution. I won't go into an in-depth summary because the chapter deserves to speak for itself, but in so many ways this man represents what Myriel would have previously considered the enemy. In the beginning portion of the chapter he is repeatedly referred to as the beast and is cast in a very judgmental light that is a reflection of the particular understanding Myriel has of the world as it is. 

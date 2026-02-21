@@ -3,6 +3,7 @@ title: "Les Miserables: A Philosopher In His Cups"
 description: "Part one, book one, chapter eight - a philosophy only suited for the rich"
 date: "2026-01-08"
 draft: false
+series: "lm"
 ---
 
 In this chapter the senator is dining with Myriel and has had a good bit of wine already when he decides to pontificate on his own philosophy of a very self-centered form of epicureanism with a good bit of nihilism thrown in. After disparaging religion as something for the weak and poor the senator gives space for the Bishop to respond. 

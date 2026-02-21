@@ -3,6 +3,7 @@ title: "Les Miserables: The Generosity & Trajectory of Père Madeleine"
 description: "Part one, book five, chapter two - on a journey from peasant to mayor Père Madeleine demonstrates himself to be a rare type of person who genuinely exists for his community and orients himself toward human flourishing in the most generous way"
 date: "2026-02-10"
 draft: false
+series: "lm"
 ---
 
 In my commentary on the last chapter I was fairly pointed in my criticism of an orientation toward capitalism that would expect a "rising sea lifts all boats" outcome like the one described. Here in this chapter we see that it wasn't a general truism, but a reflection of the unique commitments and orientation of Père Madeleine. So much so in fact, that the other wealthy folks around him could not make sense of his behavior or choices and continued to assign alternate motivations. Quoting Hugo:

@@ -3,6 +3,7 @@ title: "Les Miserables: On Beauty & Usefulness"
 description: "Part one, book one, chapter six - a look at Myriel's living situation"
 date: "2026-01-06"
 draft: false
+series: "lm"
 ---
 
 Here in chapter 6 we have almost five pages fully devoted to describing the frugal nature of the house that bishop Myriel and his two companions kept. This mostly feels ike another chapter that could have been a couple of paragraphs attached to another piece of narrative, but clearly Hugo likes to take his time, lol. 

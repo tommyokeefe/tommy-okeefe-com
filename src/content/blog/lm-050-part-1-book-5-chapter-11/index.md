@@ -3,6 +3,7 @@ title: "Les Miserables: In Becoming Dirt, She Has Been Turned To Stone"
 description: "Part one, book five, chapter eleven - numb with despair, Fantine gives up all hope of anything ever changing"
 date: "2026-02-19"
 draft: false
+series: "lm"
 ---
 
 > At this sad point which our tale has now reached there is nothing left of the girl who was once Fantine. In becoming dirt, she has been turned to stone.

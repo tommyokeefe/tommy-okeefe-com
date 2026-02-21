@@ -3,6 +3,7 @@ title: "Les Miserables: Fantine Hits The Bottom"
 description: "Part one, book five, chapter ten - A downward spiral with no easy way out"
 date: "2026-02-18"
 draft: false
+series: "lm"
 ---
 
 This chapter was a tough read. Everything continues to get worse for Fantine. Winter means shorter days and due to some other factors, reduced wages as well. Fantine is in an impossible situation and the Thenardiers continue to put the screws to her. She sells her two front teeth to get medication that Cosette doesn't actually need. It's one thing after another, and in the midst of it Fantine gets increasingly bitter and angry with Monsieur Madeleine, not knowing that he is oblivious to her firing and situation. 

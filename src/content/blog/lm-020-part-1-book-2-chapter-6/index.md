@@ -3,6 +3,7 @@ title: "Les Miserables: A Broken Window & A Loaf of Bread"
 description: "Part one, book two, chapter six - Valjean's tragic history and the reality of carceral systems"
 date: "2026-01-20"
 draft: false
+series: "lm"
 ---
 
 This chapter is heavy and heartbreaking. In it we hear the history of Jean Valjean and his crime. Rather than summarize the whole story I'll keep it short and simple: we have a man who broke a bakery window and stole a loaf of bread to feed his sister's starving children and in the end serves 19 years for that crime and a series of failed escape attempts. 

@@ -3,6 +3,7 @@ title: "Les Miserables: A Dark Response"
 description: "Part one, book five, chapter nine - The woman behind Fantine's firing finds hapiness in seeing her suffer."
 date: "2026-02-17"
 draft: false
+series: "lm"
 ---
 
 This chapter gives us more detail around Fantine's struggle to find work after the factory, and she ends up mending clothes for a mere 12 sous a day. The Thenardiers are charging her 10 sous a day to care for Cosette, so she begins to fall behind. She sells all she can but still finds herself about 100 Francs in the hole, unable to leave or to even provide basics for Cosette here she is stuck. 

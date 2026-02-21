@@ -3,6 +3,7 @@ title: "Les Miserables: We Meet Javert"
 description: "Part one, book five, chapter five - Everyone has a backstory, and Javert's is an important one"
 date: "2026-02-13"
 draft: false
+series: "lm"
 ---
 
 In this chapter we meet Javert, get a bit of his back story, find out that he is somewhat obsessed with M. Madeleine, and end on the note that next chapter we will learn about when Madeleine first took note of him. I want to focus specifically on a bit of Javert's background that I had forgotten that ties nicely into the stuff we have already seen about the damage that society as it is structured can do to those who find themselves pushed out of it. 

@@ -3,6 +3,7 @@ title: "Les Miserables: Madeliene Notices Javert's Attention"
 description: "Part one, book five, chapter six - We have seen that Javert took note of Madeleine, but here is the first instance we have of Madeleine perceiving that for himself."
 date: "2026-02-14"
 draft: false
+series: "lm"
 ---
 
 The situation is a great setup from Hugo. We have a man in a desperate situation, he is being crushed under his own wagon after an accident, and the wagon is slowly sinking in the mud, hastening the man's death. Javert is on the scene and has quickly assessed that a jack is needed. One has been sent for, but it seems it will take 15 minutes for it to arrive. 

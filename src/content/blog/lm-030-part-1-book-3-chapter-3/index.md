@@ -3,6 +3,7 @@ title: "Les Miserables: Fixated on Beauty"
 description: "Part one, book three, chapter three - our eight friends go on a country outing"
 date: "2026-01-30"
 draft: false
+series: "lm"
 ---
 
 In this chapter we see our new friends - the four students and their four girlfriends - head out on their long promised adventure which turns out to be an outing in the countryside beyond Paris. Though I can see the function it is meant to play, there is a uncomfortable fixation on the "beauty" of these four young grisettes that finds it's focus on Fantine in particular. 

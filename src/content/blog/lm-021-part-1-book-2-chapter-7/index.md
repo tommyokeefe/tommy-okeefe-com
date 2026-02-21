@@ -3,6 +3,7 @@ title: "Les Miserables: A Grain Of Corn Between Two Millstones"
 description: "Part one, book two, chapter seven - the dehumanizing force of a destructive and disproportionate punitive justice system"
 date: "2026-01-21"
 draft: false
+series: "lm"
 ---
 
 Chapter seven here is the first of several chapters that looks at the effects of imprisonment on Jean Valjean (and by extension others) from multiple different angles. This chapter focuses on the way that the disproportionate nature of the justice system's response to Valjean's simple crime drove him to a state of despair. 

@@ -3,6 +3,7 @@ title: "Les Miserables: The Loneliness of M. Myriel"
 description: "Part one, book one, chapter twelve - poverty, piety & a deficient definition of success"
 date: "2026-01-12"
 draft: false
+series: "lm"
 ---
 
 Hugo brings something to the forefront here that I hadn't given much thought to before. If we drop ourselves into the time and place M. Myriel found himself, we might be surprised to find that the priesthood is full of ambitious young men who are hungry for political position and success. Hugo does a good job of showing how the path to becoming a cardinal or even the pope was one that was theoretically open to any ambitious young man who worked to put himself in the right place and sought to chase "success" in the form of promotion to positions of greater and greater power.

@@ -3,6 +3,7 @@ title: "Les Miserables: Lies & Adoration"
 description: "Part one, book three, chapter six - Favourite talks of adoration and the true nature of her affection"
 date: "2026-02-02"
 draft: false
+series: "lm"
 ---
 
 In this chapter Favourite makes a declaration that she "adores" her lover Blachevelle. He seizes on this opportunity to ask the somewhat appalling (and possibly foreshadowing?) question of "What would you do, Favourite, if I stopped loving you?"
