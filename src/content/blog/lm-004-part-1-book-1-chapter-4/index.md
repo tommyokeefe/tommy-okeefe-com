@@ -4,6 +4,9 @@ description: "Part one, book one, chapter four - more on the simple but challeng
 date: "2026-01-04"
 draft: false
 series: "lm"
+part: "part-1"
+book: "book-1"
+chapter: "chapter-4"
 ---
 
 > As we can see, he had his own way of looking at things. I think he derived it from the gospel.

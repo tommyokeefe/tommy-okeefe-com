@@ -4,6 +4,9 @@ description: "Part one, book three, chapter six - Favourite talks of adoration a
 date: "2026-02-02"
 draft: false
 series: "lm"
+part: "part-1"
+book: "book-3"
+chapter: "chapter-6"
 ---
 
 In this chapter Favourite makes a declaration that she "adores" her lover Blachevelle. He seizes on this opportunity to ask the somewhat appalling (and possibly foreshadowing?) question of "What would you do, Favourite, if I stopped loving you?"

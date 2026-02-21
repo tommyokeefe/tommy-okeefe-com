@@ -4,6 +4,9 @@ description: "Part one, book three, chapter seven - Tholomyès as the protoype f
 date: "2026-02-03"
 draft: false
 series: "lm"
+part: "part-1"
+book: "book-3"
+chapter: "chapter-7"
 ---
 
 Tholomyès is the type of guy who always thinks he's the smartest guy in the room.  

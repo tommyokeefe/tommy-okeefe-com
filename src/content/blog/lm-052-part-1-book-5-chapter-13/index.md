@@ -4,6 +4,9 @@ description: "Part one, book five, chapter thirteen - Fantine, Javert, & Madelei
 date: "2026-02-21"
 draft: false
 series: "lm"
+part: "part-1"
+book: "book-5"
+chapter: "chapter-13"
 ---
 
 As is becoming a pattern with Hugo's approach in this novel, this last chapter in the current "book" is long and climactic, providing both insight into and resolution for particular characters. In this chapter, the characters of note who come together are Javert, Fantine, and Madeleine. 

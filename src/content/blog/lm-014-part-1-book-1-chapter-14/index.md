@@ -4,6 +4,9 @@ description: "Part one, book one, chapter fourteen - the simplicity of Myriel's 
 date: "2026-01-14"
 draft: false
 series: "lm"
+part: "part-1"
+book: "book-1"
+chapter: "chapter-14"
 ---
 
 > He did not seek to assume the mantle of Elijah, to shed a light of the future upon the misty turmoil of events or resolve the prevailing light into a single flame; there was in him nothing of the prophet or the mystic. He was a simple soul who loved, and that was all...  

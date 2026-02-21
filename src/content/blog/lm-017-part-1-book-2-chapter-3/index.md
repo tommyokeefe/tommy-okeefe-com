@@ -4,6 +4,9 @@ description: "Part one, book two, chapter three - the rehumanizing power of love
 date: "2026-01-17"
 draft: false
 series: "lm"
+part: "part-1"
+book: "book-2"
+chapter: "chapter-3"
 ---
 
 This chapter details the beginning of Jean Valjean's encounter with Myriel and it is beautiful. I won't attempt to summarize it because it is fairly short and deserves to be read in full. What I want to talk about is the way that Myriel uses humanizing and dignifying and language when addressing Valjean and the impact that seems to have on Valjean. 

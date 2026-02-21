@@ -4,6 +4,9 @@ description: "Part one, book three, chapter one - huge gear shift, we get an ove
 date: "2026-01-28"
 draft: false
 series: "lm"
+part: "part-1"
+book: "book-3"
+chapter: "chapter-1"
 ---
 
 This transition is pretty wild. We go from seeing Jean Valjean at this intense crossroads, having a true crisis in the wake of his encounter(s) with the bishop, wondering what will happen next and Hugo zooms us way out to set the broader scene for what Paris was like at the time he is writing about. 

@@ -4,6 +4,9 @@ description: "Part one, book two, chapter eight - an extended metaphor comparing
 date: "2026-01-22"
 draft: false
 series: "lm"
+part: "part-1"
+book: "book-2"
+chapter: "chapter-8"
 ---
 
 Here we have this picture of Valjean and those with a similar plight as a man overboard and abandoned at sea. The infinite sea beneath him, the infinite sky above, he swims for hours on end to no avail. He cries out to God. To anyone. To anything. Alas, there is nobody, nothing that responds. No help is coming. Valjean got in the way of "progress" and has been abandoned to a system that leaves him no hope. It is not a system that tries to make him more fit for life on the ship, or seeks to find him a safe harbor somewhere out of the way. It is one that abandons and destroys, extinguishing hope utterly and completely. Hugo calls this existential place Valjean finds himself in an "unfathomable waste of misery" and poses the question "can anyone revive the corpses" created by this dehumanizing process?

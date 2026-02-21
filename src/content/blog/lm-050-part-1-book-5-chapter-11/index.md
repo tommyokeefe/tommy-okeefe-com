@@ -4,6 +4,9 @@ description: "Part one, book five, chapter eleven - numb with despair, Fantine g
 date: "2026-02-19"
 draft: false
 series: "lm"
+part: "part-1"
+book: "book-5"
+chapter: "chapter-11"
 ---
 
 > At this sad point which our tale has now reached there is nothing left of the girl who was once Fantine. In becoming dirt, she has been turned to stone.

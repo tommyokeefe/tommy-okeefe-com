@@ -4,6 +4,9 @@ description: "Part one, book five, chapter eight - Fantine's single parent ident
 date: "2026-02-16"
 draft: false
 series: "lm"
+part: "part-1"
+book: "book-5"
+chapter: "chapter-8"
 ---
 
 As our chapter begins we see people in the warehouse watching Fantine and her habits. Writing letters twice a month, and doing it with great consistency, caused the other workers to start whispering. We're told some of it was jealousy of Fantine's beauty, while another portion was just the need to gossip. Either way, people were actively trying to uncover the truth of her story. With time they noted that she was often crying about something, They also found the address where the letters were being sent. After getting the letter writer drunk one of the towns-women was able to extract the information that Fantine had a child, and so with that they decided they knew what type of woman she was. 

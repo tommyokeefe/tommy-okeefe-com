@@ -4,6 +4,9 @@ description: "Part one, book four, chapter two - we learn a bit more about what 
 date: "2026-02-07"
 draft: false
 series: "lm"
+part: "part-1"
+book: "book-4"
+chapter: "chapter-2"
 ---
 
 > There are human creatures which, like crayfish, always retreat into shadow, going backwards rather than forwards through life, gaining in deformity with experience, going from bad to worse and sinking into even deeper darkness. The Thénardiers were of this kind.

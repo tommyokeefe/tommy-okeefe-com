@@ -4,6 +4,9 @@ description: "Part one, book four, chapter three - Cosette's early childhood wit
 date: "2026-02-08"
 draft: false
 series: "lm"
+part: "part-1"
+book: "book-4"
+chapter: "chapter-3"
 ---
 
 Two months in all of Cosette's clothes are pawned. Six months in Fantine, under the false impression that Cosette is being well cared for begins sending 8 francs a month. That becomes 12, then 15 as time goes on, the Thénardiers extracting as much as they can from her while treating tiny Cosette terribly. 

@@ -4,6 +4,9 @@ description: "Part one, book five, chapter seven - The impact of Javert's experi
 date: "2026-02-15"
 draft: false
 series: "lm"
+part: "part-1"
+book: "book-5"
+chapter: "chapter-7"
 ---
 
 This chapter does several things. It lets us know the gracious way that Madeleine set the victim of the carriage accident up for success. It draws us back to the transition Madeleine made to being mayor and the impact he had on the city. It tells us about the way that tax collection acted as an index for poverty vs prosperity, and that the trend in every way was toward prosperity on the whole for the citizens of the city. It lets us know that this is the setting that Fantine returned to, and that even though she had no relevant experience she was able to get a factory job in the womens workshop and it met the needs she had. 

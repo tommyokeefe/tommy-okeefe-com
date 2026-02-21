@@ -4,6 +4,9 @@ description: "Part one, book one, chapter five - frugal, faithful, fruitful"
 date: "2026-01-05"
 draft: false
 series: "lm"
+part: "part-1"
+book: "book-1"
+chapter: "chapter-5"
 ---
 
 This could have very easily been part of the last chapter, but here Hugo extends and belabors the point that M. Myriel, his sister and their servant lived very simple lives that minimized cost and maximized their ability to give of their time and money. The main focus seems to be the fact that Myriel would wear his cassocks so long that he would often wear a coat over them regardless of weather to hide just how threadbare they were. This little anecdote seems to have the intent of reinforcing just how frugal and selfless Myriel's lifestyle was. Though some of this information is redundant or superfluous, the chapter focuses more pointedly on what Myriel's day to day life actually looked like, and some of that information is new. 

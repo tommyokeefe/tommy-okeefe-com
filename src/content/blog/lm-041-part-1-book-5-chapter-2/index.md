@@ -4,6 +4,9 @@ description: "Part one, book five, chapter two - on a journey from peasant to ma
 date: "2026-02-10"
 draft: false
 series: "lm"
+part: "part-1"
+book: "book-5"
+chapter: "chapter-2"
 ---
 
 In my commentary on the last chapter I was fairly pointed in my criticism of an orientation toward capitalism that would expect a "rising sea lifts all boats" outcome like the one described. Here in this chapter we see that it wasn't a general truism, but a reflection of the unique commitments and orientation of Père Madeleine. So much so in fact, that the other wealthy folks around him could not make sense of his behavior or choices and continued to assign alternate motivations. Quoting Hugo:

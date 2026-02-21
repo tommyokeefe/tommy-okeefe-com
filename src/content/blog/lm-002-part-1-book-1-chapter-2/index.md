@@ -4,6 +4,9 @@ description: "Part one, book one, chapter two - we see a bit of what makes Myrie
 date: "2026-01-02"
 draft: false
 series: "lm"
+part: "part-1"
+book: "book-1"
+chapter: "chapter-2"
 ---
 
 Monseigneur Charles-François-Bienvenu Myriel was previously referred to in this book as M. Myriel. Here we are given the reason why the people of Digne took to calling him Bienvenu, which translated means something like welcome. 
