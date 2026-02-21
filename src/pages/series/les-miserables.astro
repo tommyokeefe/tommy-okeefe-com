@@ -1,0 +1,44 @@
+---
+import { getCollection } from "astro:content";
+import Layout from "@layouts/Layout.astro";
+import Container from "@components/Container.astro";
+import ArrowCard from "@components/ArrowCard.astro";
+import Content from "@content/series/les-miserables/index.md";
+import { BLOG } from "@consts";
+
+const data = (await getCollection("blog")).filter(
+    (post) => post.data.series === "lm" && !post.data.draft,
+);
+
+console.log(data);
+---
+
+<Layout title={BLOG.TITLE} description={BLOG.DESCRIPTION}>
+    <Container>
+        <aside data-pagefind-ignore>
+            <h1 class="text-3xl font-semibold text-black dark:text-white">
+                Blog Posts
+            </h1>
+            <div class="space-y-10">
+                <div class="space-y-4">
+                    <Content />
+                    {
+                        (
+                            <section class="animate space-y-4">
+                                <div>
+                                    <ul class="not-prose flex flex-col gap-4">
+                                        {data.map((post) => (
+                                            <li>
+                                                <ArrowCard entry={post} />
+                                            </li>
+                                        ))}
+                                    </ul>
+                                </div>
+                            </section>
+                        )
+                    }
+                </div>
+            </div>
+        </aside>
+    </Container>
+</Layout>
