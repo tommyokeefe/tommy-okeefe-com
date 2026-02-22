@@ -3,6 +3,10 @@ title: "Les Miserables: That Night in the Bishop's House"
 description: "Part one, book two, chapter two - Madame Magloire fears the brigand and begs for locks on the door"
 date: "2026-01-16"
 draft: false
+series: "lm"
+part: "part-1"
+book: "book-2"
+chapter: "chapter-2"
 ---
 
 It's 8:00 PM on the same night, about the time that Valjean found his way to the bench, and we find ourselves in the home of bishop Myriel, along with his sister mademoiselle Baptistine and their companion Madame Magloire. As the bishop enters the dining room (which has a door that opens out into the street) he finds his sister and Mme. Magloire engaged in a conversation. It seems that Magloire has picked up the chatter in the village about this Valjean character and is convinced (along with the rest of the town) that this man is likely to do something terrible this very night. She is bemoaning the lack of locks and the general orientation of the bishop in his insistence on keeping a door that is quite literally always open to anyone who may come calling. 

@@ -3,6 +3,10 @@ title: "Les Miserables: Only Bad Husbandry"
 description: "Part one, book five, chapter three - Père Madeleine on the nature of humans, plants, and the conditions for flourishing"
 date: "2026-02-11"
 draft: false
+series: "lm"
+part: "part-1"
+book: "book-5"
+chapter: "chapter-3"
 ---
 
 > My friends, remember this, there are no bad plants or bad men. There is only bad husbandry. 

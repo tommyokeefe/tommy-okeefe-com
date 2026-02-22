@@ -3,6 +3,10 @@ title: "Les Miserables: The Curé, The Criminal & The Crucifix"
 description: "Part one, book two, chapter eleven - an interesting moment of contemplation in the midst of Valjean's second crime"
 date: "2026-01-25"
 draft: false
+series: "lm"
+part: "part-1"
+book: "book-2"
+chapter: "chapter-11"
 ---
 I want to start with this powerful image from the chapter. Hugo writes:
 

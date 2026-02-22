@@ -12,6 +12,10 @@ const blog = (await getCollection("blog"))
   .sort((a, b) => b.data.date.valueOf() - a.data.date.valueOf())
   .slice(0, SITE.NUM_POSTS_ON_HOMEPAGE);
 
+const series = (await getCollection("series")).filter(
+  (series) => series.data.active,
+);
+
 /* const projects: CollectionEntry<"projects">[] = (
   await getCollection("projects")
 )
@@ -50,6 +54,24 @@ const blog = (await getCollection("blog"))
           </article>
         </section>
       </div>
+
+      <section class="animate space-y-6">
+        <div class="flex flex-wrap items-center justify-between gap-y-2">
+          <h2 class="font-semibold text-black dark:text-white">
+            Active Series
+          </h2>
+          <Link href="/series"> See all series </Link>
+        </div>
+        <ul class="not-prose flex flex-col gap-4">
+          {
+            series.map((post) => (
+              <li>
+                <ArrowCard entry={post} />
+              </li>
+            ))
+          }
+        </ul>
+      </section>
 
       <section class="animate space-y-6">
         <div class="flex flex-wrap items-center justify-between gap-y-2">

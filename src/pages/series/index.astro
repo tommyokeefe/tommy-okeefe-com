@@ -1,0 +1,52 @@
+---
+import { type CollectionEntry, getCollection } from "astro:content";
+import Layout from "@layouts/Layout.astro";
+import Container from "@components/Container.astro";
+import ArrowCard from "@components/ArrowCard.astro";
+import { BLOG } from "@consts";
+
+const data = (await getCollection("series")).filter(
+    (series) => series.data.active,
+);
+---
+
+<Layout title={BLOG.TITLE} description={BLOG.DESCRIPTION}>
+    <Container>
+        <aside data-pagefind-ignore>
+            <h1 class="text-3xl font-semibold text-black dark:text-white">
+                Active Series
+            </h1>
+            <div class="space-y-16">
+                <section>
+                    <article class="space-y-4">
+                        <span class="animate">
+                            <p>
+                                Not everything I post on my blog is a part of a
+                                series, but for the things that are this is the
+                                easiest way to find specific content you may be
+                                looking for.
+                            </p>
+                        </span>
+                    </article>
+                </section>
+            </div>
+            <div class="space-y-10">
+                <div class="space-y-4">
+                    <section class="animate space-y-4">
+                        <div>
+                            <ul class="not-prose flex flex-col gap-4">
+                                {
+                                    data.map((series) => (
+                                        <li>
+                                            <ArrowCard entry={series} />
+                                        </li>
+                                    ))
+                                }
+                            </ul>
+                        </div>
+                    </section>
+                </div>
+            </div>
+        </aside>
+    </Container>
+</Layout>

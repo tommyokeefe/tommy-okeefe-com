@@ -3,6 +3,10 @@ title: "Les Miserables: The Surprise Awaits"
 description: "Part one, book three, chapter four - Hugo celebrates young love and continues to focus on the things that make Fantine different"
 date: "2026-01-31"
 draft: false
+series: "lm"
+part: "part-1"
+book: "book-3"
+chapter: "chapter-4"
 ---
 
 There's an interesting moment at the end of this chapter where the boys are pushing the girls on a large swing and Tholomyès sings a bawdy song in Spanish about his soul being in his eyes because he can see their legs. In this state, with everyone caught up in the moment and being flirtatious and free, Fantine refuses to get on the swing. Some of Hugo's "she was not like other girls" affect here is a bit too much, but this does once again point back to the fact that this was her first love and that she was in many ways a modest girl though she was completely taken with Tholomyès. 

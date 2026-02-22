@@ -148,3 +148,18 @@ section {
   padding-top: 10px;
   padding-bottom: 10px
 }
+
+.toc {
+  margin-left: 10px;
+}
+
+.les-miserables h2 {
+  color: rgb(255, 255, 255);
+  font-size: 1.5rem;
+}
+
+.les-miserables h3 {
+  color: rgb(255, 255, 255);
+  font-size: 1.2rem;
+  margin: 10px 0px;
+}

@@ -1,0 +1,94 @@
+---
+import { getCollection } from "astro:content";
+import Layout from "@layouts/Layout.astro";
+import Container from "@components/Container.astro";
+import Link from "@components/Link.astro";
+import ArrowCard from "@components/ArrowCard.astro";
+import Content from "@content/series/les-miserables/index.md";
+import { BLOG, CHAPTERS, LES_MISERABLES } from "@consts";
+
+const data = (await getCollection("blog")).filter(
+    (post) => post.data.series === "lm" && !post.data.draft,
+);
+
+const structuredData: { [key: string]: { [key: string]: { [key: string]: any } } } = {};
+data.forEach((post) => {
+    const { part, book, chapter } = post.data;
+
+    if (!part || !book || !chapter) {
+        console.warn(
+            `Post ${post.slug} is missing part, book, or chapter data.`,
+        );
+        return;
+    }
+
+    if (!structuredData[part]) {
+        structuredData[part] = {};
+    }
+
+    if (!structuredData[part][book]) {
+        structuredData[part][book] = {};
+    }
+    structuredData[part][book][chapter] = post;
+});
+---
+
+<Layout title={BLOG.TITLE} description={BLOG.DESCRIPTION}>
+    <Container>
+        <aside data-pagefind-ignore>
+            <h1 class="text-3xl font-semibold text-black dark:text-white">
+                Les Misérables: A Chapter-by-Chapter Analysis
+            </h1>
+            <div class="space-y-10">
+                <div class="space-y-4">
+                    <br />
+                    <Content />
+                        <section class="animate space-y-4 les-miserables">
+                            <h2>Intro Post</h2>
+                            <div><ArrowCard entry={data[0]} /></div>
+                            <div class="toc">
+                                {structuredData &&
+                                    Object.keys(structuredData).map(
+                                        (part) => (
+                                            <h2>
+                                                {LES_MISERABLES[part].title}
+                                            </h2>
+                                            <div class="toc"> 
+                                                {Object.keys(structuredData[part]).map((book) => (
+                                                    <h3>
+                                                        {LES_MISERABLES[part].books?.[book]?.title || book}
+                                                    </h3>
+                                                    <div class="toc">
+                                                        {Object.keys(structuredData[part][book]).map((chapter) => {
+                                                            const post = structuredData[part][book][chapter];
+                                                            if (!post) {
+                                                                console.warn(
+                                                                    `No post found for ${part} > ${book} > ${chapter}`,
+                                                                );
+                                                                return null;
+                                                            }
+
+                                                            
+
+                                                            return (
+                                                                <p>
+                                                                    <Link href={`/${post.collection}/${post.slug}`}>
+                                                                    {CHAPTERS[chapter] || chapter} - {post.data.title}
+                                                                    </Link>
+                                                                </p>
+                                                            );
+                                                        }
+                                                            )}
+                                                    </div>
+                                                ))}
+                                            </div>
+                                        ),
+                                    )}
+                                    
+                            </div>
+                        </section>
+                </div>
+            </div>
+        </aside>
+    </Container>
+</Layout>
