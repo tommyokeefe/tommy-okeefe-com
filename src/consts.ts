@@ -54,10 +54,66 @@ export const LES_MISERABLES: LesMiserablesStructure = {
       'book-8': { title: 'VIII. Counter-Stroke' }
     }
   },
-  'part-2': { title: 'Part Two: Cosette' },
-  'part-3': { title: 'Part Three: Marius' },
-  'part-4': { title: 'Part Four: The Idyll of the Rue Plumet and the Epic of the Rue Saint-Denis' },
-  'part-5': { title: 'Part Five: Jean Valjean' },
+  'part-2': {
+    title: 'Part Two: Cosette',
+    books: {
+      'book-1': { title: 'I. Waterloo' },
+      'book-2': { title: 'II. The Ship Orion' },
+      'book-3': { title: 'III. Fulfilment Of A Promise' },
+      'book-4': { title: 'IV. The Gorbeau Tenement' },
+      'book-5': { title: 'V. Hunt In Darkness' },
+      'book-6': { title: 'VI. Le Petit-Picpus' },
+      'book-7': { title: 'VII. The Convent As An Abstract Idea' },
+      'book-8': { title: 'VIII. Cemeteries Take What They Are Given' },
+    },
+  },
+  'part-3': {
+    title: 'Part Three: Marius',
+    books: {
+      'book-1': { title: 'I. Paris In Microcosm' },
+      'book-2': { title: 'II. A Grand Bourgeois' },
+      'book-3': { title: 'III. Grandfather And Grandson' },
+      'book-4': { title: 'IV. The ABC Society' },
+      'book-5': { title: 'V. The Virtues Of Misfortune' },
+      'book-6': { title: 'VI. Conjunction Of Two Stars' },
+      'book-7': { title: 'VII. Patron-Minette' },
+      'book-8': { title: 'VIII. The Noxious Poor' },
+    },
+  },
+  'part-4': {
+    title: 'Part Four: The Idyll of the Rue Plumet and the Epic of the Rue Saint-Denis',
+    books: {
+      'book-1': { title: 'I. A Few Pages Of History' },
+      'book-2': { title: 'II. Éponine' },
+      'book-3': { title: 'III. The House In The Rue Plumet' },
+      'book-4': { title: 'IV. Help From Below May Be Help From Above' },
+      'book-5': { title: 'V. Of Which The End Does Not Resemble The Beginning' },
+      'book-6': { title: 'VI. The Boy Gavroche' },
+      'book-7': { title: 'VII. Argot' },
+      'book-8': { title: 'VIII. Enchantment And Despair' },
+      'book-9': { title: 'IX. Where Are They Going?' },
+      'book-10': { title: 'X. 5 June 1832' },
+      'book-11': { title: 'XI. The Straw In The Wind' },
+      'book-12': { title: 'XII. Corinth' },
+      'book-13': { title: 'XIII. Marius Enters The Darkness' },
+      'book-14': { title: 'XIV. The Greatness Of Despair' },
+      'book-15': { title: 'XV. In The Rue De L\'Homme-Armé' },
+    },
+  },
+  'part-5': {
+    title: 'Part Five: Jean Valjean',
+    books: {
+      'book-1': { title: 'I. War Within Four Walls' },
+      'book-2': { title: 'II. The Entrails Of The Monster' },
+      'book-3': { title: 'III. Mire, But The Soul' },
+      'book-4': { title: 'IV. Javert In Disarray' },
+      'book-5': { title: 'V. Grandson And Grandfather' },
+      'book-6': { title: 'VI. The Sleepless Night' },
+      'book-7': { title: 'VII. The Bitter Cup' },
+      'book-8': { title: 'VIII. The Fading Light' },
+      'book-9': { title: 'IX. Supreme Shadow, Supreme Dawn' },
+    },
+  },
 };
 
 export const CHAPTERS: { [key: string]: string } = {
