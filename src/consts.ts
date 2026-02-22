@@ -18,6 +18,11 @@ export const BLOG: Metadata = {
   DESCRIPTION: "A collection of articles on topics I am passionate about.",
 };
 
+export const SERIES: Metadata = {
+  TITLE: "Series",
+  DESCRIPTION: "Blog posts that are part of a larger series.",
+};
+
 export const PROJECTS: Metadata = {
   TITLE: "Projects",
   DESCRIPTION:

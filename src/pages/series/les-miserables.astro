@@ -5,10 +5,14 @@ import Container from "@components/Container.astro";
 import Link from "@components/Link.astro";
 import ArrowCard from "@components/ArrowCard.astro";
 import Content from "@content/series/les-miserables/index.md";
-import { BLOG, CHAPTERS, LES_MISERABLES } from "@consts";
+import { SERIES, CHAPTERS, LES_MISERABLES } from "@consts";
 
 const data = (await getCollection("blog")).filter(
     (post) => post.data.series === "lm" && !post.data.draft,
+);
+
+const series = (await getCollection("series")).find(
+    (series) => series.slug === "les-miserables",
 );
 
 const structuredData: { [key: string]: { [key: string]: { [key: string]: any } } } = {};
@@ -33,7 +37,7 @@ data.forEach((post) => {
 });
 ---
 
-<Layout title={BLOG.TITLE} description={BLOG.DESCRIPTION}>
+<Layout title={series?.data.title || SERIES.TITLE} description={series?.data.description || SERIES.DESCRIPTION}>
     <Container>
         <aside data-pagefind-ignore>
             <h1 class="text-3xl font-semibold text-black dark:text-white">
