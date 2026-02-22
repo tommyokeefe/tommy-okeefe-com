@@ -148,3 +148,12 @@ section {
   padding-top: 10px;
   padding-bottom: 10px
 }
+
+.toc {
+  margin-left: 10px;
+}
+
+.toc h2 {
+  color: rgb(255, 255, 255);
+  font-size: 1.5rem;
+}

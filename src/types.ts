@@ -15,3 +15,5 @@ export type Socials = {
   NAME: string;
   HREF: string;
 }[];
+
+export type LesMiserablesStructure = { [key: string]: { title: string, books?: { [key: string]: { title: string } } } }
