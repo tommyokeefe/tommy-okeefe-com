@@ -7,6 +7,7 @@ import { readingTime } from "@lib/utils";
 import BackToPrevious from "@components/BackToPrevious.astro";
 import PostNavigation from "@components/PostNavigation.astro";
 import TableOfContents from "@components/TableOfContents.astro";
+import ArrowCard from "@components/ArrowCard.astro";
 import Giscus from "@components/Giscus.astro";
 
 export async function getStaticPaths() {
@@ -33,6 +34,10 @@ function getNextPost() {
     }
   }
 }
+
+const [series] = (await getCollection("series")).filter(
+  (series) => series.slug === "les-miserables",
+);
 
 function getPrevPost() {
   let postIndex;
@@ -76,9 +81,14 @@ const { Content, headings } = await post.render();
       <div class="mt-24">
         <PostNavigation prevPost={prevPost} nextPost={nextPost} />
       </div>
-<!--       <div class="mt-24">
-        <Giscus />
-      </div> -->
+      {
+        post.data.series == "lm" && (
+          <div class="mt-24">
+            <h2>See the rest of the series</h2>
+            <ArrowCard entry={series} />
+          </div>
+        )
+      }
     </article>
   </Container>
 </Layout>
