@@ -154,12 +154,11 @@ section {
 }
 
 .les-miserables h2 {
-  color: rgb(255, 255, 255);
   font-size: 1.5rem;
+  margin: 10px 0px;
 }
 
 .les-miserables h3 {
-  color: rgb(255, 255, 255);
   font-size: 1.2rem;
   margin: 10px 0px;
 }
