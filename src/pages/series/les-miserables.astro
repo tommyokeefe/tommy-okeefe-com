@@ -66,13 +66,9 @@ data.forEach((post) => {
                                                         {Object.keys(structuredData[part][book]).map((chapter) => {
                                                             const post = structuredData[part][book][chapter];
                                                             if (!post) {
-                                                                console.warn(
-                                                                    `No post found for ${part} > ${book} > ${chapter}`,
-                                                                );
+                                                                console.warn(`No post found for ${part} > ${book} > ${chapter}`);
                                                                 return null;
                                                             }
-
-                                                            
 
                                                             return (
                                                                 <p>
