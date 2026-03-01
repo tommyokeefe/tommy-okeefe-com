@@ -3,7 +3,7 @@ title: "Les Miserables: On Beauty & Usefulness"
 description: "Part one, book one, chapter six - a look at Myriel's living situation"
 date: "2026-01-06"
 draft: false
-series: "lm"
+series: "les-miserables"
 part: "part-1"
 book: "book-1"
 chapter: "chapter-6"

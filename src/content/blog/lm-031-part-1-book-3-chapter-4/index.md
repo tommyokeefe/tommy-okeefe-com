@@ -3,7 +3,7 @@ title: "Les Miserables: The Surprise Awaits"
 description: "Part one, book three, chapter four - Hugo celebrates young love and continues to focus on the things that make Fantine different"
 date: "2026-01-31"
 draft: false
-series: "lm"
+series: "les-miserables"
 part: "part-1"
 book: "book-3"
 chapter: "chapter-4"

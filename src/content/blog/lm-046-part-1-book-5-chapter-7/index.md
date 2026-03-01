@@ -3,7 +3,7 @@ title: "Les Miserables: A Wolf in Sheep's Clothing"
 description: "Part one, book five, chapter seven - The impact of Javert's experience on the way he viewed reality."
 date: "2026-02-15"
 draft: false
-series: "lm"
+series: "les-miserables"
 part: "part-1"
 book: "book-5"
 chapter: "chapter-7"

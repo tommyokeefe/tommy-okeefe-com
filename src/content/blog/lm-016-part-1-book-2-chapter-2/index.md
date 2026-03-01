@@ -3,7 +3,7 @@ title: "Les Miserables: That Night in the Bishop's House"
 description: "Part one, book two, chapter two - Madame Magloire fears the brigand and begs for locks on the door"
 date: "2026-01-16"
 draft: false
-series: "lm"
+series: "les-miserables"
 part: "part-1"
 book: "book-2"
 chapter: "chapter-2"

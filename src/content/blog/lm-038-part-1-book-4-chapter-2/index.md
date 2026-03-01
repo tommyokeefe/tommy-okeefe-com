@@ -3,7 +3,7 @@ title: "Les Miserables: The Thénardiers"
 description: "Part one, book four, chapter two - we learn a bit more about what type of people the innkeepers are"
 date: "2026-02-07"
 draft: false
-series: "lm"
+series: "les-miserables"
 part: "part-1"
 book: "book-4"
 chapter: "chapter-2"

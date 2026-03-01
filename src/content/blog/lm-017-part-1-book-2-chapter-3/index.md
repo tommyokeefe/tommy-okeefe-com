@@ -3,7 +3,7 @@ title: "Les Miserables: Monster or Child of God?"
 description: "Part one, book two, chapter three - the rehumanizing power of love"
 date: "2026-01-17"
 draft: false
-series: "lm"
+series: "les-miserables"
 part: "part-1"
 book: "book-2"
 chapter: "chapter-3"

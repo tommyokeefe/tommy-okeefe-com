@@ -3,7 +3,7 @@ title: "Les Miserables: Only Bad Husbandry"
 description: "Part one, book five, chapter three - Père Madeleine on the nature of humans, plants, and the conditions for flourishing"
 date: "2026-02-11"
 draft: false
-series: "lm"
+series: "les-miserables"
 part: "part-1"
 book: "book-5"
 chapter: "chapter-3"

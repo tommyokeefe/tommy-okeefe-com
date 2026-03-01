@@ -3,7 +3,7 @@ title: "Les Miserables: Fates Hang In The Balance"
 description: "Part one, book six, chapter one - Fantine is dying, Cosette is held by the Thenardiers, Madeleine attempts to make it right, and Javert sends a mysterious letter."
 date: "2026-02-22"
 draft: false
-series: "lm"
+series: "les-miserables"
 part: "part-1"
 book: "book-6"
 chapter: "chapter-1"

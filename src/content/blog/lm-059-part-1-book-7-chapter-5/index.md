@@ -3,7 +3,7 @@ title: "Les Miserables: The Journey To Arras"
 description: "Part one, book seven, chapter five - Madeleine's journey to Arras is frought with challenges and delays"
 date: "2026-02-28"
 draft: false
-series: "lm"
+series: "les-miserables"
 part: "part-1"
 book: "book-7"
 chapter: "chapter-5"

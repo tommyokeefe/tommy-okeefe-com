@@ -3,7 +3,7 @@ title: "Les Miserables: Double Foursome"
 description: "Part one, book three, chapter two - Eight new characters are introduced, and one of them is brought into focus"
 date: "2026-01-29"
 draft: false
-series: "lm"
+series: "les-miserables"
 part: "part-1"
 book: "book-3"
 chapter: "chapter-2"

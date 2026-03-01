@@ -3,7 +3,7 @@ title: "Les Miserables: Bienvenu"
 description: "Part one, book one, chapter two - we see a bit of what makes Myriel an 'Upright Man'"
 date: "2026-01-02"
 draft: false
-series: "lm"
+series: "les-miserables"
 part: "part-1"
 book: "book-1"
 chapter: "chapter-2"

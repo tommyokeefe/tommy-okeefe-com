@@ -3,7 +3,7 @@ title: "Les Miserables: Shared Humanity"
 description: "Part one, book one, chapter ten - the power of seeing yourself in the other"
 date: "2026-01-10"
 draft: false
-series: "lm"
+series: "les-miserables"
 part: "part-1"
 book: "book-1"
 chapter: "chapter-10"

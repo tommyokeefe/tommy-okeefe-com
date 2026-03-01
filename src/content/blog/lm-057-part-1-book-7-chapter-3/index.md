@@ -3,7 +3,7 @@ title: "Les Miserables: A War Of Conscience"
 description: "Part one, book seven, chapter three - Champmathieu, Madeleine & Jean Valjean: A crisis of conscience for our beloved character"
 date: "2026-02-26"
 draft: false
-series: "lm"
+series: "les-miserables"
 part: "part-1"
 book: "book-7"
 chapter: "chapter-3"

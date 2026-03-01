@@ -3,7 +3,7 @@ title: "Les Miserables: A Strange & Terrifying Dream"
 description: "Part one, book seven, chapter four - Valjean is confronted by his past in his dreams."
 date: "2026-02-27"
 draft: false
-series: "lm"
+series: "les-miserables"
 part: "part-1"
 book: "book-7"
 chapter: "chapter-4"

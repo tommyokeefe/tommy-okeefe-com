@@ -3,7 +3,7 @@ title: "Les Miserables: The Other Jean Valjean?"
 description: "Part one, book six, chapter two - Javert brings some surprising news and has a change of heart"
 date: "2026-02-23"
 draft: false
-series: "lm"
+series: "les-miserables"
 part: "part-1"
 book: "book-6"
 chapter: "chapter-2"

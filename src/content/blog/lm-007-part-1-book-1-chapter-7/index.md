@@ -3,7 +3,7 @@ title: "Les Miserables: Cravatte"
 description: "Part one, book one, chapter seven - a tale of faith and courage"
 date: "2026-01-07"
 draft: false
-series: "lm"
+series: "les-miserables"
 part: "part-1"
 book: "book-1"
 chapter: "chapter-7"

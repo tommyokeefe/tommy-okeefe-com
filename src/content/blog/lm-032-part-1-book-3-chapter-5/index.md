@@ -3,7 +3,7 @@ title: "Les Miserables: A Strange Aside"
 description: "Part one, book three, chapter five - a digression about the prefect of police and his misreading of the underclass in Paris"
 date: "2026-02-01"
 draft: false
-series: "lm"
+series: "les-miserables"
 part: "part-1"
 book: "book-3"
 chapter: "chapter-5"

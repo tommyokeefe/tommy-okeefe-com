@@ -3,7 +3,7 @@ title: "Les Miserables: Fear & Survival"
 description: "Part one, book two, chapter five - Valjean's bizarre outburst and frightening behavior"
 date: "2026-01-19"
 draft: false
-series: "lm"
+series: "les-miserables"
 part: "part-1"
 book: "book-2"
 chapter: "chapter-5"

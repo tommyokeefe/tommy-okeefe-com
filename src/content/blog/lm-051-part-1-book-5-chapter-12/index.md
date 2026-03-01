@@ -3,7 +3,7 @@ title: "Les Miserables: Walmart Fuccboi"
 description: "Part one, book five, chapter twelve - we meet the small town offbrand equivalent of Tholomyés"
 date: "2026-02-20"
 draft: false
-series: "lm"
+series: "les-miserables"
 part: "part-1"
 book: "book-5"
 chapter: "chapter-12"

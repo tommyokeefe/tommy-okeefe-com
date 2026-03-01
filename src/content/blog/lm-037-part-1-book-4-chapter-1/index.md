@@ -3,7 +3,7 @@ title: "Les Miserables: Fantine & Cosette"
 description: "Part one, book four, chapter one - dire need drives Fantine to a difficult choice"
 date: "2026-02-06"
 draft: false
-series: "lm"
+series: "les-miserables"
 part: "part-1"
 book: "book-4"
 chapter: "chapter-1"

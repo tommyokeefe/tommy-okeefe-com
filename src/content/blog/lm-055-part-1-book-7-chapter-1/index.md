@@ -3,7 +3,7 @@ title: "Les Miserables: Sister Simplice"
 description: "Part one, book seven, chapter one - In which Hugo seems to think it very important that we know Sister Simplice would NEVER TELL A LIE."
 date: "2026-02-24"
 draft: false
-series: "lm"
+series: "les-miserables"
 part: "part-1"
 book: "book-7"
 chapter: "chapter-1"

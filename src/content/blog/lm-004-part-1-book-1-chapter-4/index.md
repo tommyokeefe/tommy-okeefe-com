@@ -3,7 +3,7 @@ title: "Les Miserables: Myriel's own way of looking at things"
 description: "Part one, book one, chapter four - more on the simple but challenging work of aligning your work and your words"
 date: "2026-01-04"
 draft: false
-series: "lm"
+series: "les-miserables"
 part: "part-1"
 book: "book-1"
 chapter: "chapter-4"

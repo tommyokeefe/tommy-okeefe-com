@@ -36,10 +36,6 @@ function getNextPost() {
   }
 }
 
-const [series] = (await getCollection("series")).filter(
-  (series) => series.slug === "les-miserables",
-);
-
 function getPrevPost() {
   let postIndex;
   for (const post of posts) {
@@ -54,6 +50,10 @@ const nextPost = getNextPost();
 const prevPost = getPrevPost();
 
 const post = Astro.props;
+
+const allSeries = await getCollection("series");
+const seriesEntry = allSeries.find((s) => s.slug === post.data.series);
+
 const { Content, headings } = await post.render();
 ---
 
@@ -126,10 +126,10 @@ const { Content, headings } = await post.render();
           <PostNavigation prevPost={prevPost} nextPost={nextPost} />
         </div>
         {
-          post.data.series == "lm" && (
-            <div class="mt-12">
+          seriesEntry && (
+            <div class="mt-24">
               <h2>See the rest of the series</h2>
-              <ArrowCard entry={series} />
+              <ArrowCard entry={seriesEntry} />
             </div>
           )
         }

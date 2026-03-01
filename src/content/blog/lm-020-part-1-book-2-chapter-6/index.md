@@ -3,7 +3,7 @@ title: "Les Miserables: A Broken Window & A Loaf of Bread"
 description: "Part one, book two, chapter six - Valjean's tragic history and the reality of carceral systems"
 date: "2026-01-20"
 draft: false
-series: "lm"
+series: "les-miserables"
 part: "part-1"
 book: "book-2"
 chapter: "chapter-6"
