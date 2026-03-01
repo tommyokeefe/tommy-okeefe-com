@@ -1,0 +1,33 @@
+---
+import { getAllTags, slugifyTag } from "@lib/tags";
+import Layout from "@layouts/Layout.astro";
+import Container from "@components/Container.astro";
+import Link from "@components/Link.astro";
+
+const tags = await getAllTags();
+---
+
+<Layout title="Tags" description="Browse posts by tag">
+    <Container>
+        <aside data-pagefind-ignore>
+            <h1 class="text-3xl font-semibold text-black dark:text-white">
+                Tags
+            </h1>
+            {
+                tags.length === 0 ? (
+                    <p>No tags have been added yet.</p>
+                ) : (
+                    <ul class="flex flex-wrap gap-3">
+                        {tags.map((tag) => (
+                            <li>
+                                <Link href={`/tags/${slugifyTag(tag)}`}>
+                                    {tag}
+                                </Link>
+                            </li>
+                        ))}
+                    </ul>
+                )
+            }
+        </aside>
+    </Container>
+</Layout>

@@ -7,6 +7,9 @@ series: "lm"
 part: "part-1"
 book: "book-1"
 chapter: "chapter-2"
+tags:
+- generosity
+- goodness
 ---
 
 Monseigneur Charles-François-Bienvenu Myriel was previously referred to in this book as M. Myriel. Here we are given the reason why the people of Digne took to calling him Bienvenu, which translated means something like welcome. 
@@ -17,4 +20,4 @@ The picture we get of M. Bienvenu is one of a true follower of Christ, not someo
 
 At the end of the chapter we are told that more and more money started to flow through Myriel as people who had came to give to provide for those who did not have. Beautiful as that picture may be we are also told that like dry and thirsty ground the needs of the people were far beyond anything Bienvenu and the faithful of Digne could provide for. This is our first real glimpse of the broader systemic inequity at play during the period of our story. We've had nods toward the aristocracy and the contrast between Bienvenu's living and other Bishops and priests, but here we see just how dire things are for those who do not have. We get the idea that individuals giving everything they could would never be enough to totally fix the problem, for the problem is deeply systemic and endemic to the social order. 
 
-Despite that Bienvenu is committed to being a part of the solution. His generosity is a beautiful picture of what the life of those who proport to represent God on earth ought to be like. 
+Despite that Bienvenu is committed to being a part of the solution. His generosity is a beautiful picture of what the life of those who purport to represent God on earth ought to be like. 

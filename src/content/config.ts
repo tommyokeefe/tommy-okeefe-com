@@ -11,6 +11,7 @@ const blog = defineCollection({
     part: z.string().optional(),
     book: z.string().optional(),
     chapter: z.string().optional(),
+    tags: z.array(z.string()).optional(),
   }),
 });
 
