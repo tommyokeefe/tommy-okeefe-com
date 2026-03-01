@@ -10,7 +10,7 @@ chapter: "chapter-10"
 tags:
 - empathy
 - reflection
-- Tilich
+- tilich
 - common ground
 ---
 
