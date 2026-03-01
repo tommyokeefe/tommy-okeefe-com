@@ -7,6 +7,12 @@ series: "lm"
 part: "part-1"
 book: "book-1"
 chapter: "chapter-11"
+tags:
+- biases
+- luxury
+- art
+- meaning
+- value
 ---
 
 The actual chapter at hand is focused on the fact that Myriel was not a political activist of any sort. Though an orientation toward caring for those most in need may be seen as political, for Myriel it was just a matter of following Christ. What I actually want to think about here today is a comment made in passing in the text.

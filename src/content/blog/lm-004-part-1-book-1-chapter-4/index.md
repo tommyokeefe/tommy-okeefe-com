@@ -7,6 +7,11 @@ series: "lm"
 part: "part-1"
 book: "book-1"
 chapter: "chapter-4"
+tags:
+- love
+- neighbor
+- politics
+- social justice
 ---
 
 > As we can see, he had his own way of looking at things. I think he derived it from the gospel.

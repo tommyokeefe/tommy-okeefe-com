@@ -7,9 +7,15 @@ series: "lm"
 part: "part-1"
 book: "book-1"
 chapter: "chapter-14"
+tags:
+- love
+- simplicity
+- faith
+- evangelicalism
 ---
 
 > He did not seek to assume the mantle of Elijah, to shed a light of the future upon the misty turmoil of events or resolve the prevailing light into a single flame; there was in him nothing of the prophet or the mystic. He was a simple soul who loved, and that was all...  
+
 'Love one another.' To him everything was contained in those words, his whole doctrine, and he asked no more. - Victor Hugo, "Les Miserables", part one, book one, chapter 14
 
 Not a philosophical man, or one bent on arguing the details of dogma, theology or doctrine. Myriel was a man who simply loved God and loved his neighbor. That didn't mean he was perfect, but the portrait we have of him in these first fourteen chapters is one that religious leaders everywhere could learn a lot from. 
