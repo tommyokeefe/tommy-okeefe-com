@@ -4,6 +4,7 @@ import Layout from "@layouts/Layout.astro";
 import Container from "@components/Container.astro";
 import FormattedDate from "@components/FormattedDate.astro";
 import { readingTime } from "@lib/utils";
+import { slugifyTag } from "@lib/tags";
 import BackToPrevious from "@components/BackToPrevious.astro";
 import PostNavigation from "@components/PostNavigation.astro";
 import TableOfContents from "@components/TableOfContents.astro";
@@ -71,6 +72,23 @@ const { Content, headings } = await post.render();
           {readingTime(post.body)}
         </div>
       </div>
+      {
+        post.data.tags && post.data.tags.length > 0 && (
+          <div class="animate flex flex-wrap items-center gap-2">
+            <strong class="text-sm font-semibold">
+              {post.data.tags.length > 1 ? "Tags:" : "Tag:"}
+            </strong>
+            {post.data.tags.map((tag) => (
+              <a
+                class="text-xs uppercase px-2 py-0.5 rounded-full bg-gray-200 dark:bg-gray-700 text-gray-800 dark:text-gray-100 hover:bg-gray-300 hover:dark:bg-gray-600"
+                href={`/tags/${slugifyTag(tag)}`}
+              >
+                {tag}
+              </a>
+            ))}
+          </div>
+        )
+      }
       <h1 class="animate text-3xl font-semibold text-black dark:text-white">
         {post.data.title}
       </h1>

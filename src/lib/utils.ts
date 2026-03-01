@@ -19,3 +19,14 @@ export function readingTime(html: string) {
   const readingTimeMinutes = (wordCount / 200 + 1).toFixed();
   return `${readingTimeMinutes} min read`;
 }
+
+// create a URL-friendly slug from arbitrary text (lowercase, alphanumeric & hyphens)
+export function slugify(text: string) {
+  return text
+    .toString()
+    .trim()
+    .toLowerCase()
+    .replace(/\s+/g, '-') // replace spaces with -
+    .replace(/[^a-z0-9\-]/g, '') // remove non-alphanumeric
+    .replace(/\-+/g, '-'); // collapse multiple hyphens
+}

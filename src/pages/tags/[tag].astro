@@ -1,0 +1,54 @@
+---
+import { type CollectionEntry } from "astro:content";
+import Layout from "@layouts/Layout.astro";
+import Container from "@components/Container.astro";
+import ArrowCard from "@components/ArrowCard.astro";
+import { getAllTags, getPostsForTag, findTagBySlug } from "@lib/tags";
+import { slugifyTag } from "@lib/tags";
+
+export async function getStaticPaths() {
+    const tags = await getAllTags();
+    return tags.map((tag) => ({ params: { tag: slugifyTag(tag) } }));
+}
+
+const { tag: tagSlug } = Astro.params as { tag: string };
+// convert slug back to raw tag name
+const rawTag = await findTagBySlug(tagSlug);
+
+let posts: CollectionEntry<"blog">[] = [];
+if (rawTag) {
+    posts = await getPostsForTag(rawTag);
+} else {
+    // no matching tag, Astro will render an empty page or 404
+}
+---
+
+<Layout
+    title={`Posts tagged “${rawTag || tagSlug}”`}
+    description={`All posts tagged with ${rawTag || tagSlug}`}
+>
+    <Container>
+        <aside data-pagefind-ignore>
+            <h1 class="text-3xl font-semibold text-black dark:text-white">
+                {rawTag ? `#${rawTag}` : tagSlug}
+            </h1>
+            {
+                rawTag ? (
+                    posts.length === 0 ? (
+                        <p>No posts found for this tag.</p>
+                    ) : (
+                        <ul class="not-prose flex flex-col gap-4">
+                            {posts.map((post) => (
+                                <li>
+                                    <ArrowCard entry={post} />
+                                </li>
+                            ))}
+                        </ul>
+                    )
+                ) : (
+                    <p>Tag not found.</p>
+                )
+            }
+        </aside>
+    </Container>
+</Layout>
