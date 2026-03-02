@@ -97,20 +97,33 @@ const { Content, headings } = await post.render();
         {post.data.title}
       </h1>
     </div>
-    {headings.length > 0 && <TableOfContents headings={headings} />}
-    <article class="animate">
-      <Content />
-      <div class="mt-24">
-        <PostNavigation prevPost={prevPost} nextPost={nextPost} />
-      </div>
-      {
-        post.data.series == "lm" && (
-          <div class="mt-24">
-            <h2>See the rest of the series</h2>
-            <ArrowCard entry={series} />
-          </div>
-        )
-      }
-    </article>
+    {
+      post.data.image && (
+        <div class="animate my-6">
+          <img
+            src={post.data.image}
+            alt={post.data.imageAlt ?? post.data.title}
+            class="w-full rounded-lg object-cover"
+          />
+        </div>
+      )
+    }
+    <Container>
+      {headings.length > 0 && <TableOfContents headings={headings} />}
+      <article class="animate">
+        <Content />
+        <div class="mt-24">
+          <PostNavigation prevPost={prevPost} nextPost={nextPost} />
+        </div>
+        {
+          post.data.series == "lm" && (
+            <div class="mt-24">
+              <h2>See the rest of the series</h2>
+              <ArrowCard entry={series} />
+            </div>
+          )
+        }
+      </article>
+    </Container>
   </Container>
 </Layout>
