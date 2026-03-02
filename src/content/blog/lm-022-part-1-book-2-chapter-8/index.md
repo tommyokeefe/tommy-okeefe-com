@@ -3,7 +3,7 @@ title: "Les Miserables: Progress and Dispensability"
 description: "Part one, book two, chapter eight - an extended metaphor comparing society to a ship that sheds humans and leaves them abandoned to a dark sea of suffering"
 date: "2026-01-22"
 draft: false
-series: "lm"
+series: "les-miserables"
 part: "part-1"
 book: "book-2"
 chapter: "chapter-8"

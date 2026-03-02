@@ -3,7 +3,7 @@ title: "Les Miserables: Fantine's Hope & Health"
 description: "Part one, book seven, chapter six - Believing that Madeliene has gone to fetch Cosette, Fantine shows signs of recovery"
 date: "2026-03-01"
 draft: false
-series: "lm"
+series: "les-miserables"
 part: "part-1"
 book: "book-7"
 chapter: "chapter-6"

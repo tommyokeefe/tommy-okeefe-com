@@ -3,7 +3,7 @@ title: "Les Miserables: The Generosity & Trajectory of Père Madeleine"
 description: "Part one, book five, chapter two - on a journey from peasant to mayor Père Madeleine demonstrates himself to be a rare type of person who genuinely exists for his community and orients himself toward human flourishing in the most generous way"
 date: "2026-02-10"
 draft: false
-series: "lm"
+series: "les-miserables"
 part: "part-1"
 book: "book-5"
 chapter: "chapter-2"

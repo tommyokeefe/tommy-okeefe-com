@@ -3,7 +3,7 @@ title: "Les Miserables: Luxury & The Arts"
 description: "Part one, book one, chapter eleven - some of Hugo's own biases leak out a bit"
 date: "2026-01-11"
 draft: false
-series: "lm"
+series: "les-miserables"
 part: "part-1"
 book: "book-1"
 chapter: "chapter-11"

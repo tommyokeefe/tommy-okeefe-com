@@ -3,7 +3,7 @@ title: "Les Miserables: Lies & Adoration"
 description: "Part one, book three, chapter six - Favourite talks of adoration and the true nature of her affection"
 date: "2026-02-02"
 draft: false
-series: "lm"
+series: "les-miserables"
 part: "part-1"
 book: "book-3"
 chapter: "chapter-6"

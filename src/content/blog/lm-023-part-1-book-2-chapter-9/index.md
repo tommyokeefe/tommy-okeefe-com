@@ -3,7 +3,7 @@ title: "Les Miserables: The Yellow Ticket"
 description: "Part one, book two, chapter nine - a sentence served does not mean freedom in any real sense"
 date: "2026-01-23"
 draft: false
-series: "lm"
+series: "les-miserables"
 part: "part-1"
 book: "book-2"
 chapter: "chapter-9"

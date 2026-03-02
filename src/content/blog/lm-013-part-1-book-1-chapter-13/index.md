@@ -3,7 +3,7 @@ title: "Les Miserables: Myriel's Beliefs"
 description: "Part one, book one, chapter thirteen - the centrality and supremacy of love"
 date: "2026-01-13"
 draft: false
-series: "lm"
+series: "les-miserables"
 part: "part-1"
 book: "book-1"
 chapter: "chapter-13"

@@ -3,7 +3,7 @@ title: "Les Miserables: Threadbare Cassocks"
 description: "Part one, book one, chapter five - frugal, faithful, fruitful"
 date: "2026-01-05"
 draft: false
-series: "lm"
+series: "les-miserables"
 part: "part-1"
 book: "book-1"
 chapter: "chapter-5"

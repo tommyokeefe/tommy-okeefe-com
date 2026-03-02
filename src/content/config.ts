@@ -23,7 +23,8 @@ const series = defineCollection({
   schema: z.object({
     title: z.string(),
     description: z.string(),
-    active: z.boolean()
+    active: z.boolean(),
+    order: z.string().optional()
   }),
 });
 

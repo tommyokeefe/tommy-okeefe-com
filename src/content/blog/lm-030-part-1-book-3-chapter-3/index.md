@@ -3,7 +3,7 @@ title: "Les Miserables: Fixated on Beauty"
 description: "Part one, book three, chapter three - our eight friends go on a country outing"
 date: "2026-01-30"
 draft: false
-series: "lm"
+series: "les-miserables"
 part: "part-1"
 book: "book-3"
 chapter: "chapter-3"

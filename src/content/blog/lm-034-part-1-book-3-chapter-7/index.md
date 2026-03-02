@@ -3,7 +3,7 @@ title: "Les Miserables: Tholomyès the Fucc Boi"
 description: "Part one, book three, chapter seven - Tholomyès as the protoype for so many bros we know and love to hate"
 date: "2026-02-03"
 draft: false
-series: "lm"
+series: "les-miserables"
 part: "part-1"
 book: "book-3"
 chapter: "chapter-7"

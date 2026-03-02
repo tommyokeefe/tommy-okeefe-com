@@ -3,7 +3,7 @@ title: "Les Miserables: Working for the common good"
 description: "Part one, book one, chapter three - some glimpses of the actual good work Myriel was doing"
 date: "2026-01-03"
 draft: false
-series: "lm"
+series: "les-miserables"
 part: "part-1"
 book: "book-1"
 chapter: "chapter-3"

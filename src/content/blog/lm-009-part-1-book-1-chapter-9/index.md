@@ -3,7 +3,7 @@ title: "Les Miserables: A Sister's Perspective"
 description: "Part one, book one, chapter nine - thoughts on risk, heroism, and sainthood"
 date: "2026-01-09"
 draft: false
-series: "lm"
+series: "les-miserables"
 part: "part-1"
 book: "book-1"
 chapter: "chapter-9"

@@ -3,7 +3,7 @@ title: "Les Miserables: A Dark Response"
 description: "Part one, book five, chapter nine - The woman behind Fantine's firing finds hapiness in seeing her suffer."
 date: "2026-02-17"
 draft: false
-series: "lm"
+series: "les-miserables"
 part: "part-1"
 book: "book-5"
 chapter: "chapter-9"

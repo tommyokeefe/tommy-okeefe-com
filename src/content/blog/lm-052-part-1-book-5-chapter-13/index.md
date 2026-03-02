@@ -3,7 +3,7 @@ title: "Les Miserables: Mercy For Fantine"
 description: "Part one, book five, chapter thirteen - Fantine, Javert, & Madeleine have a defining moment together"
 date: "2026-02-21"
 draft: false
-series: "lm"
+series: "les-miserables"
 part: "part-1"
 book: "book-5"
 chapter: "chapter-13"

@@ -3,7 +3,7 @@ title: "Les Miserables: We Meet The Outcast"
 description: "Part one, book two, chapter one - We are slowly introduced to Jean Valjean, an outcast who can find no welcome in Digne"
 date: "2026-01-15"
 draft: false
-series: "lm"
+series: "les-miserables"
 part: "part-1"
 book: "book-2"
 chapter: "chapter-1"

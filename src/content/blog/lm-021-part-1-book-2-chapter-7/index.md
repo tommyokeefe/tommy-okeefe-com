@@ -3,7 +3,7 @@ title: "Les Miserables: A Grain Of Corn Between Two Millstones"
 description: "Part one, book two, chapter seven - the dehumanizing force of a destructive and disproportionate punitive justice system"
 date: "2026-01-21"
 draft: false
-series: "lm"
+series: "les-miserables"
 part: "part-1"
 book: "book-2"
 chapter: "chapter-7"

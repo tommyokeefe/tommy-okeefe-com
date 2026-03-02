@@ -3,7 +3,7 @@ title: "Les Miserables: Cosette The Lark"
 description: "Part one, book four, chapter three - Cosette's early childhood with the Thénardiers"
 date: "2026-02-08"
 draft: false
-series: "lm"
+series: "les-miserables"
 part: "part-1"
 book: "book-4"
 chapter: "chapter-3"

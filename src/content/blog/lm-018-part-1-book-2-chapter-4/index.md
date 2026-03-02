@@ -3,7 +3,7 @@ title: "Les Miserables: The Gift of Normalcy"
 description: "Part one, book two, chapter four - how bishop Myriel uses cheese as a vehicle to rehumanize Valjean"
 date: "2026-01-18"
 draft: false
-series: "lm"
+series: "les-miserables"
 part: "part-1"
 book: "book-2"
 chapter: "chapter-4"

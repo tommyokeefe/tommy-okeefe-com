@@ -3,7 +3,7 @@ title: "Les Miserables: A Dead Horse"
 description: "Part one, book three, chapter eight - Fantine once again shows her humanity"
 date: "2026-02-04"
 draft: false
-series: "lm"
+series: "les-miserables"
 part: "part-1"
 book: "book-3"
 chapter: "chapter-8"

@@ -3,7 +3,7 @@ title: "Les Miserables: Tangible Mercy & Grace"
 description: "Part one, book two, chapter twelve - The bishop shows a love that goes beyond all expectation"
 date: "2026-01-26"
 draft: false
-series: "lm"
+series: "les-miserables"
 part: "part-1"
 book: "book-2"
 chapter: "chapter-12"

@@ -3,7 +3,7 @@ title: "Les Miserables: Madeleine's Reaction (from the outside)"
 description: "Part one, book seven, chapter two - We see Madeleine through the eyes of Scaufflaire (a man who rented out horses and carriages) and the factory custodian"
 date: "2026-02-25"
 draft: false
-series: "lm"
+series: "les-miserables"
 part: "part-1"
 book: "book-7"
 chapter: "chapter-2"

@@ -3,7 +3,7 @@ title: "Les Miserables: Is Love an Orbit?"
 description: "Part one, book five, chapter four - Some deficient and outdated ideas about what constitutes love."
 date: "2026-02-12"
 draft: false
-series: "lm"
+series: "les-miserables"
 part: "part-1"
 book: "book-5"
 chapter: "chapter-4"

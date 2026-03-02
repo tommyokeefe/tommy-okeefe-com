@@ -3,7 +3,7 @@ title: "Les Miserables: A Philosopher In His Cups"
 description: "Part one, book one, chapter eight - a philosophy only suited for the rich"
 date: "2026-01-08"
 draft: false
-series: "lm"
+series: "les-miserables"
 part: "part-1"
 book: "book-1"
 chapter: "chapter-8"

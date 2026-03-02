@@ -3,7 +3,7 @@ title: "Les Miserables: The Loneliness of M. Myriel"
 description: "Part one, book one, chapter twelve - poverty, piety & a deficient definition of success"
 date: "2026-01-12"
 draft: false
-series: "lm"
+series: "les-miserables"
 part: "part-1"
 book: "book-1"
 chapter: "chapter-12"

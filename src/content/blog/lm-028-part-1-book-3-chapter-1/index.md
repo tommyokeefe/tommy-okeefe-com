@@ -3,7 +3,7 @@ title: "Les Miserables: An Abrupt Transition"
 description: "Part one, book three, chapter one - huge gear shift, we get an overview of the year these events take place 😂"
 date: "2026-01-28"
 draft: false
-series: "lm"
+series: "les-miserables"
 part: "part-1"
 book: "book-3"
 chapter: "chapter-1"

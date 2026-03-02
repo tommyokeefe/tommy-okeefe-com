@@ -3,7 +3,7 @@ title: "Les Miserables: What Myriel Thought"
 description: "Part one, book one, chapter fourteen - the simplicity of Myriel's religion"
 date: "2026-01-14"
 draft: false
-series: "lm"
+series: "les-miserables"
 part: "part-1"
 book: "book-1"
 chapter: "chapter-14"

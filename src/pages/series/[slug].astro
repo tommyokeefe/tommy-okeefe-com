@@ -1,0 +1,68 @@
+---
+import { getCollection } from "astro:content";
+import Layout from "@layouts/Layout.astro";
+import Container from "@components/Container.astro";
+import ArrowCard from "@components/ArrowCard.astro";
+
+export async function getStaticPaths() {
+    const allSeries = await getCollection("series");
+    return allSeries.map((s) => ({ params: { slug: s.slug }, props: s }));
+}
+
+const slug = Astro.params.slug;
+const seriesEntry = (await getCollection("series")).find(
+    (s) => s.slug === slug,
+);
+if (!seriesEntry) {
+    throw new Error(`Series '${slug}' not found`);
+}
+
+// gather posts belonging to this series, sort by series frontmatter `order` (default: asc)
+const order = (seriesEntry.data as any).order ?? "asc";
+const posts = (await getCollection("blog"))
+    .filter((p) => p.data.series === slug && !p.data.draft)
+    .sort((a, b) =>
+        order === "asc"
+            ? a.data.date.valueOf() - b.data.date.valueOf()
+            : b.data.date.valueOf() - a.data.date.valueOf(),
+    );
+
+const { Content, headings } = await seriesEntry.render();
+
+// toggle state will be handled client-side
+---
+
+<Layout
+    title={seriesEntry.data.title}
+    description={seriesEntry.data.description}
+>
+    <Container>
+        <aside data-pagefind-ignore>
+            <h1 class="text-3xl font-semibold text-black dark:text-white">
+                {seriesEntry.data.title}
+            </h1>
+            <div class="space-y-10">
+                <div class="space-y-4">
+                    <br />
+                    <Content />
+                    <section class="animate space-y-4">
+                        <div>
+                            <ul
+                                id="seriesList"
+                                class="not-prose flex flex-col gap-4"
+                            >
+                                {
+                                    posts.map((post) => (
+                                        <li>
+                                            <ArrowCard entry={post} />
+                                        </li>
+                                    ))
+                                }
+                            </ul>
+                        </div>
+                    </section>
+                </div>
+            </div>
+        </aside>
+    </Container>
+</Layout>
