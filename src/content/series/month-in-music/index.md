@@ -1,6 +1,6 @@
 ---
 title: "Month in Music"
-description: "Top albums, playlists, and thoughts from each month."
+description: "Monthly dispatches about the music I'm listening to"
 active: true
 order: "desc"
 ---
