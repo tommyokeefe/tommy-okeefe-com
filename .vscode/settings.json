@@ -1,5 +1,8 @@
 {
     "cSpell.words": [
         "Rosen"
-    ]
+    ],
+    "chat.tools.terminal.autoApprove": {
+        "npm install": true
+    }
 }
