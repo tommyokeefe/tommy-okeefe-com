@@ -2,8 +2,8 @@
 import "../styles/global.css";
 import { ViewTransitions } from "astro:transitions";
 
-import '@fontsource/lobster';
-import '@fontsource-variable/arimo';
+import "@fontsource/lobster";
+import "@fontsource-variable/arimo";
 import "@fontsource-variable/jetbrains-mono";
 
 interface Props {
@@ -39,15 +39,17 @@ const { title, description, image } = Astro.props;
 <meta property="og:type" content="website" />
 <meta property="og:url" content={Astro.url} />
 <meta property="og:title" content={title} />
-<meta property="og:description" content={description} />
-<!-- <meta property="og:image" content={new URL(image, Astro.url)} /> -->
+<meta property="og:description" content={description} />{
+  image && <meta property="og:image" content={new URL(image, Astro.url)} />
+}
 
 <!-- Twitter -->
 <meta property="twitter:card" content="summary_large_image" />
 <meta property="twitter:url" content={Astro.url} />
 <meta property="twitter:title" content={title} />
-<meta property="twitter:description" content={description} />
-<!-- <meta property="twitter:image" content={new URL(image, Astro.url)} /> -->
+<meta property="twitter:description" content={description} />{
+  image && <meta property="twitter:image" content={new URL(image, Astro.url)} />
+}
 
 <!-- PageFind -->
 <link href="/pagefind/pagefind-ui.css" rel="stylesheet" />
@@ -169,8 +171,8 @@ const { title, description, image } = Astro.props;
              -ms-transition: none !important;
              transition: none !important;
           }
-        `
-      )
+        `,
+      ),
     );
 
     document.head.appendChild(css);

@@ -57,7 +57,11 @@ const post = Astro.props;
 const { Content, headings } = await post.render();
 ---
 
-<Layout title={post.data.title} description={post.data.description}>
+<Layout
+  title={post.data.title}
+  description={post.data.description}
+  image={post.data.image}
+>
   <Container>
     <div class="animate">
       <BackToPrevious href="/blog">Back to blog</BackToPrevious>
@@ -80,7 +84,7 @@ const { Content, headings } = await post.render();
             </strong>
             {post.data.tags.map((tag) => (
               <a
-                class="text-xs uppercase px-2 py-0.5 rounded-full bg-gray-200 dark:bg-gray-700 text-gray-800 dark:text-gray-100 hover:bg-gray-300 hover:dark:bg-gray-600"
+                class="rounded-full bg-gray-200 px-2 py-0.5 text-xs uppercase text-gray-800 hover:bg-gray-300 dark:bg-gray-700 dark:text-gray-100 hover:dark:bg-gray-600"
                 href={`/tags/${slugifyTag(tag)}`}
               >
                 {tag}
