@@ -13,6 +13,7 @@ const blog = defineCollection({
     chapter: z.string().optional(),
     tags: z.array(z.string()).optional(),
     image: z.string().optional(),
+    imageAlt: z.string().optional(),
   }),
 });
 
