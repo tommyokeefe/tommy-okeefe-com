@@ -60,7 +60,7 @@ const { Content, headings } = await post.render();
 <Layout
   title={post.data.title}
   description={post.data.description}
-  image={post.data.image}
+  image={post.data.image?.src}
 >
   <Container>
     <div class="animate">
@@ -101,7 +101,7 @@ const { Content, headings } = await post.render();
       post.data.image && (
         <div class="animate my-6">
           <img
-            src={post.data.image}
+            src={post.data.image?.src}
             alt={post.data.imageAlt ?? post.data.title}
             class="w-full rounded-lg object-cover"
           />
