@@ -14,6 +14,7 @@ const blog = defineCollection({
     tags: z.array(z.string()).optional(),
     image: z.string().optional(),
     imageAlt: z.string().optional(),
+    blueskyPostUri: z.string().optional(),
   }),
 });
 
