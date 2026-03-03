@@ -6,7 +6,7 @@ draft: false
 series: "les-miserables"
 part: "part-1"
 book: "book-7"
-chapter: "chapter-6"
+chapter: "chapter-7"
 tags:
 - conscience
 - justice
