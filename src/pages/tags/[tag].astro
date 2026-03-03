@@ -32,23 +32,29 @@ if (rawTag) {
             <h1 class="text-3xl font-semibold text-black dark:text-white">
                 {rawTag ? `#${rawTag}` : tagSlug}
             </h1>
-            {
-                rawTag ? (
-                    posts.length === 0 ? (
-                        <p>No posts found for this tag.</p>
-                    ) : (
-                        <ul class="not-prose flex flex-col gap-4">
-                            {posts.map((post) => (
-                                <li>
-                                    <ArrowCard entry={post} />
-                                </li>
-                            ))}
-                        </ul>
-                    )
-                ) : (
-                    <p>Tag not found.</p>
-                )
-            }
+            <div class="mt-10 space-y-10">
+                <div class="space-y-4">
+                    <span class="animate">
+                        {
+                            rawTag ? (
+                                posts.length === 0 ? (
+                                    <p>No posts found for this tag.</p>
+                                ) : (
+                                    <ul class="not-prose flex flex-col gap-4">
+                                        {posts.map((post) => (
+                                            <li>
+                                                <ArrowCard entry={post} />
+                                            </li>
+                                        ))}
+                                    </ul>
+                                )
+                            ) : (
+                                <p>Tag not found.</p>
+                            )
+                        }
+                    </span>
+                </div>
+            </div>
         </aside>
-    </Container>
-</Layout>
+    </Container></Layout
+>
