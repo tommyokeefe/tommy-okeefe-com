@@ -1,6 +1,6 @@
 ---
 title: "Les Miserables: Madeleine Outside The Courtroom"
-description: "Part one, book seven, chapter seven - Madeleine's internal battle hits a fever pitch"
+description: "Part one, book seven, chapter eight - Madeleine's internal battle hits a fever pitch"
 date: "2026-03-03"
 draft: false
 series: "les-miserables"
