@@ -43,6 +43,17 @@ data.forEach((post) => {
             <h1 class="text-3xl font-semibold text-black dark:text-white">
                 Les Misérables: A Chapter-by-Chapter Reflection
             </h1>
+            {
+                series?.data.image && (
+                    <div class="animate my-6">
+                        <img
+                            src={series.data.image?.src}
+                            alt={series.data.imageAlt ?? series.data.title}
+                            class="w-full rounded-lg object-cover"
+                        />
+                    </div>
+                )
+            }
             <div class="space-y-10">
                 <div class="space-y-4">
                     <br />
