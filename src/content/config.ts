@@ -20,11 +20,13 @@ const blog = defineCollection({
 
 const series = defineCollection({
   type: "content",
-  schema: z.object({
+  schema: ({ image }) => z.object({
     title: z.string(),
     description: z.string(),
     active: z.boolean(),
-    order: z.string().optional()
+    order: z.string().optional(),
+    image: image().optional(),
+    imageAlt: z.string().optional(),
   }),
 });
 

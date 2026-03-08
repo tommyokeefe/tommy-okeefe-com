@@ -36,6 +36,7 @@ const { Content, headings } = await seriesEntry.render();
 <Layout
     title={seriesEntry.data.title}
     description={seriesEntry.data.description}
+    image={seriesEntry.data.image?.src}
 >
     <Container>
         <aside data-pagefind-ignore>
