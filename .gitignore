@@ -26,3 +26,6 @@ pnpm-debug.log*
 # cypress artifacts
 cypress/videos/
 cypress/screenshots/
+
+# my future notes
+.ideas/
