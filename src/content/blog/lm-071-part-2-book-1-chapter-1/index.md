@@ -1,6 +1,6 @@
 ---
 title: "Les Miserables: A Wild Change of Pace"
-description: "Part one, book eight, chapter four - We abandon our story completely so Hugo can tell us about a physical connection he had to the battlefield of Waterloo, a place where we will be spending some time"
+description: "Part two, book one, chapter one - We abandon our story completely so Hugo can tell us about a physical connection he had to the battlefield of Waterloo, a place where we will be spending some time"
 date: "2026-03-12"
 draft: false
 series: "les-miserables"
