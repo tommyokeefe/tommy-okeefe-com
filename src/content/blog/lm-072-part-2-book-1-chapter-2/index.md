@@ -6,7 +6,7 @@ draft: false
 series: "les-miserables"
 part: "part-2"
 book: "book-1"
-chapter: "chapter-1"
+chapter: "chapter-2"
 tags:
 - digression
 - autobiography
