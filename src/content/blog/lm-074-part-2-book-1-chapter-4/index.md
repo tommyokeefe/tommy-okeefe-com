@@ -1,6 +1,6 @@
 ---
 title: "Les Miserables: The Clear Light of History"
-description: "Part two, book one, chapter three - In a chapter supposedly about the fact that the battlefield for Waterloo was shaped like the letter \"A\", Hugo waxes eloquent about the unifying nature of the light of history."
+description: "Part two, book one, chapter four - In a chapter supposedly about the fact that the battlefield for Waterloo was shaped like the letter \"A\", Hugo waxes eloquent about the unifying nature of the light of history."
 date: "2026-03-15"
 draft: false
 series: "les-miserables"
