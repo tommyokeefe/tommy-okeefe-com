@@ -1,7 +1,7 @@
 ---
 title: "Les Miserables: The Fog of War"
 description: "Part two, book one, chapter five - Hugo points us at the inherently chaotic nature of war and the Rorschach nature of those who would try and lead purpose in it's fog"
-date: "2026-03-15"
+date: "2026-03-16"
 draft: false
 series: "les-miserables"
 part: "part-2"

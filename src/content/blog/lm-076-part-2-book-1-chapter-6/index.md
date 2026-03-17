@@ -1,7 +1,7 @@
 ---
 title: "Les Miserables: The Fog Clears"
 description: "Part two, book one, chapter six - As the fog of war clears Napoleon presses to a final confrontation and believes a retreat has begun."
-date: "2026-03-15"
+date: "2026-03-17"
 draft: false
 series: "les-miserables"
 part: "part-2"
