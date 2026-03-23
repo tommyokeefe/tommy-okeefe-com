@@ -2,7 +2,7 @@
 title: "Les Miserables: Leaving It All On The Field"
 description: "Part two, book one, chapter twelve - What happens when you plan to die but don't?"
 date: "2026-03-23"
-draft: true
+draft: false
 series: "les-miserables"
 part: "part-2"
 book: "book-1"
