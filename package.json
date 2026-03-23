@@ -14,16 +14,14 @@
     "test:e2e": "start-server-and-test preview http://localhost:4321 cy:run"
   },
   "dependencies": {
+    "@tommyokeefe/theme": "file:../tommy-okeefe-theme",
     "@astrojs/check": "^0.9.4",
     "@astrojs/mdx": "^3.1.9",
     "@astrojs/react": "^4.4.2",
     "@astrojs/rss": "^4.0.9",
     "@astrojs/sitemap": "^3.2.1",
     "@astrojs/tailwind": "^5.1.2",
-    "@fontsource-variable/arimo": "^5.1.0",
-    "@fontsource-variable/jetbrains-mono": "^5.1.1",
     "@fontsource/abril-fatface": "^5.1.0",
-    "@fontsource/lobster": "^5.1.0",
     "@vercel/analytics": "^1.4.1",
     "@vercel/speed-insights": "^1.1.0",
     "astro": "^4.16.8",
