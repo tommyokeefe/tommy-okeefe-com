@@ -82,7 +82,7 @@ const { title, description, image } = Astro.props;
     setThemePreference,
   } from "@tommyokeefe/theme/theme-client";
 
-  let themeController;
+  let themeController: ReturnType<typeof initTheme> | undefined;
 
   function init() {
     themeController?.dispose?.();
@@ -143,12 +143,12 @@ const { title, description, image } = Astro.props;
     const darkThemeButton = document.getElementById("dark-theme-button");
     const systemThemeButton = document.getElementById("system-theme-button");
 
-    function removeActiveButtonTheme(button) {
+    function removeActiveButtonTheme(button: HTMLElement | null) {
       button?.classList.remove("bg-black/5");
       button?.classList.remove("dark:bg-white/5");
     }
 
-    function addActiveButtonTheme(button) {
+    function addActiveButtonTheme(button: HTMLElement | null) {
       button?.classList.add("bg-black/5");
       button?.classList.add("dark:bg-white/5");
     }
@@ -184,7 +184,7 @@ const { title, description, image } = Astro.props;
     }
   }
 
-  function scrollToTop(event) {
+  function scrollToTop(event: Event) {
     event.preventDefault();
     window.scrollTo({
       top: 0,
@@ -193,10 +193,10 @@ const { title, description, image } = Astro.props;
   }
 
   function addCopyCodeButtons() {
-    let copyButtonLabel = "📋";
-    let codeBlocks = Array.from(document.querySelectorAll("pre"));
+    const copyButtonLabel = "📋";
+    const codeBlocks = Array.from(document.querySelectorAll<HTMLPreElement>("pre"));
 
-    async function copyCode(codeBlock, copyButton) {
+    async function copyCode(codeBlock: HTMLPreElement, copyButton: HTMLButtonElement) {
       const codeText = codeBlock.innerText;
       const buttonText = copyButton.innerText;
       const textToCopy = codeText.replace(buttonText, "");
@@ -209,7 +209,7 @@ const { title, description, image } = Astro.props;
       }, 2000);
     }
 
-    for (let codeBlock of codeBlocks) {
+    for (const codeBlock of codeBlocks) {
       if (codeBlock.querySelector(".copy-code")) {
         continue;
       }
@@ -219,12 +219,17 @@ const { title, description, image } = Astro.props;
 
       const copyButton = document.createElement("button");
       copyButton.innerText = copyButtonLabel;
-      copyButton.classList = "copy-code";
+      copyButton.className = "copy-code";
 
       codeBlock.setAttribute("tabindex", "0");
       codeBlock.appendChild(copyButton);
 
-      codeBlock.parentNode.insertBefore(wrapper, codeBlock);
+      const parent = codeBlock.parentElement;
+      if (!parent) {
+        continue;
+      }
+
+      parent.insertBefore(wrapper, codeBlock);
       wrapper.appendChild(codeBlock);
 
       copyButton.onclick = async () => {
@@ -234,7 +239,7 @@ const { title, description, image } = Astro.props;
   }
 
   function setGiscusTheme() {
-    const giscus = document.querySelector(".giscus-frame");
+    const giscus = document.querySelector<HTMLIFrameElement>(".giscus-frame");
 
     const isDark = document.documentElement.classList.contains("dark");
 
