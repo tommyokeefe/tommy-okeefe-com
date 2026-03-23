@@ -1,15 +1,12 @@
+@import "@tommyokeefe/theme/styles.css";
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
 html {
   overflow-y: auto;
-  color-scheme: light;
   scroll-padding-top: 100px;
-}
-
-html.dark {
-  color-scheme: dark;
 }
 
 html,
@@ -18,10 +15,7 @@ body {
 }
 
 body {
-  @apply font-sans antialiased;
   @apply flex flex-col;
-  @apply bg-neutral-100 dark:bg-neutral-900;
-  @apply text-black/75 dark:text-white/75;
 }
 
 header {
@@ -36,7 +30,7 @@ h3,
 h4,
 h5,
 h6 {
-  @apply font-serif antialiased;
+  @apply antialiased;
 }
 
 h1 {

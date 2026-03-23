@@ -2,10 +2,6 @@
 import "../styles/global.css";
 import { ViewTransitions } from "astro:transitions";
 
-import "@fontsource/lobster";
-import "@fontsource-variable/arimo";
-import "@fontsource-variable/jetbrains-mono";
-
 interface Props {
   title: string;
   description: string;
@@ -58,8 +54,40 @@ const { title, description, image } = Astro.props;
 <ViewTransitions />
 
 <script is:inline>
+  (() => {
+    const storedTheme = localStorage.getItem("theme");
+    const themePreference =
+      storedTheme === "light" || storedTheme === "dark" || storedTheme === "system"
+        ? storedTheme
+        : "system";
+    const resolvedTheme =
+      themePreference === "light" || themePreference === "dark"
+        ? themePreference
+        : window.matchMedia("(prefers-color-scheme: dark)").matches
+          ? "dark"
+          : "light";
+
+    document.documentElement.classList.toggle("dark", resolvedTheme === "dark");
+    document.documentElement.dataset.themePreference = themePreference;
+    document.documentElement.dataset.theme = resolvedTheme;
+    document.documentElement.style.colorScheme = resolvedTheme;
+  })();
+</script>
+
+<script>
+  import {
+    THEME_CHANGE_EVENT,
+    getStoredThemePreference,
+    initTheme,
+    setThemePreference,
+  } from "@tommyokeefe/theme/theme-client";
+
+  let themeController: ReturnType<typeof initTheme> | undefined;
+
   function init() {
-    preloadTheme();
+    themeController?.dispose?.();
+    themeController = initTheme();
+
     onScroll();
     animate();
     updateThemeButtons();
@@ -67,55 +95,60 @@ const { title, description, image } = Astro.props;
     setGiscusTheme();
 
     const backToTop = document.getElementById("back-to-top");
-    backToTop?.addEventListener("click", (event) => scrollToTop(event));
+    if (backToTop) {
+      backToTop.onclick = (event) => scrollToTop(event);
+    }
 
     const backToPrev = document.getElementById("back-to-prev");
-    backToPrev?.addEventListener("click", () => window.history.back());
+    if (backToPrev) {
+      backToPrev.onclick = () => window.history.back();
+    }
 
     const lightThemeButton = document.getElementById("light-theme-button");
-    lightThemeButton?.addEventListener("click", () => {
-      localStorage.setItem("theme", "light");
-      toggleTheme(false);
-      updateThemeButtons();
-    });
+    if (lightThemeButton) {
+      lightThemeButton.onclick = () => {
+        setThemePreference("light");
+      };
+    }
 
     const darkThemeButton = document.getElementById("dark-theme-button");
-    darkThemeButton?.addEventListener("click", () => {
-      localStorage.setItem("theme", "dark");
-      toggleTheme(true);
-      updateThemeButtons();
-    });
+    if (darkThemeButton) {
+      darkThemeButton.onclick = () => {
+        setThemePreference("dark");
+      };
+    }
 
     const systemThemeButton = document.getElementById("system-theme-button");
-    systemThemeButton?.addEventListener("click", () => {
-      localStorage.setItem("theme", "system");
-      toggleTheme(window.matchMedia("(prefers-color-scheme: dark)").matches);
-      updateThemeButtons();
-    });
+    if (systemThemeButton) {
+      systemThemeButton.onclick = () => {
+        setThemePreference("system");
+      };
+    }
 
-    window
-      .matchMedia("(prefers-color-scheme: dark)")
-      .addEventListener("change", (event) => {
-        if (localStorage.theme === "system") {
-          toggleTheme(event.matches);
-        }
-      });
+    window.removeEventListener(THEME_CHANGE_EVENT, handleThemeChange);
+    window.addEventListener(THEME_CHANGE_EVENT, handleThemeChange);
 
+    document.removeEventListener("scroll", onScroll);
     document.addEventListener("scroll", onScroll);
   }
 
+  function handleThemeChange() {
+    updateThemeButtons();
+    setGiscusTheme();
+  }
+
   function updateThemeButtons() {
-    const theme = localStorage.getItem("theme");
+    const theme = getStoredThemePreference();
     const lightThemeButton = document.getElementById("light-theme-button");
     const darkThemeButton = document.getElementById("dark-theme-button");
     const systemThemeButton = document.getElementById("system-theme-button");
 
-    function removeActiveButtonTheme(button) {
+    function removeActiveButtonTheme(button: HTMLElement | null) {
       button?.classList.remove("bg-black/5");
       button?.classList.remove("dark:bg-white/5");
     }
 
-    function addActiveButtonTheme(button) {
+    function addActiveButtonTheme(button: HTMLElement | null) {
       button?.classList.add("bg-black/5");
       button?.classList.add("dark:bg-white/5");
     }
@@ -151,7 +184,7 @@ const { title, description, image } = Astro.props;
     }
   }
 
-  function scrollToTop(event) {
+  function scrollToTop(event: Event) {
     event.preventDefault();
     window.scrollTo({
       top: 0,
@@ -159,51 +192,11 @@ const { title, description, image } = Astro.props;
     });
   }
 
-  function toggleTheme(dark) {
-    const css = document.createElement("style");
-
-    css.appendChild(
-      document.createTextNode(
-        `* {
-             -webkit-transition: none !important;
-             -moz-transition: none !important;
-             -o-transition: none !important;
-             -ms-transition: none !important;
-             transition: none !important;
-          }
-        `,
-      ),
-    );
-
-    document.head.appendChild(css);
-
-    if (dark) {
-      document.documentElement.classList.add("dark");
-    } else {
-      document.documentElement.classList.remove("dark");
-    }
-
-    window.getComputedStyle(css).opacity;
-    document.head.removeChild(css);
-
-    setGiscusTheme();
-  }
-
-  function preloadTheme() {
-    const userTheme = localStorage.theme;
-
-    if (userTheme === "light" || userTheme === "dark") {
-      toggleTheme(userTheme === "dark");
-    } else {
-      toggleTheme(window.matchMedia("(prefers-color-scheme: dark)").matches);
-    }
-  }
-
   function addCopyCodeButtons() {
-    let copyButtonLabel = "📋";
-    let codeBlocks = Array.from(document.querySelectorAll("pre"));
+    const copyButtonLabel = "📋";
+    const codeBlocks = Array.from(document.querySelectorAll<HTMLPreElement>("pre"));
 
-    async function copyCode(codeBlock, copyButton) {
+    async function copyCode(codeBlock: HTMLPreElement, copyButton: HTMLButtonElement) {
       const codeText = codeBlock.innerText;
       const buttonText = copyButton.innerText;
       const textToCopy = codeText.replace(buttonText, "");
@@ -216,28 +209,37 @@ const { title, description, image } = Astro.props;
       }, 2000);
     }
 
-    for (let codeBlock of codeBlocks) {
+    for (const codeBlock of codeBlocks) {
+      if (codeBlock.querySelector(".copy-code")) {
+        continue;
+      }
+
       const wrapper = document.createElement("div");
       wrapper.style.position = "relative";
 
       const copyButton = document.createElement("button");
       copyButton.innerText = copyButtonLabel;
-      copyButton.classList = "copy-code";
+      copyButton.className = "copy-code";
 
       codeBlock.setAttribute("tabindex", "0");
       codeBlock.appendChild(copyButton);
 
-      codeBlock.parentNode.insertBefore(wrapper, codeBlock);
+      const parent = codeBlock.parentElement;
+      if (!parent) {
+        continue;
+      }
+
+      parent.insertBefore(wrapper, codeBlock);
       wrapper.appendChild(codeBlock);
 
-      copyButton?.addEventListener("click", async () => {
+      copyButton.onclick = async () => {
         await copyCode(codeBlock, copyButton);
-      });
+      };
     }
   }
 
-  const setGiscusTheme = () => {
-    const giscus = document.querySelector(".giscus-frame");
+  function setGiscusTheme() {
+    const giscus = document.querySelector<HTMLIFrameElement>(".giscus-frame");
 
     const isDark = document.documentElement.classList.contains("dark");
 
@@ -246,9 +248,8 @@ const { title, description, image } = Astro.props;
       url.searchParams.set("theme", isDark ? "dark" : "light");
       giscus.src = url.toString();
     }
-  };
+  }
 
   document.addEventListener("DOMContentLoaded", () => init());
   document.addEventListener("astro:after-swap", () => init());
-  preloadTheme();
 </script>
