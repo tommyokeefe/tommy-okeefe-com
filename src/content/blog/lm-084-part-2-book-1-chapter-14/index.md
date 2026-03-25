@@ -2,7 +2,7 @@
 title: "Les Miserables: Merde! (shit)"
 description: "Part two, book one, chapter fourteen - defiance in the face of destruction"
 date: "2026-03-25"
-draft: true
+draft: false
 series: "les-miserables"
 part: "part-2"
 book: "book-1"
