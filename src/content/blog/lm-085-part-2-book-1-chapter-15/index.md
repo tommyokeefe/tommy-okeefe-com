@@ -2,7 +2,7 @@
 title: "Les Miserables: More Praise for Cambronne"
 description: "Part two, book one, chapter fifteen - Cambronne as the true victor"
 date: "2026-03-26"
-draft: true
+draft: false
 series: "les-miserables"
 part: "part-2"
 book: "book-1"
