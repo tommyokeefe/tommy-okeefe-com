@@ -2,7 +2,7 @@
 title: "Les Miserables: A Lucky Throw of the Dice"
 description: "Part two, book one, chapter sixteen - Hugo says to render to chance what belongs to chance and to God what belongs to God... but I'm not sure he can actually impute any of this to God."
 date: "2026-03-27"
-draft: true
+draft: false
 series: "les-miserables"
 part: "part-2"
 book: "book-1"
