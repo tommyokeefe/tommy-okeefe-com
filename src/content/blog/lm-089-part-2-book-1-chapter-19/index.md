@@ -2,7 +2,7 @@
 title: "Les Miserables: Thenardier In The Shadows"
 description: "Part two, book one, chapter nineteen - We return to the night after the battle of Waterloo and find Thenardier stealing from the dead"
 date: "2026-03-30"
-draft: true
+draft: false
 series: "les-miserables"
 part: "part-2"
 book: "book-1"

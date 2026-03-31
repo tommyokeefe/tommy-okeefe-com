@@ -2,7 +2,7 @@
 title: "Les Miserables: Waterloo and the Counter-Revolution"
 description: "Part two, book one, chapter seventeen - Hugo asserts that we should see Waterloo for what it was: an attempt by the monarchy to end the revolution and reassert monarchical dominence"
 date: "2026-03-28"
-draft: true
+draft: false
 series: "les-miserables"
 part: "part-2"
 book: "book-1"

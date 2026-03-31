@@ -2,7 +2,7 @@
 title: "Les Miserables: The Myth of Divine Right"
 description: "Part two, book one, chapter eighteen - The divine right of kings is a myth, for all of creation has in fact been imbued with divine life"
 date: "2026-03-29"
-draft: true
+draft: false
 series: "les-miserables"
 part: "part-2"
 book: "book-1"
