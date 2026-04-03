@@ -1,10 +1,22 @@
 ---
-import { getAllTags, slugifyTag } from "@lib/tags";
+import { getTagsWithCounts, slugifyTag } from "@lib/tags";
 import Layout from "@layouts/Layout.astro";
 import Container from "@components/Container.astro";
-import Link from "@components/Link.astro";
 
-const tags = await getAllTags();
+const tagsWithCounts = await getTagsWithCounts();
+
+const minSize = 0.85;
+const maxSize = 2.5;
+
+const counts = tagsWithCounts.map((t) => t.count);
+const minCount = Math.min(...counts);
+const maxCount = Math.max(...counts);
+const range = maxCount - minCount || 1;
+
+function fontSize(count: number): string {
+    const size = minSize + ((count - minCount) / range) * (maxSize - minSize);
+    return `${size.toFixed(3)}rem`;
+}
 ---
 
 <Layout title="Tags" description="Browse posts by tag">
@@ -14,18 +26,21 @@ const tags = await getAllTags();
                 Tags
             </h1>
             {
-                tags.length === 0 ? (
+                tagsWithCounts.length === 0 ? (
                     <p>No tags have been added yet.</p>
                 ) : (
-                    <ul class="flex flex-wrap gap-3">
-                        {tags.map((tag) => (
-                            <li>
-                                <Link href={`/tags/${slugifyTag(tag)}`}>
-                                    {tag}
-                                </Link>
-                            </li>
+                    <div class="flex flex-wrap items-baseline gap-x-4 gap-y-3">
+                        {tagsWithCounts.map(({ tag, count }) => (
+                            <a
+                                href={`/tags/${slugifyTag(tag)}`}
+                                style={`font-size: ${fontSize(count)}`}
+                                class="text-black/70 underline decoration-dotted underline-offset-2 transition-colors duration-200 hover:text-black dark:text-white/70 dark:hover:text-white"
+                                title={`${count} post${count === 1 ? "" : "s"}`}
+                            >
+                                {tag}
+                            </a>
                         ))}
-                    </ul>
+                    </div>
                 )
             }
         </aside>
