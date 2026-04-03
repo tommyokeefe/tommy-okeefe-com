@@ -30,6 +30,23 @@ export async function getPostsForTag(tag: string) {
     return posts.sort((a, b) => b.data.date.valueOf() - a.data.date.valueOf());
 }
 
+// Retrieves all unique tags with their post counts, sorted alphabetically.
+export async function getTagsWithCounts(): Promise<{ tag: string; count: number }[]> {
+    const posts = await getCollection("blog");
+    const tagCounts = new Map<string, number>();
+
+    posts.forEach((post) => {
+        if (post.data.draft) return;
+        (post.data.tags ?? []).forEach((t) => {
+            tagCounts.set(t, (tagCounts.get(t) ?? 0) + 1);
+        });
+    });
+
+    return Array.from(tagCounts.entries())
+        .map(([tag, count]) => ({ tag, count }))
+        .sort((a, b) => a.tag.localeCompare(b.tag));
+}
+
 // When given a slug from the URL, try to find the original tag name.
 export async function findTagBySlug(slug: string): Promise<string | undefined> {
     const tags = await getAllTags();
