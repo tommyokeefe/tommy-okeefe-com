@@ -7,7 +7,8 @@ const { prevPost, nextPost } = Astro.props;
     prevPost?.slug ? (
       <a
         href={`/blog/${prevPost?.slug}`}
-        class="group relative flex flex-nowrap rounded-lg border border-black/15 px-4 py-3 pl-10 no-underline transition-colors duration-300 ease-in-out hover:bg-black/5 hover:text-black focus-visible:bg-black/5 focus-visible:text-black dark:border-white/20 dark:hover:bg-white/5 dark:hover:text-white dark:focus-visible:bg-white/5 dark:focus-visible:text-white"
+        data-post-nav="prev"
+        class="group relative flex flex-nowrap rounded-lg border border-r-4 px-4 py-3 pl-10 no-underline transition-colors duration-300 ease-in-out hover:text-black focus-visible:text-black dark:hover:bg-white/5 dark:hover:text-white dark:focus-visible:bg-white/5 dark:focus-visible:text-white"
       >
         <svg
           xmlns="http://www.w3.org/2000/svg"
@@ -37,7 +38,8 @@ const { prevPost, nextPost } = Astro.props;
     nextPost?.slug ? (
       <a
         href={`/blog/${nextPost?.slug}`}
-        class="group relative flex flex-grow flex-row-reverse flex-nowrap rounded-lg border border-black/15 px-4 py-4 pr-10 no-underline transition-colors duration-300 ease-in-out hover:bg-black/5 hover:text-black focus-visible:bg-black/5 focus-visible:text-black dark:border-white/20 dark:hover:bg-white/5 dark:hover:text-white dark:focus-visible:bg-white/5 dark:focus-visible:text-white"
+        data-post-nav="next"
+        class="group relative flex flex-grow flex-row-reverse flex-nowrap rounded-lg border border-l-4 px-4 py-4 pr-10 no-underline transition-colors duration-300 ease-in-out hover:text-black focus-visible:text-black dark:hover:bg-white/5 dark:hover:text-white dark:focus-visible:bg-white/5 dark:focus-visible:text-white"
       >
         <svg
           xmlns="http://www.w3.org/2000/svg"
@@ -63,3 +65,38 @@ const { prevPost, nextPost } = Astro.props;
     )
   }
 </div>
+
+<script>
+  const accents = [
+    { borderLight: "#00FFFF", borderDark: "#00BFBF", gradientLight: "rgba(0,255,255,0.18)", gradientDark: "rgba(0,191,191,0.28)" },
+    { borderLight: "#FF00FF", borderDark: "#BF00BF", gradientLight: "rgba(255,0,255,0.18)", gradientDark: "rgba(191,0,191,0.28)" },
+    { borderLight: "#FFFF00", borderDark: "#BFBF00", gradientLight: "rgba(255,255,0,0.18)", gradientDark: "rgba(191,191,0,0.28)" },
+  ];
+
+  function applyPostNavAccents() {
+    const dark = document.documentElement.classList.contains("dark");
+    document.querySelectorAll<HTMLElement>("[data-post-nav]").forEach((el) => {
+      if (!el.dataset.accentIndex) {
+        el.dataset.accentIndex = String(Math.floor(Math.random() * 3));
+      }
+      const accent = accents[Number(el.dataset.accentIndex)];
+      const isPrev = el.dataset.postNav === "prev";
+      const borderColor = dark ? accent.borderDark : accent.borderLight;
+      const gradientColor = dark ? accent.gradientDark : accent.gradientLight;
+
+      el.style.borderColor = dark ? "rgba(255,255,255,0.2)" : "rgba(0,0,0,0.15)";
+      if (isPrev) {
+        el.style.borderRightColor = borderColor;
+        el.style.background = `linear-gradient(to left, ${gradientColor} 0%, transparent 60%)`;
+      } else {
+        el.style.borderLeftColor = borderColor;
+        el.style.background = `linear-gradient(to right, ${gradientColor} 0%, transparent 60%)`;
+      }
+    });
+  }
+
+  document.addEventListener("astro:page-load", applyPostNavAccents);
+
+  const observer = new MutationObserver(applyPostNavAccents);
+  observer.observe(document.documentElement, { attributeFilter: ["class"] });
+</script>

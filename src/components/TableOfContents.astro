@@ -31,7 +31,7 @@ function buildToc(headings: Heading[]) {
   open
   class="animate rounded-lg border border-black/15 dark:border-white/20"
 >
-  <summary class="font-serif text-lg">Table of Contents</summary>
+  <summary data-toc-summary class="font-serif text-lg">Table of Contents</summary>
   <nav class="">
     <ul class="py-3">
       {toc.map((heading) => <TableOfContentsHeading heading={heading} />)}
@@ -43,12 +43,29 @@ function buildToc(headings: Heading[]) {
   summary {
     @apply cursor-pointer rounded-t-lg px-3 py-1.5 font-medium transition-colors;
   }
-
-  summary:hover {
-    @apply bg-black/5 dark:bg-white/5;
-  }
-
-  details[open] summary {
-    @apply bg-black/5 dark:bg-white/5;
-  }
 </style>
+
+<script>
+  const accents = [
+    { bgLight: "rgba(0,255,255,0.18)", bgDark: "rgba(0,191,191,0.28)", borderLight: "#00FFFF", borderDark: "#00BFBF" },
+    { bgLight: "rgba(255,0,255,0.18)", bgDark: "rgba(191,0,191,0.28)", borderLight: "#FF00FF", borderDark: "#BF00BF" },
+    { bgLight: "rgba(255,255,0,0.18)", bgDark: "rgba(191,191,0,0.28)", borderLight: "#FFFF00", borderDark: "#BFBF00" },
+  ];
+
+  function applyTocAccent() {
+    const dark = document.documentElement.classList.contains("dark");
+    document.querySelectorAll<HTMLElement>("[data-toc-summary]").forEach((el) => {
+      if (!el.dataset.accentIndex) {
+        el.dataset.accentIndex = String(Math.floor(Math.random() * 3));
+      }
+      const accent = accents[Number(el.dataset.accentIndex)];
+      el.style.backgroundColor = dark ? accent.bgDark : accent.bgLight;
+      el.style.borderBottom = `1px solid ${dark ? accent.borderDark : accent.borderLight}`;
+    });
+  }
+
+  document.addEventListener("astro:page-load", applyTocAccent);
+
+  const observer = new MutationObserver(applyTocAccent);
+  observer.observe(document.documentElement, { attributeFilter: ["class"] });
+</script>

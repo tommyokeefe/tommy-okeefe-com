@@ -3,11 +3,8 @@ import Container from "@components/Container.astro";
 import Link from "@components/Link.astro";
 import { SITE } from "@consts";
 
-const pathname = Astro.url.pathname;
-const accent =
-  pathname === "/" ? "cyan"
-  : pathname.startsWith("/blog") ? "magenta"
-  : "yellow";
+const accents = ["cyan", "magenta", "yellow"];
+const accent = accents[Math.floor(Math.random() * 3)];
 ---
 
 <header transition:persist data-header-accent={accent}>
@@ -34,7 +31,7 @@ const accent =
         <button
           id="magnifying-glass"
           aria-label="Search"
-          class="flex items-center rounded border border-black/15 bg-black/5 px-2 py-1 text-black transition-colors duration-300 ease-in-out hover:bg-black/10 focus-visible:bg-black/10 dark:border-white/20 dark:bg-white/5 dark:text-white dark:hover:bg-white/10 dark:focus-visible:bg-white/10"
+          class="flex items-center rounded border border-accent bg-black/5 px-2 py-1 text-black transition-colors duration-300 ease-in-out hover:bg-black/10 focus-visible:bg-black/10 dark:border-[#00BFBF] dark:bg-white/5 dark:text-white dark:hover:bg-white/10 dark:focus-visible:bg-white/10"
         >
           <svg
             height="16"
@@ -57,13 +54,11 @@ const accent =
 
 <script>
   function updateHeaderAccent() {
-    const pathname = window.location.pathname;
-    const accent =
-      pathname === "/" ? "cyan"
-      : pathname.startsWith("/blog") ? "magenta"
-      : "yellow";
+    const accents = ["cyan", "magenta", "yellow"];
+    const accent = accents[Math.floor(Math.random() * 3)];
     document.querySelector("header")?.setAttribute("data-header-accent", accent);
   }
 
-  document.addEventListener("astro:page-load", updateHeaderAccent);
+  // Only re-roll on navigation, not on initial page load/refresh
+  document.addEventListener("astro:after-swap", updateHeaderAccent);
 </script>

@@ -4,7 +4,7 @@
 
 <button
   id="back-to-top"
-  class="group relative flex w-fit flex-nowrap rounded border border-black/15 py-1.5 pl-8 pr-3 transition-colors duration-300 ease-in-out hover:bg-black/5 hover:text-black focus-visible:bg-black/5 focus-visible:text-black dark:border-white/20 dark:hover:bg-white/5 dark:hover:text-white dark:focus-visible:bg-white/5 dark:focus-visible:text-white"
+  class="group relative flex w-fit flex-nowrap rounded border border-b-4 py-1.5 pl-8 pr-3 transition-colors duration-300 ease-in-out hover:text-black focus-visible:text-black dark:hover:bg-white/5 dark:hover:text-white dark:focus-visible:bg-white/5 dark:focus-visible:text-white"
 >
   <svg
     xmlns="http://www.w3.org/2000/svg"
@@ -25,3 +25,32 @@
   </svg>
   <div class="text-sm">Back to top</div>
 </button>
+
+<script>
+  const accents = [
+    { borderLight: "#00FFFF", borderDark: "#00BFBF", gradientLight: "rgba(0,255,255,0.18)", gradientDark: "rgba(0,191,191,0.28)" },
+    { borderLight: "#FF00FF", borderDark: "#BF00BF", gradientLight: "rgba(255,0,255,0.18)", gradientDark: "rgba(191,0,191,0.28)" },
+    { borderLight: "#FFFF00", borderDark: "#BFBF00", gradientLight: "rgba(255,255,0,0.18)", gradientDark: "rgba(191,191,0,0.28)" },
+  ];
+
+  function applyBackToTopAccent() {
+    const btn = document.getElementById("back-to-top") as HTMLElement | null;
+    if (!btn) return;
+
+    // Pick a random accent once per page load and store it on the element
+    if (!btn.dataset.accentIndex) {
+      btn.dataset.accentIndex = String(Math.floor(Math.random() * 3));
+    }
+    const accent = accents[Number(btn.dataset.accentIndex)];
+    const dark = document.documentElement.classList.contains("dark");
+
+    btn.style.borderColor = dark ? "rgba(255,255,255,0.2)" : "rgba(0,0,0,0.15)";
+    btn.style.borderBottomColor = dark ? accent.borderDark : accent.borderLight;
+    btn.style.background = `linear-gradient(to top, ${dark ? accent.gradientDark : accent.gradientLight} 0%, transparent 60%)`;
+  }
+
+  document.addEventListener("astro:page-load", applyBackToTopAccent);
+
+  const observer = new MutationObserver(applyBackToTopAccent);
+  observer.observe(document.documentElement, { attributeFilter: ["class"] });
+</script>
