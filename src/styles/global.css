@@ -20,8 +20,19 @@ body {
 
 header {
   @apply fixed left-0 right-0 top-0 z-50 py-6;
-  @apply bg-neutral-100/75 dark:bg-neutral-900/75;
-  @apply saturate-200 backdrop-blur-sm;
+  background: linear-gradient(135deg, #00FFFF 0% 27%, #FF00FF 35% 65%, #FFFF00 73% 100%);
+
+@media (max-width: 640px) {
+  header {
+    background: linear-gradient(135deg, #00FFFF 0% 15%, #FF00FF 30% 70%, #FFFF00 85% 100%);
+  }
+}
+  color: black;
+  box-shadow: 0 4px 24px rgb(0 0 0 / 0.2);
+}
+
+:root.dark header {
+  box-shadow: 0 4px 24px rgb(0 255 255 / 0.2);
 }
 
 h1,
