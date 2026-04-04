@@ -85,6 +85,7 @@ article {
   @apply prose prose-neutral max-w-full dark:prose-invert prose-img:mx-auto prose-img:my-auto;
   @apply prose-headings:font-semibold;
   @apply prose-headings:text-black prose-headings:dark:text-white;
+  @apply prose-blockquote:not-italic prose-blockquote:border-l-4 prose-blockquote:rounded-r-lg prose-blockquote:py-3 prose-blockquote:px-4 prose-blockquote:font-normal;
 }
 
 @layer utilities {

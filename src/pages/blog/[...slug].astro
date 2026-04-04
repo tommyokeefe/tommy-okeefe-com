@@ -163,8 +163,28 @@ const { Content, headings } = await post.render();
     });
   }
 
-  document.addEventListener("astro:page-load", applyTagAccents);
+  function applyBlockquoteAccents() {
+    const dark = document.documentElement.classList.contains("dark");
+    document.querySelectorAll<HTMLElement>("article blockquote").forEach((el, i) => {
+      if (!el.dataset.accentIndex) {
+        el.dataset.accentIndex = String(i % 3);
+      }
+      const accent = accents[Number(el.dataset.accentIndex)];
+      const color = dark ? accent.bgDark : accent.bgLight;
+      el.style.borderLeftColor = color;
+      el.style.background = dark
+        ? `linear-gradient(to right, ${color}22, transparent)`
+        : `linear-gradient(to right, ${color}55, transparent)`;
+    });
+  }
 
-  const observer = new MutationObserver(applyTagAccents);
+  function applyAccents() {
+    applyTagAccents();
+    applyBlockquoteAccents();
+  }
+
+  document.addEventListener("astro:page-load", applyAccents);
+
+  const observer = new MutationObserver(applyAccents);
   observer.observe(document.documentElement, { attributeFilter: ["class"] });
 </script>
