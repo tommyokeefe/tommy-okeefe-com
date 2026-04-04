@@ -8,11 +8,11 @@ import { SITE } from "@consts";
   <Container>
     <div class="flex flex-wrap justify-between gap-y-2">
       <Link href="/" underline={false}>
-        <div class="font-serif text-xl font-semibold">
+        <div class="font-serif text-xl font-semibold [text-shadow:0_2px_3px_rgb(255_255_255/0.9)] dark:[text-shadow:0_2px_3px_rgb(0_0_0/0.6)] md:text-3xl">
           {SITE.TITLE}
         </div>
       </Link>
-      <nav class="flex items-center gap-1 [&_a]:decoration-black/30 [&_a]:hover:decoration-black/50 [&_a]:dark:decoration-black/30 [&_a]:dark:hover:decoration-black/50 [&_a]:hover:text-black [&_a]:dark:hover:text-black">
+      <nav class="flex items-center gap-1 [&_a]:decoration-black/30 [&_a]:hover:decoration-black/50 [&_a]:hover:text-black [&_a]:dark:decoration-white/50 [&_a]:dark:hover:decoration-white/70 [&_a]:dark:hover:text-white">
         <Link href="/blog">blog</Link>
         <span>
           {`/`}
@@ -28,7 +28,7 @@ import { SITE } from "@consts";
         <button
           id="magnifying-glass"
           aria-label="Search"
-          class="flex items-center rounded border border-black/15 bg-black/5 px-2 py-1 text-black transition-colors duration-300 ease-in-out hover:bg-black/10 focus-visible:bg-black/10"
+          class="flex items-center rounded border border-black/15 bg-black/5 px-2 py-1 text-black transition-colors duration-300 ease-in-out hover:bg-black/10 focus-visible:bg-black/10 dark:border-white/20 dark:bg-white/5 dark:text-white dark:hover:bg-white/10 dark:focus-visible:bg-white/10"
         >
           <svg
             height="16"
