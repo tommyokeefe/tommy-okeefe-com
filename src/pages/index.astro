@@ -56,8 +56,8 @@ const series = (await getCollection("series")).filter(
       </div>
 
       <section class="animate space-y-6">
-        <div class="flex flex-wrap items-center justify-between gap-y-2">
-          <h2 class="font-semibold text-black dark:text-white">
+        <div class="flex flex-wrap items-center justify-between gap-y-2 rounded-full bg-accent px-4 py-1 [&_a]:text-accent-foreground [&_a]:decoration-black/30 [&_a]:hover:decoration-black/50 [&_a]:dark:decoration-black/30 [&_a]:dark:hover:decoration-black/50 [&_a]:hover:text-black [&_a]:dark:hover:text-black">
+          <h2 class="font-semibold text-accent-foreground">
             Active Series
           </h2>
           <Link href="/series"> See all series </Link>
@@ -74,8 +74,8 @@ const series = (await getCollection("series")).filter(
       </section>
 
       <section class="animate space-y-6">
-        <div class="flex flex-wrap items-center justify-between gap-y-2">
-          <h2 class="font-semibold text-black dark:text-white">Latest posts</h2>
+        <div class="flex flex-wrap items-center justify-between gap-y-2 rounded-full bg-accent-magenta px-4 py-1 [&_a]:text-accent-foreground [&_a]:decoration-black/30 [&_a]:hover:decoration-black/50 [&_a]:dark:decoration-black/30 [&_a]:dark:hover:decoration-black/50 [&_a]:hover:text-black [&_a]:dark:hover:text-black">
+          <h2 class="font-semibold text-accent-foreground">Latest posts</h2>
           <Link href="/blog"> See all posts </Link>
         </div>
         <ul class="not-prose flex flex-col gap-4">
@@ -108,7 +108,7 @@ const series = (await getCollection("series")).filter(
         </section> -->
 
       <section class="animate space-y-4">
-        <h2 class="font-semibold text-black dark:text-white">Let's Connect</h2>
+        <h2 class="block w-full rounded-full bg-accent-yellow px-4 py-1 font-semibold text-accent-foreground">Let's Connect</h2>
         <article>
           <p>
             If you want to get in touch with me about something or just say hi,

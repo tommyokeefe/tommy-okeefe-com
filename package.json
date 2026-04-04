@@ -14,7 +14,7 @@
     "test:e2e": "start-server-and-test preview http://localhost:4321 cy:run"
   },
   "dependencies": {
-    "@tommyokeefe/theme": "https://codeload.github.com/tommyokeefe/tommy-okeefe-theme/tar.gz/refs/tags/v0.2.0",
+    "@tommyokeefe/theme": "https://codeload.github.com/tommyokeefe/tommy-okeefe-theme/tar.gz/refs/tags/v0.2.1",
     "@astrojs/check": "^0.9.4",
     "@astrojs/mdx": "^3.1.9",
     "@astrojs/react": "^4.4.2",
