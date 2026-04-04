@@ -41,9 +41,9 @@ if (rawTag) {
                                     <p>No posts found for this tag.</p>
                                 ) : (
                                     <ul class="not-prose flex flex-col gap-4">
-                                        {posts.map((post) => (
+                                        {posts.map((post, i) => (
                                             <li>
-                                                <ArrowCard entry={post} />
+                                                <ArrowCard entry={post} index={i} />
                                             </li>
                                         ))}
                                     </ul>

@@ -64,9 +64,9 @@ const series = (await getCollection("series")).filter(
         </div>
         <ul class="not-prose flex flex-col gap-4">
           {
-            series.map((post) => (
+            series.map((post, i) => (
               <li>
-                <ArrowCard entry={post} />
+                <ArrowCard entry={post} index={i} />
               </li>
             ))
           }
@@ -80,9 +80,9 @@ const series = (await getCollection("series")).filter(
         </div>
         <ul class="not-prose flex flex-col gap-4">
           {
-            blog.map((post) => (
+            blog.map((post, i) => (
               <li>
-                <ArrowCard entry={post} />
+                <ArrowCard entry={post} index={i} />
               </li>
             ))
           }

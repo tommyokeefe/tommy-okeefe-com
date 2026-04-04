@@ -36,9 +36,9 @@ const data = (await getCollection("series")).filter(
                         <div>
                             <ul class="not-prose flex flex-col gap-4">
                                 {
-                                    data.map((series) => (
+                                    data.map((series, i) => (
                                         <li>
-                                            <ArrowCard entry={series} />
+                                            <ArrowCard entry={series} index={i} />
                                         </li>
                                     ))
                                 }
