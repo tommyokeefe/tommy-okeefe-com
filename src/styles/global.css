@@ -20,9 +20,18 @@ body {
 
 header {
   @apply fixed left-0 right-0 top-0 z-50 py-6;
-  background: linear-gradient(135deg, #00FFFF 0% 27%, #FF00FF 35% 65%, #FFFF00 73% 100%);
   color: black;
   box-shadow: 0 4px 24px rgb(0 0 0 / 0.2);
+}
+
+header[data-header-accent="cyan"] {
+  background: linear-gradient(135deg, #FFFFFF 0% 30%, #00FFFF 55% 100%);
+}
+header[data-header-accent="magenta"] {
+  background: linear-gradient(135deg, #FFFFFF 0% 30%, #FF00FF 55% 100%);
+}
+header[data-header-accent="yellow"] {
+  background: linear-gradient(135deg, #FFFFFF 0% 30%, #FFFF00 55% 100%);
 }
 
 :root.dark header {
@@ -30,18 +39,14 @@ header {
   box-shadow: 0 4px 24px rgb(0 255 255 / 0.2);
 }
 
-:root.dark header::before {
-  content: "";
-  position: absolute;
-  inset: 0;
-  background: rgb(0 0 0 / 0.25);
-  pointer-events: none;
-  z-index: 0;
+:root.dark header[data-header-accent="cyan"] {
+  background: linear-gradient(135deg, #000000 0% 30%, #00BFBF 55% 100%);
 }
-
-:root.dark header > * {
-  position: relative;
-  z-index: 1;
+:root.dark header[data-header-accent="magenta"] {
+  background: linear-gradient(135deg, #000000 0% 30%, #BF00BF 55% 100%);
+}
+:root.dark header[data-header-accent="yellow"] {
+  background: linear-gradient(135deg, #000000 0% 30%, #BFBF00 55% 100%);
 }
 
 h1,

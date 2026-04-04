@@ -2,9 +2,15 @@
 import Container from "@components/Container.astro";
 import Link from "@components/Link.astro";
 import { SITE } from "@consts";
+
+const pathname = Astro.url.pathname;
+const accent =
+  pathname === "/" ? "cyan"
+  : pathname.startsWith("/blog") ? "magenta"
+  : "yellow";
 ---
 
-<header transition:persist>
+<header transition:persist data-header-accent={accent}>
   <Container>
     <div class="flex flex-wrap justify-between gap-y-2">
       <Link href="/" underline={false}>
@@ -48,3 +54,16 @@ import { SITE } from "@consts";
     </div>
   </Container>
 </header>
+
+<script>
+  function updateHeaderAccent() {
+    const pathname = window.location.pathname;
+    const accent =
+      pathname === "/" ? "cyan"
+      : pathname.startsWith("/blog") ? "magenta"
+      : "yellow";
+    document.querySelector("header")?.setAttribute("data-header-accent", accent);
+  }
+
+  document.addEventListener("astro:page-load", updateHeaderAccent);
+</script>
