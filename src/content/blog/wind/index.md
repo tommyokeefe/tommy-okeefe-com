@@ -3,6 +3,7 @@ title: "Wind - a poetic reflection"
 description: "Sharing a poem I wrote a few years ago that feels particularly relevant this Easter"
 date: "2026-04-05"
 draft: false
+blueskyPostUri: "https://bsky.app/profile/tommyokeefe.com/post/3mir7hm5cis2q"
 tags:
 - wind
 - poetry
