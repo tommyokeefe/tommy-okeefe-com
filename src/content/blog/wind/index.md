@@ -1,6 +1,6 @@
 ---
 title: "Wind - a poetic reflection"
-description: "Shating a poem I wrote a few years ago that feels particularly relevant this Easter"
+description: "Sharing a poem I wrote a few years ago that feels particularly relevant this Easter"
 date: "2026-04-05"
 draft: false
 tags:
