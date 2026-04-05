@@ -10,7 +10,8 @@ tags:
 - exvangelical
 ---
 
-They told me “god is like the wind” and then handed me an individually wrapped sail made of mesh.   
+They told me “god is like the wind” and    
+then handed me an individually wrapped sail made of mesh.   
 Stomach twisting with the apparent contradiction,   
 I hoisted and trimmed the net that claimed to be a sail,   
 I tried to catch that breeze that would blow me toward the world I dreamed of…   
