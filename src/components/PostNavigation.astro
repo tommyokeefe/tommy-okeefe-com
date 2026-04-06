@@ -67,23 +67,25 @@ const { prevPost, nextPost } = Astro.props;
 </div>
 
 <script>
-  const accents = [
-    { borderLight: "#00FFFF", borderDark: "#00BFBF", gradientLight: "rgba(0,255,255,0.18)", gradientDark: "rgba(0,191,191,0.28)" },
-    { borderLight: "#FF00FF", borderDark: "#BF00BF", gradientLight: "rgba(255,0,255,0.18)", gradientDark: "rgba(191,0,191,0.28)" },
-    { borderLight: "#FFFF00", borderDark: "#BFBF00", gradientLight: "rgba(255,255,0,0.18)", gradientDark: "rgba(191,191,0,0.28)" },
-  ];
+  const ACCENTS: Record<string, { light: string; dark: string; gradientLight: string; gradientDark: string }> = {
+    cyan:    { light: "#00FFFF", dark: "#00BFBF", gradientLight: "rgba(0,255,255,0.18)",   gradientDark: "rgba(0,191,191,0.28)"  },
+    magenta: { light: "#FF00FF", dark: "#BF00BF", gradientLight: "rgba(255,0,255,0.18)",   gradientDark: "rgba(191,0,191,0.28)"  },
+    yellow:  { light: "#FFFF00", dark: "#BFBF00", gradientLight: "rgba(255,255,0,0.18)",   gradientDark: "rgba(191,191,0,0.28)"  },
+  };
+
+  function getHeaderAccent() {
+    const name = document.querySelector("header")?.dataset.headerAccent ?? "cyan";
+    return ACCENTS[name] ?? ACCENTS.cyan;
+  }
 
   function applyPostNavAccents() {
     const dark = document.documentElement.classList.contains("dark");
-    document.querySelectorAll<HTMLElement>("[data-post-nav]").forEach((el) => {
-      if (!el.dataset.accentIndex) {
-        el.dataset.accentIndex = String(Math.floor(Math.random() * 3));
-      }
-      const accent = accents[Number(el.dataset.accentIndex)];
-      const isPrev = el.dataset.postNav === "prev";
-      const borderColor = dark ? accent.borderDark : accent.borderLight;
-      const gradientColor = dark ? accent.gradientDark : accent.gradientLight;
+    const accent = getHeaderAccent();
+    const borderColor = dark ? accent.dark : accent.light;
+    const gradientColor = dark ? accent.gradientDark : accent.gradientLight;
 
+    document.querySelectorAll<HTMLElement>("[data-post-nav]").forEach((el) => {
+      const isPrev = el.dataset.postNav === "prev";
       el.style.borderColor = dark ? "rgba(255,255,255,0.2)" : "rgba(0,0,0,0.15)";
       if (isPrev) {
         el.style.borderRightColor = borderColor;
