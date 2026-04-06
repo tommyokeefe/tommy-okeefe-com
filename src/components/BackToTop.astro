@@ -27,25 +27,24 @@
 </button>
 
 <script>
-  const accents = [
-    { borderLight: "#00FFFF", borderDark: "#00BFBF", gradientLight: "rgba(0,255,255,0.18)", gradientDark: "rgba(0,191,191,0.28)" },
-    { borderLight: "#FF00FF", borderDark: "#BF00BF", gradientLight: "rgba(255,0,255,0.18)", gradientDark: "rgba(191,0,191,0.28)" },
-    { borderLight: "#FFFF00", borderDark: "#BFBF00", gradientLight: "rgba(255,255,0,0.18)", gradientDark: "rgba(191,191,0,0.28)" },
-  ];
+  const ACCENTS: Record<string, { light: string; dark: string; gradientLight: string; gradientDark: string }> = {
+    cyan:    { light: "#00FFFF", dark: "#00BFBF", gradientLight: "rgba(0,255,255,0.18)",   gradientDark: "rgba(0,191,191,0.28)"  },
+    magenta: { light: "#FF00FF", dark: "#BF00BF", gradientLight: "rgba(255,0,255,0.18)",   gradientDark: "rgba(191,0,191,0.28)"  },
+    yellow:  { light: "#FFFF00", dark: "#BFBF00", gradientLight: "rgba(255,255,0,0.18)",   gradientDark: "rgba(191,191,0,0.28)"  },
+  };
+
+  function getHeaderAccent() {
+    const name = document.querySelector("header")?.dataset.headerAccent ?? "cyan";
+    return ACCENTS[name] ?? ACCENTS.cyan;
+  }
 
   function applyBackToTopAccent() {
     const btn = document.getElementById("back-to-top") as HTMLElement | null;
     if (!btn) return;
-
-    // Pick a random accent once per page load and store it on the element
-    if (!btn.dataset.accentIndex) {
-      btn.dataset.accentIndex = String(Math.floor(Math.random() * 3));
-    }
-    const accent = accents[Number(btn.dataset.accentIndex)];
     const dark = document.documentElement.classList.contains("dark");
-
+    const accent = getHeaderAccent();
     btn.style.borderColor = dark ? "rgba(255,255,255,0.2)" : "rgba(0,0,0,0.15)";
-    btn.style.borderBottomColor = dark ? accent.borderDark : accent.borderLight;
+    btn.style.borderBottomColor = dark ? accent.dark : accent.light;
     btn.style.background = `linear-gradient(to top, ${dark ? accent.gradientDark : accent.gradientLight} 0%, transparent 60%)`;
   }
 

@@ -46,21 +46,23 @@ function buildToc(headings: Heading[]) {
 </style>
 
 <script>
-  const accents = [
-    { bgLight: "rgba(0,255,255,0.18)", bgDark: "rgba(0,191,191,0.28)", borderLight: "#00FFFF", borderDark: "#00BFBF" },
-    { bgLight: "rgba(255,0,255,0.18)", bgDark: "rgba(191,0,191,0.28)", borderLight: "#FF00FF", borderDark: "#BF00BF" },
-    { bgLight: "rgba(255,255,0,0.18)", bgDark: "rgba(191,191,0,0.28)", borderLight: "#FFFF00", borderDark: "#BFBF00" },
-  ];
+  const ACCENTS: Record<string, { light: string; dark: string; bgLight: string; bgDark: string }> = {
+    cyan:    { light: "#00FFFF", dark: "#00BFBF", bgLight: "rgba(0,255,255,0.18)",   bgDark: "rgba(0,191,191,0.28)"  },
+    magenta: { light: "#FF00FF", dark: "#BF00BF", bgLight: "rgba(255,0,255,0.18)",   bgDark: "rgba(191,0,191,0.28)"  },
+    yellow:  { light: "#FFFF00", dark: "#BFBF00", bgLight: "rgba(255,255,0,0.18)",   bgDark: "rgba(191,191,0,0.28)"  },
+  };
+
+  function getHeaderAccent() {
+    const name = document.querySelector("header")?.dataset.headerAccent ?? "cyan";
+    return ACCENTS[name] ?? ACCENTS.cyan;
+  }
 
   function applyTocAccent() {
     const dark = document.documentElement.classList.contains("dark");
+    const accent = getHeaderAccent();
     document.querySelectorAll<HTMLElement>("[data-toc-summary]").forEach((el) => {
-      if (!el.dataset.accentIndex) {
-        el.dataset.accentIndex = String(Math.floor(Math.random() * 3));
-      }
-      const accent = accents[Number(el.dataset.accentIndex)];
       el.style.backgroundColor = dark ? accent.bgDark : accent.bgLight;
-      el.style.borderBottom = `1px solid ${dark ? accent.borderDark : accent.borderLight}`;
+      el.style.borderBottom = `1px solid ${dark ? accent.dark : accent.light}`;
     });
   }
 
