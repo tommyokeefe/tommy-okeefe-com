@@ -1,6 +1,6 @@
 ---
 title: "Les Miserables: The Thenardiers & Cosette"
-description: "Part two, book three, chapter one - We get a glimpse into the. character of the Thenardiers and the reality poor Cosette was living with"
+description: "Part two, book three, chapter two - We get a glimpse into the. character of the Thenardiers and the reality poor Cosette was living with"
 date: "2026-04-04"
 draft: false
 series: "les-miserables"
