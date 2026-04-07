@@ -25,13 +25,13 @@ header {
 }
 
 header[data-header-accent="cyan"] {
-  background: linear-gradient(135deg, #FFFFFF 0% 30%, #00FFFF 55% 100%);
+  background: linear-gradient(135deg, #ffffff 0% 30%, #00ffff 55% 100%);
 }
 header[data-header-accent="magenta"] {
-  background: linear-gradient(135deg, #FFFFFF 0% 30%, #FF00FF 55% 100%);
+  background: linear-gradient(135deg, #ffffff 0% 30%, #ff00ff 55% 100%);
 }
 header[data-header-accent="yellow"] {
-  background: linear-gradient(135deg, #FFFFFF 0% 30%, #FFFF00 55% 100%);
+  background: linear-gradient(135deg, #ffffff 0% 30%, #ffff00 55% 100%);
 }
 
 :root.dark header {
@@ -40,13 +40,13 @@ header[data-header-accent="yellow"] {
 }
 
 :root.dark header[data-header-accent="cyan"] {
-  background: linear-gradient(135deg, #000000 0% 30%, #00BFBF 55% 100%);
+  background: linear-gradient(135deg, #000000 0% 30%, #00bfbf 55% 100%);
 }
 :root.dark header[data-header-accent="magenta"] {
-  background: linear-gradient(135deg, #000000 0% 30%, #BF00BF 55% 100%);
+  background: linear-gradient(135deg, #000000 0% 30%, #bf00bf 55% 100%);
 }
 :root.dark header[data-header-accent="yellow"] {
-  background: linear-gradient(135deg, #000000 0% 30%, #BFBF00 55% 100%);
+  background: linear-gradient(135deg, #000000 0% 30%, #bfbf00 55% 100%);
 }
 
 h1,
@@ -85,7 +85,7 @@ article {
   @apply prose prose-neutral max-w-full dark:prose-invert prose-img:mx-auto prose-img:my-auto;
   @apply prose-headings:font-semibold;
   @apply prose-headings:text-black prose-headings:dark:text-white;
-  @apply prose-blockquote:not-italic prose-blockquote:border-l-4 prose-blockquote:rounded-r-lg prose-blockquote:py-3 prose-blockquote:px-4 prose-blockquote:font-normal;
+  @apply prose-blockquote:rounded-r-lg prose-blockquote:border-l-4 prose-blockquote:px-4 prose-blockquote:py-3 prose-blockquote:font-normal prose-blockquote:not-italic;
 }
 
 @layer utilities {
@@ -110,11 +110,11 @@ article {
   @apply translate-y-0 opacity-100;
 }
 
-html #back-to-top {
+html back-to-top-button {
   @apply pointer-events-none opacity-0;
 }
 
-html.scrolled #back-to-top {
+html.scrolled back-to-top-button {
   @apply pointer-events-auto opacity-100;
 }
 
@@ -166,7 +166,7 @@ pre {
 
 section {
   padding-top: 10px;
-  padding-bottom: 10px
+  padding-bottom: 10px;
 }
 
 .toc {

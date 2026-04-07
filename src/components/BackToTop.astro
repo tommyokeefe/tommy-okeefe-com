@@ -2,45 +2,85 @@
 
 ---
 
-<button
-  id="back-to-top"
-  class="group relative flex w-fit flex-nowrap rounded border border-b-4 py-1.5 pl-8 pr-3 transition-colors duration-300 ease-in-out hover:text-black focus-visible:text-black dark:hover:bg-white/5 dark:hover:text-white dark:focus-visible:bg-white/5 dark:focus-visible:text-white"
->
-  <svg
-    xmlns="http://www.w3.org/2000/svg"
-    viewBox="0 0 24 24"
-    class="absolute left-2 top-1/2 size-4 -translate-y-1/2 rotate-90 fill-none stroke-current stroke-2"
+<back-to-top-button>
+  <button
+    class="group relative flex w-fit flex-nowrap rounded border border-b-4 py-1.5 pl-8 pr-3 transition-colors duration-300 ease-in-out hover:text-black focus-visible:text-black dark:hover:bg-white/5 dark:hover:text-white dark:focus-visible:bg-white/5 dark:focus-visible:text-white"
   >
-    <line
-      x1="5"
-      y1="12"
-      x2="19"
-      y2="12"
-      class="translate-x-2 scale-x-0 transition-transform duration-300 ease-in-out group-hover:translate-x-0 group-hover:scale-x-100 group-focus-visible:translate-x-0 group-focus-visible:scale-x-100"
-    ></line>
-    <polyline
-      points="12 5 5 12 12 19"
-      class="translate-x-1 transition-transform duration-300 ease-in-out group-hover:translate-x-0 group-focus-visible:translate-x-0"
-    ></polyline>
-  </svg>
-  <div class="text-sm">Back to top</div>
-</button>
+    <svg
+      xmlns="http://www.w3.org/2000/svg"
+      viewBox="0 0 24 24"
+      class="absolute left-2 top-1/2 size-4 -translate-y-1/2 rotate-90 fill-none stroke-current stroke-2"
+    >
+      <line
+        x1="5"
+        y1="12"
+        x2="19"
+        y2="12"
+        class="translate-x-2 scale-x-0 transition-transform duration-300 ease-in-out group-hover:translate-x-0 group-hover:scale-x-100 group-focus-visible:translate-x-0 group-focus-visible:scale-x-100"
+      ></line>
+      <polyline
+        points="12 5 5 12 12 19"
+        class="translate-x-1 transition-transform duration-300 ease-in-out group-hover:translate-x-0 group-focus-visible:translate-x-0"
+      ></polyline>
+    </svg>
+    <div class="text-sm">Back to top</div>
+  </button>
+</back-to-top-button>
 
 <script>
   import { getHeaderAccent } from "@lib/accents";
 
-  function applyBackToTopAccent() {
-    const btn = document.getElementById("back-to-top") as HTMLElement | null;
-    if (!btn) return;
-    const dark = document.documentElement.classList.contains("dark");
-    const accent = getHeaderAccent();
-    btn.style.borderColor = dark ? "rgba(255,255,255,0.2)" : "rgba(0,0,0,0.15)";
-    btn.style.borderBottomColor = dark ? accent.dark : accent.light;
-    btn.style.background = `linear-gradient(to top, ${dark ? accent.gradientDark : accent.gradientLight} 0%, transparent 60%)`;
+  class BackToTopButton extends HTMLElement {
+    private observer: MutationObserver | null = null;
+    private headerObserver: MutationObserver | null = null;
+
+    connectedCallback() {
+      const btn = this.querySelector("button");
+      if (!btn) return;
+
+      btn.addEventListener("click", (event) => {
+        event.preventDefault();
+        window.scrollTo({ top: 0, behavior: "smooth" });
+      });
+
+      this.applyAccent();
+
+      // Re-apply when dark mode toggles (documentElement class changes).
+      this.observer = new MutationObserver(() => this.applyAccent());
+      this.observer.observe(document.documentElement, {
+        attributeFilter: ["class"],
+      });
+
+      // Re-apply when the header accent re-rolls after a View Transition.
+      // <header> is transition:persist, so it stays in the DOM across navigations;
+      // connectedCallback fires mid-swap before Header.astro re-rolls data-header-accent,
+      // so we must watch the attribute to catch the updated value.
+      const headerEl = document.querySelector("header");
+      if (headerEl) {
+        this.headerObserver = new MutationObserver(() => this.applyAccent());
+        this.headerObserver.observe(headerEl, {
+          attributeFilter: ["data-header-accent"],
+        });
+      }
+    }
+
+    disconnectedCallback() {
+      this.observer?.disconnect();
+      this.observer = null;
+      this.headerObserver?.disconnect();
+      this.headerObserver = null;
+    }
+
+    applyAccent() {
+      const btn = this.querySelector<HTMLElement>("button");
+      if (!btn) return;
+      const dark = document.documentElement.classList.contains("dark");
+      const accent = getHeaderAccent();
+      btn.style.borderColor = dark ? "rgba(255,255,255,0.2)" : "rgba(0,0,0,0.15)";
+      btn.style.borderBottomColor = dark ? accent.dark : accent.light;
+      btn.style.background = `linear-gradient(to top, ${dark ? accent.gradientDark : accent.gradientLight} 0%, transparent 60%)`;
+    }
   }
 
-  document.addEventListener("astro:page-load", applyBackToTopAccent);
-
-  const observer = new MutationObserver(applyBackToTopAccent);
-  observer.observe(document.documentElement, { attributeFilter: ["class"] });
+  customElements.define("back-to-top-button", BackToTopButton);
 </script>
