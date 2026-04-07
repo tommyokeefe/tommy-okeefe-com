@@ -6,9 +6,6 @@ import BackToPrevious from "@components/BackToPrevious.astro";
 import { getTopAlbum } from "@lib/lastfm";
 
 const album = await getTopAlbum();
-
-const TOP_ALBUMS_URL =
-  "https://www.last.fm/user/tommyokeefe/library/albums?date_preset=LAST_7_DAYS";
 ---
 
 <Layout
@@ -76,7 +73,7 @@ const TOP_ALBUMS_URL =
 
             <div class="rounded-lg border border-black/10 bg-black/[0.02] p-4 text-sm text-black/60 dark:border-white/10 dark:bg-white/[0.02] dark:text-white/60">
               See{" "}
-              <Link href={TOP_ALBUMS_URL} external>
+              <Link href={album.chartUrl} external>
                 my full Last.fm chart
               </Link>{" "}
               for this week.

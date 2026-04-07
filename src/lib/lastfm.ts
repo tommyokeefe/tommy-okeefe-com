@@ -1,9 +1,9 @@
 export type LastFmAlbum = {
   name: string;
   artist: string;
-  playcount: number;
   imageUrl: string | null;
   lastFmUrl: string;
+  chartUrl: string;
   odesliUrl: string | null;
   bandcampSearchUrl: string;
 };
@@ -75,7 +75,7 @@ async function _fetchTopAlbum(): Promise<LastFmAlbum | null> {
 
     const artist: string = album.artist?.name ?? "";
     const name: string = album.name ?? "";
-    const playcount = parseInt(album.playcount, 10) || 0;
+    const chartUrl = `https://www.last.fm/user/${username}/library/albums?date_preset=LAST_7_DAYS`;
 
     const odesliUrl = await fetchAppleMusicUrl(artist, name).then(
       (appleMusicUrl) => (appleMusicUrl ? fetchOdesliUrl(appleMusicUrl) : null),
@@ -85,9 +85,9 @@ async function _fetchTopAlbum(): Promise<LastFmAlbum | null> {
     return {
       name,
       artist,
-      playcount,
       imageUrl,
       lastFmUrl,
+      chartUrl,
       odesliUrl,
       bandcampSearchUrl,
     };
