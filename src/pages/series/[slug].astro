@@ -25,7 +25,7 @@ const posts = (await getCollection("blog"))
             : b.data.date.valueOf() - a.data.date.valueOf(),
     );
 
-const { Content, headings } = await seriesEntry.render();
+const { Content } = await seriesEntry.render();
 
 // toggle state will be handled client-side
 ---
