@@ -7,6 +7,10 @@ series: "les-miserables"
 part: "part-1"
 book: "book-2"
 chapter: "chapter-9"
+tags:
+  - valjean
+  - justice
+  - poverty
 ---
 
 > A man may leave prison, but he is still condemned.

@@ -7,6 +7,10 @@ series: "les-miserables"
 part: "part-1"
 book: "book-5"
 chapter: "chapter-4"
+tags:
+  - valjean
+  - myriel
+  - love
 ---
 
 This chapter is actually about the death of bishop Myriel and the fact that it sent Père Madeleine into mourning (another indicator that he is indeed Jean Valjean) though the bulk of the words are spent on a soliloquy from Hugo on the nature of love based on a reflection of Myriel's sister caring for him in his blindness in the last years of his life.

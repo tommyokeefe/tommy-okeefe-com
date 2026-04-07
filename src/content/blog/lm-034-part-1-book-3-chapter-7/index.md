@@ -7,6 +7,9 @@ series: "les-miserables"
 part: "part-1"
 book: "book-3"
 chapter: "chapter-7"
+tags:
+  - fantine
+  - patriarchy
 ---
 
 Tholomyès is the type of guy who always thinks he's the smartest guy in the room.  

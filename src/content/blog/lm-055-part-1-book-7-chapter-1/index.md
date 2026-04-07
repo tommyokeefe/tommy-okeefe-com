@@ -7,6 +7,10 @@ series: "les-miserables"
 part: "part-1"
 book: "book-7"
 chapter: "chapter-1"
+tags:
+  - dishonesty
+  - honesty
+  - faith
 ---
 
 We enter this new "book" with the expectation (at least I had the expectation) that we will immediately jump into solving this mystery - who is this other man everyone is saying is Jean Valjean?

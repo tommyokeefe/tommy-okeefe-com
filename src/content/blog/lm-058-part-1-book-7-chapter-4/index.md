@@ -7,6 +7,11 @@ series: "les-miserables"
 part: "part-1"
 book: "book-7"
 chapter: "chapter-4"
+tags:
+  - valjean
+  - conscience
+  - identity
+  - redemption
 ---
 
 Everything the color of earth. A man on a horse looking pallid and dead. Silent witnesses who do not speak. The eventual statement that he has been dead for many years. This dream has all the ingredients for something terrifying but only flirts at the edges of the source of that terror.

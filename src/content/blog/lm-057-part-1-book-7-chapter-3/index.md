@@ -7,6 +7,12 @@ series: "les-miserables"
 part: "part-1"
 book: "book-7"
 chapter: "chapter-3"
+tags:
+  - valjean
+  - conscience
+  - identity
+  - courage
+  - tension
 ---
 
 When we left off at the end of the previous chapter I had assumed that Madeleine was fully preparing to head to Arras to rectify the situation with Champmathieu and clear up the true identity of Jean Valjean. While that may still happen what I had not really thought through was the very real crisis moment that this created for "Mayor Madeleine".

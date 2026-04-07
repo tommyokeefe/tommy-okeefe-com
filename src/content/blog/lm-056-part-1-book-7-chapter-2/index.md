@@ -7,6 +7,10 @@ series: "les-miserables"
 part: "part-1"
 book: "book-7"
 chapter: "chapter-2"
+tags:
+  - valjean
+  - conscience
+  - tension
 ---
 
 In this chapter we still maintain a distance from Madeleine himself, with no direct insight into what he may be thinking or feeling. Instead we see him as he goes to rent a horse - specifically one who is fast and can handle back to back days of long travel. With a bit of quick math Scaufflaire, the man renting the horse to Madeleine is able to determine that Madeleine plans to go to Arras. This means nothing in particular to Scaufflaire, but for the reader we know that Arras is the place where Javert has told us that Jean Valjean is imprisoned.

@@ -7,6 +7,10 @@ series: "les-miserables"
 part: "part-1"
 book: "book-2"
 chapter: "chapter-10"
+tags:
+  - valjean
+  - poverty
+  - temptation
 ---
 
 Flowing from the three chapter parentheses examining the horrors of the carceral system, we return to Valjean as he sleeps in a real bed in the bishops home after what very well may have been the first humanizing contact he's experienced in nineteen years.

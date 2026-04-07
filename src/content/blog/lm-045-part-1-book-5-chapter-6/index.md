@@ -7,6 +7,11 @@ series: "les-miserables"
 part: "part-1"
 book: "book-5"
 chapter: "chapter-6"
+tags:
+  - valjean
+  - javert
+  - tension
+  - courage
 ---
 
 The situation is a great setup from Hugo. We have a man in a desperate situation, he is being crushed under his own wagon after an accident, and the wagon is slowly sinking in the mud, hastening the man's death. Javert is on the scene and has quickly assessed that a jack is needed. One has been sent for, but it seems it will take 15 minutes for it to arrive.

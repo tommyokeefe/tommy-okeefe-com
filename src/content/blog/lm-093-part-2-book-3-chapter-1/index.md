@@ -9,9 +9,10 @@ book: "book-3"
 chapter: "chapter-1"
 tags:
   - cosette
-  - systemic injustice
+  - justice
   - survival
   - innocence
+  - thenardier
 ---
 
 The second part of our novel is titled Cosette, and now, 23 chapters / 59 pages into that second part we finally see her again! We're back in Montfermeil with the Thenardiers and things have not changed much. They have three children of their own, two daughters that the mother seems to love and treat decently well, and a 3 year old son that is actively neglected and denied the love he needs. Then we have Cosette, a child Hugo describes of having two types of "value" for the Thenardiers:

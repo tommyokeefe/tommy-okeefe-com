@@ -7,6 +7,10 @@ series: "les-miserables"
 part: "part-1"
 book: "book-2"
 chapter: "chapter-1"
+tags:
+  - valjean
+  - poverty
+  - justice
 ---
 
 All that we have seen of Digne so far has come as color at the edges of the portrait Hugo has painted us of the good bishop Myriel, so it comes as quite a shock when through the eyes of a stranger in desperate need the Digne we find is one full of suspicion, closed doors and deep fear.

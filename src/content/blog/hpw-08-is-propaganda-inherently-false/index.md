@@ -3,6 +3,12 @@ title: "How Propaganda Works: Is Propaganda Inherently False? Not Always!"
 description: 'Thoughts from Jason Stanley''s book "How Propaganda Works" on refuting what Stanley calls the falsity condition.'
 date: "2024-11-24"
 draft: false
+tags:
+  - propaganda
+  - democracy
+  - ideology
+  - dishonesty
+  - honesty
 ---
 
 I talked previously about how Stanley argues in the second chapter of “How Propaganda works” that propaganda does not need to be inherently false, or inherently insincere.

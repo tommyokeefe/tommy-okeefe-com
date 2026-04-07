@@ -7,6 +7,11 @@ series: "les-miserables"
 part: "part-1"
 book: "book-2"
 chapter: "chapter-5"
+tags:
+  - valjean
+  - myriel
+  - fear
+  - grace
 ---
 
 The fifth chapter of book two, part one is short - barely more than one page of text in my edition. It is titled "quietude" but the main interaction it documents is one that is quite frightening in how it unfolds. Seemingly out of nowhere, after expressing gratitude to Myriel, Valjean turns and with a menacing stance and demeanor basically says "you're letting me sleep next to you, haha! How do you know I won't murder you in your sleep?"

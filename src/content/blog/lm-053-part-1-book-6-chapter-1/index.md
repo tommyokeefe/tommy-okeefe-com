@@ -7,6 +7,13 @@ series: "les-miserables"
 part: "part-1"
 book: "book-6"
 chapter: "chapter-1"
+tags:
+  - valjean
+  - fantine
+  - cosette
+  - javert
+  - thenardier
+  - tension
 ---
 
 With the climactic end of our last chapter, this one leaves us waiting for loose ends to be tied. Fantine is in Madeleine's care and his receiving medical care. Despite the best efforts she is declining rapidly, and it is unclear how long she'll be able to live. Will she see her daughter? Will Cosette make it in time to be with her mother, even if just for a short span of days?

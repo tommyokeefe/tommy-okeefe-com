@@ -12,6 +12,8 @@ tags:
   - love
   - kindness
   - compassion
+  - myriel
+  - generosity
 ---
 
 When I saw the title of this chapter I worried it would be a cataloging of various dogmas and doctrines that M. Myriel fastidiously held to, or a set of propositional statements that he declared to believe. I was pleasantly surprised to find instead that here Hugo dives deeper into the core beliefs that seemed to shape the orientation and behavior of the bishop. He points out that while one way of looking at Myriel's life would be to talk about it in terms of a constant and consistent faithfulness to God, maybe a deeper and more complete view would be of overflowing with love. Love for all of humanity, love for everyone, love for all of creation, even those parts that might seem most base.

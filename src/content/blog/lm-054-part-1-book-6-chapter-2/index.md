@@ -7,6 +7,11 @@ series: "les-miserables"
 part: "part-1"
 book: "book-6"
 chapter: "chapter-2"
+tags:
+  - valjean
+  - javert
+  - identity
+  - tension
 ---
 
 In this chapter we see Javert come to the Mayor's office and demand that the Mayor remove him from his position. It's a shocking turn. Everything about Javert's demeanor and additude is changed. He is sullen and reserved, deferring to Mayor Madeleine and clearly sorry for what he has done. What has caused this change of heart? Apparently Javert had reported his belief that Madeleine was in fact Valjean to the police chief in Paris - and had heard back that this accusation was impossible, as they had the real Jean Valjean in custody.

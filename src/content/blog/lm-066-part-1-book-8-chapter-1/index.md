@@ -8,11 +8,11 @@ part: "part-1"
 book: "book-8"
 chapter: "chapter-1"
 tags:
+  - valjean
   - hope
   - illness
   - honesty
   - stress
-  - anxiety
 ---
 
 This chapter is the first one in the last book of part one. This new book is titled "Counter-Stroke" and it will close out the "Fantine" portion of Les Miserables.

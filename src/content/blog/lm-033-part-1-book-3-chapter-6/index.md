@@ -7,6 +7,10 @@ series: "les-miserables"
 part: "part-1"
 book: "book-3"
 chapter: "chapter-6"
+tags:
+  - fantine
+  - love
+  - dishonesty
 ---
 
 In this chapter Favourite makes a declaration that she "adores" her lover Blachevelle. He seizes on this opportunity to ask the somewhat appalling (and possibly foreshadowing?) question of "What would you do, Favourite, if I stopped loving you?"

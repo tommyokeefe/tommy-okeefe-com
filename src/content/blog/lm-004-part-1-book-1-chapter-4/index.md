@@ -12,6 +12,7 @@ tags:
   - neighbor
   - politics
   - social justice
+  - myriel
 ---
 
 > As we can see, he had his own way of looking at things. I think he derived it from the gospel.

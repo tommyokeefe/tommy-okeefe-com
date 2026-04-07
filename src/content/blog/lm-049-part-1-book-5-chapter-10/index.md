@@ -7,6 +7,10 @@ series: "les-miserables"
 part: "part-1"
 book: "book-5"
 chapter: "chapter-10"
+tags:
+  - fantine
+  - poverty
+  - thenardier
 ---
 
 This chapter was a tough read. Everything continues to get worse for Fantine. Winter means shorter days and due to some other factors, reduced wages as well. Fantine is in an impossible situation and the Thenardiers continue to put the screws to her. She sells her two front teeth to get medication that Cosette doesn't actually need. It's one thing after another, and in the midst of it Fantine gets increasingly bitter and angry with Monsieur Madeleine, not knowing that he is oblivious to her firing and situation.

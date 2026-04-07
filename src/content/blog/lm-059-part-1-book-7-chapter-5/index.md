@@ -7,6 +7,11 @@ series: "les-miserables"
 part: "part-1"
 book: "book-7"
 chapter: "chapter-5"
+tags:
+  - valjean
+  - courage
+  - hope
+  - tension
 ---
 
 On the heels of his dream, Madeleine makes the choice we expected him to make - he will go to Arras. What he'll actually do there and how his interactions with Champmathieu are still open questions, but the journey is a sure thing.

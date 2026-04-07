@@ -7,6 +7,10 @@ series: "les-miserables"
 part: "part-1"
 book: "book-5"
 chapter: "chapter-3"
+tags:
+  - valjean
+  - capitalism
+  - community
 ---
 
 > My friends, remember this, there are no bad plants or bad men. There is only bad husbandry.

@@ -10,6 +10,8 @@ chapter: "chapter-2"
 tags:
   - generosity
   - goodness
+  - myriel
+  - community
 ---
 
 Monseigneur Charles-François-Bienvenu Myriel was previously referred to in this book as M. Myriel. Here we are given the reason why the people of Digne took to calling him Bienvenu, which translated means something like welcome.

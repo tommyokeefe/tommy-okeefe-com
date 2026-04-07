@@ -7,6 +7,11 @@ series: "les-miserables"
 part: "part-1"
 book: "book-3"
 chapter: "chapter-9"
+tags:
+  - fantine
+  - justice
+  - poverty
+  - patriarchy
 ---
 
 This chapter is a tough one.

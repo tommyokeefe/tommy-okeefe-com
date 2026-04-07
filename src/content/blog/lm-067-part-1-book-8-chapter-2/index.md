@@ -9,12 +9,11 @@ book: "book-8"
 chapter: "chapter-2"
 blueskyPostUri: https://bsky.app/profile/tommyokeefe.com/post/3mgkrysiifs26
 tags:
-  - tension
+  - valjean
   - urgency
   - uncertainty
   - honesty
   - dishonesty
-  - systemic injustice
   - justice
 ---
 
