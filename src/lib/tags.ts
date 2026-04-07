@@ -48,9 +48,3 @@ export async function getTagsWithCounts(): Promise<
     .map(([tag, count]) => ({ tag, count }))
     .sort((a, b) => a.tag.localeCompare(b.tag));
 }
-
-// When given a slug from the URL, try to find the original tag name.
-export async function findTagBySlug(slug: string): Promise<string | undefined> {
-  const tags = await getAllTags();
-  return tags.find((t) => slugifyTag(t) === slug);
-}
