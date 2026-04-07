@@ -8,8 +8,13 @@ describe("Blog List Page", () => {
   });
 
   it("displays posts grouped by year", () => {
-    // Year headings are rendered as text dividers — at least one year should appear
-    cy.get("main").find("a[href^='/blog/']").should("have.length.at.least", 1);
+    // Year headings are bold dividers — each section.animate starts with a year div
+    // The year div is the first direct child div with font-semibold inside each section
+    cy.get("main section.animate div.font-semibold")
+      .first()
+      .invoke("text")
+      .invoke("trim")
+      .should("match", /^\d{4}$/);
   });
 
   it("contains post cards linking to blog posts", () => {

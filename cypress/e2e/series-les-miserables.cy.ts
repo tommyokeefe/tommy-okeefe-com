@@ -35,9 +35,11 @@ describe("Les Miserables Series Page", () => {
     cy.get("h1").should("exist");
   });
 
-  it("has an intro post card", () => {
-    // The first entry in the series is rendered as an ArrowCard
-    cy.contains("a", "Les Mis").should("exist");
+  it("has an intro post card (lm-000)", () => {
+    // The intro post is the first ArrowCard rendered inside section.les-miserables
+    cy.get("section.les-miserables")
+      .find("a[href='/blog/lm-000-les-miserables-a-chapter-a-day']")
+      .should("exist");
   });
 
   it("has the hierarchical part > book > chapter structure", () => {

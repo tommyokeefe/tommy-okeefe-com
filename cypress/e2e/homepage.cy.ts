@@ -53,6 +53,32 @@ describe("Homepage", () => {
     });
   });
 
+  it("clicking the dark theme button sets data-theme to dark", () => {
+    cy.get("#dark-theme-button").click();
+    cy.get("html").should("have.attr", "data-theme", "dark");
+    cy.get("html").should("have.class", "dark");
+  });
+
+  it("clicking the light theme button sets data-theme to light", () => {
+    cy.get("#light-theme-button").click();
+    cy.get("html").should("have.attr", "data-theme", "light");
+    cy.get("html").should("not.have.class", "dark");
+  });
+
+  it("clicking the system theme button sets data-theme-preference to system", () => {
+    // Set to light first so system is not the default
+    cy.get("#light-theme-button").click();
+    cy.get("#system-theme-button").click();
+    cy.get("html").should("have.attr", "data-theme-preference", "system");
+  });
+
+  it("the active theme button has the active styling class", () => {
+    cy.get("#light-theme-button").click();
+    cy.get("#light-theme-button").should("have.class", "bg-black/5");
+    cy.get("#dark-theme-button").should("not.have.class", "bg-black/5");
+    cy.get("#system-theme-button").should("not.have.class", "bg-black/5");
+  });
+
   it("has a search button", () => {
     cy.get("#magnifying-glass").should("exist");
   });

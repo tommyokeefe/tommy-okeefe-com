@@ -69,11 +69,15 @@ describe("Blog Post — lm-001 (Tags & TOC)", () => {
   });
 
   describe("Post Navigation", () => {
-    it("has post navigation links", () => {
-      // lm-001 should have at least a next post link
-      cy.get("a[href^='/blog/']")
-        .filter(":visible")
-        .should("have.length.at.least", 1);
+    it("has a next post navigation link", () => {
+      // lm-001 is not the last post, so it must have a next link
+      cy.get("a[data-post-nav='next']").should("exist");
+    });
+
+    it("next post link navigates to a blog post", () => {
+      cy.get("a[data-post-nav='next']").click();
+      cy.url().should("include", "/blog/");
+      cy.get("h1").should("exist");
     });
   });
 
