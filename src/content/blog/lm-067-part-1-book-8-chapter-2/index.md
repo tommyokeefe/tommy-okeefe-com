@@ -15,7 +15,6 @@ tags:
   - honesty
   - dishonesty
   - justice
-  - justice
 ---
 
 ## The current situation

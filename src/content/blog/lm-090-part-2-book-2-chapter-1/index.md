@@ -10,6 +10,8 @@ chapter: "chapter-1"
 tags:
   - justice
   - punishment
+  - valjean
+  - cosette
 ---
 
 With our return to the current timeline we immediately learn a few things:

@@ -12,6 +12,7 @@ tags:
   - simplicity
   - faith
   - evangelicalism
+  - myriel
 ---
 
 > He did not seek to assume the mantle of Elijah, to shed a light of the future upon the misty turmoil of events or resolve the prevailing light into a single flame; there was in him nothing of the prophet or the mystic. He was a simple soul who loved, and that was all...

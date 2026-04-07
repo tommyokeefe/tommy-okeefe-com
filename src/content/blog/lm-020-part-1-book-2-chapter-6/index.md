@@ -9,6 +9,9 @@ book: "book-2"
 chapter: "chapter-6"
 tags:
   - valjean
+  - justice
+  - poverty
+  - capitalism
 ---
 
 This chapter is heavy and heartbreaking. In it we hear the history of Jean Valjean and his crime. Rather than summarize the whole story I'll keep it short and simple: we have a man who broke a bakery window and stole a loaf of bread to feed his sister's starving children and in the end serves 19 years for that crime and a series of failed escape attempts.

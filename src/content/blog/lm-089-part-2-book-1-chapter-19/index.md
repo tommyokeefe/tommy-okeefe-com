@@ -11,6 +11,7 @@ tags:
   - origins
   - class
   - backstory
+  - thenardier
 ---
 
 > Every army has it's camp-followers and it is to these that we must look, to the bat-like creatures, half-ruffian, half-servant, engendered by the twilight of war, wearers of uniform who do no fighting, malingerers, venomous cripples, sutlers riding in small carts, sometimes with their women, who steal what later they sell, beggars offering their service as guides, rogues and vagabonds of all kinds.

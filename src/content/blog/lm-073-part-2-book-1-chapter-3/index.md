@@ -10,7 +10,6 @@ chapter: "chapter-3"
 tags:
   - weather
   - fate
-  - fate
   - napoleon
 ---
 

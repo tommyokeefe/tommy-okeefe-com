@@ -10,6 +10,7 @@ chapter: "chapter-2"
 tags:
   - valjean
   - thenardier
+  - cosette
 ---
 
 Hugo starts this chapter with a bit of a folk tale about people believing that the devil would bury his wealth in the forest outside Montfermeil. This superstition followed that if you approached the devil it would turn out to be a farmer and you would die within a week. If you waited and dug up what he buried you would die within a month. If you walked away and acted like nothing happened you would die in a year.

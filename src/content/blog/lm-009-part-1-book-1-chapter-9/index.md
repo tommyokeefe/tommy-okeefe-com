@@ -10,6 +10,7 @@ chapter: "chapter-9"
 tags:
   - heroism
   - sainthood
+  - myriel
 ---
 
 The substance of this chapter is a letter written by M. Myriel's sister to a longtime close friend of hers. In this letter she describes the way that the Bishop lived, the impact of the "risks' taken under the auspices of faith in and reliance upon God, and the general realities of living with her brother. Though the general angle and tone that Hugo approaches all of this with is one that would continue to shine a positive light on Myriel, reading it through the lens of my own experiences cast a different sort of shadow over it. I thought I might share some of that here.
