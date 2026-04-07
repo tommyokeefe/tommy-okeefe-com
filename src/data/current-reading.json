@@ -1,0 +1,21 @@
+{
+  "title": "Neuromancer",
+  "author": "William Gibson",
+  "isbn": "9781101146460",
+  "rating": 4.5,
+  "tags": [
+    "adventurous",
+    "challenging",
+    "dark",
+    "mysterious",
+    "tense",
+    "fast-paced"
+  ],
+  "storygraph": {
+    "plotOrCharacterDriven": "Plot",
+    "strongCharacterDevelopment": "Complicated",
+    "loveableCharacters": "Complicated",
+    "diverseCast": "Yes",
+    "flawsAMainFocus": "Complicated"
+  }
+}

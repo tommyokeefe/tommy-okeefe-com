@@ -1,0 +1,68 @@
+---
+import type { CurrentBook } from "@lib/reading";
+
+type Props = {
+  book: CurrentBook | null;
+};
+
+const { book } = Astro.props;
+---
+
+<div class="animate space-y-3">
+  <h2
+    data-accent-pill
+    class="block w-full rounded-full px-4 py-1 font-semibold text-accent-foreground"
+  >
+    Most Recent Read
+  </h2>
+
+  {
+    book ? (
+      <a
+        href="/reading"
+        class="not-prose group flex flex-col overflow-hidden rounded-lg border border-black/15 transition-colors duration-300 ease-in-out hover:bg-black/5 dark:border-white/20 dark:hover:bg-white/5"
+      >
+        {book.coverUrl && (
+          <img
+            src={book.coverUrl}
+            alt={`${book.title} by ${book.author}`}
+            class="aspect-[2/3] w-full object-cover"
+            loading="lazy"
+          />
+        )}
+        <div class="flex items-center justify-between gap-2 px-3 py-2">
+          <div class="min-w-0">
+            <div class="truncate font-serif font-semibold leading-tight text-black dark:text-white">
+              {book.title}
+            </div>
+            <div class="truncate text-sm text-black/70 dark:text-white/70">
+              {book.author}
+            </div>
+          </div>
+          <svg
+            aria-hidden="true"
+            xmlns="http://www.w3.org/2000/svg"
+            viewBox="0 0 24 24"
+            class="size-4 flex-shrink-0 fill-none stroke-current stroke-2 opacity-40 transition-opacity group-hover:opacity-100"
+          >
+            <line
+              x1="5"
+              y1="12"
+              x2="19"
+              y2="12"
+              class="translate-x-3 scale-x-0 transition-transform duration-300 ease-in-out group-hover:translate-x-0 group-hover:scale-x-100"
+            />
+            <polyline
+              points="12 5 19 12 12 19"
+              class="-translate-x-1 transition-transform duration-300 ease-in-out group-hover:translate-x-0"
+            />
+          </svg>
+        </div>
+      </a>
+    ) : (
+      <p class="text-sm text-black/50 dark:text-white/50">
+        Nothing on the nightstand yet.
+      </p>
+    )
+  }
+</div>

@@ -5,8 +5,10 @@ import { SITE, HOME, SOCIALS } from "@consts";
 import ArrowCard from "@components/ArrowCard.astro";
 import Link from "@components/Link.astro";
 import NowListening from "@components/NowListening.astro";
+import NowReading from "@components/NowReading.astro";
 import { getCollection } from "astro:content";
 import { getTopAlbum } from "@lib/lastfm";
+import { getCurrentBook } from "@lib/reading";
 
 const blog = (await getCollection("blog"))
   .filter((post) => (import.meta.env.PROD ? !post.data.draft : true))
@@ -18,6 +20,7 @@ const series = (await getCollection("series")).filter(
 );
 
 const topAlbum = await getTopAlbum();
+const currentBook = await getCurrentBook();
 ---
 
 <Layout title={HOME.TITLE} description={HOME.DESCRIPTION}>
@@ -55,8 +58,13 @@ const topAlbum = await getTopAlbum();
         </div>
 
         <!-- Album of the Week: mobile only (desktop version lives in the sidebar) -->
-        <div class="lg:hidden">
+        <div class="pb-6 lg:hidden">
           <NowListening album={topAlbum} />
+        </div>
+
+        <!-- Most Recent Read: mobile only (desktop version lives in the sidebar) -->
+        <div class="pb-6 lg:hidden">
+          <NowReading book={currentBook} />
         </div>
 
         <section class="animate space-y-6">
@@ -143,7 +151,12 @@ const topAlbum = await getTopAlbum();
         class="hidden lg:block lg:border-l lg:border-black/10 lg:pl-8 lg:pt-[3.25rem] lg:dark:border-white/10"
       >
         <!-- Album of the Week widget -->
-        <NowListening album={topAlbum} />
+        <div class="pb-6">
+          <NowListening album={topAlbum} />
+        </div>
+
+        <!-- Most Recent Read widget -->
+        <NowReading book={currentBook} />
       </aside>
     </div>
   </div>
