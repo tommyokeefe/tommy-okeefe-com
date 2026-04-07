@@ -1,5 +1,5 @@
 ---
-import { type CollectionEntry, getCollection } from "astro:content";
+import { type CollectionEntry, getCollection, getEntry } from "astro:content";
 import Layout from "@layouts/Layout.astro";
 import Container from "@components/Container.astro";
 import FormattedDate from "@components/FormattedDate.astro";
@@ -51,8 +51,9 @@ const prevPost = getPrevPost();
 
 const post = Astro.props;
 
-const allSeries = await getCollection("series");
-const seriesEntry = allSeries.find((s) => s.slug === post.data.series);
+const seriesEntry = post.data.series
+  ? await getEntry(post.data.series)
+  : undefined;
 
 const { Content, headings } = await post.render();
 ---

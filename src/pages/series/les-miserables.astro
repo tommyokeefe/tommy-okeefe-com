@@ -8,7 +8,7 @@ import Content from "@content/series/les-miserables/index.md";
 import { SERIES, CHAPTERS, LES_MISERABLES } from "@consts";
 
 const data = (await getCollection("blog")).filter(
-    (post) => post.data.series === "les-miserables" && !post.data.draft,
+    (post) => post.data.series?.slug === "les-miserables" && !post.data.draft,
 );
 
 const series = (await getCollection("series")).find(

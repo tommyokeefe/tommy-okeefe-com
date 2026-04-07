@@ -1,33 +1,35 @@
-import { defineCollection, z } from "astro:content";
+import { defineCollection, reference, z } from "astro:content";
 
 const blog = defineCollection({
   type: "content",
-  schema: ({ image }) => z.object({
-    title: z.string(),
-    description: z.string(),
-    date: z.coerce.date(),
-    draft: z.boolean().optional(),
-    series: z.string().optional(),
-    part: z.string().optional(),
-    book: z.string().optional(),
-    chapter: z.string().optional(),
-    tags: z.array(z.string()).optional(),
-    image: image().optional(),
-    imageAlt: z.string().optional(),
-    blueskyPostUri: z.string().optional(),
-  }),
+  schema: ({ image }) =>
+    z.object({
+      title: z.string(),
+      description: z.string(),
+      date: z.coerce.date(),
+      draft: z.boolean().optional(),
+      series: reference("series").optional(),
+      part: z.string().optional(),
+      book: z.string().optional(),
+      chapter: z.string().optional(),
+      tags: z.array(z.string()).optional(),
+      image: image().optional(),
+      imageAlt: z.string().optional(),
+      blueskyPostUri: z.string().optional(),
+    }),
 });
 
 const series = defineCollection({
   type: "content",
-  schema: ({ image }) => z.object({
-    title: z.string(),
-    description: z.string(),
-    active: z.boolean(),
-    order: z.string().optional(),
-    image: image().optional(),
-    imageAlt: z.string().optional(),
-  }),
+  schema: ({ image }) =>
+    z.object({
+      title: z.string(),
+      description: z.string(),
+      active: z.boolean(),
+      order: z.string().optional(),
+      image: image().optional(),
+      imageAlt: z.string().optional(),
+    }),
 });
 
 const projects = defineCollection({
