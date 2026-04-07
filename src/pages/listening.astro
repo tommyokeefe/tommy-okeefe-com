@@ -53,20 +53,58 @@ const album = await getTopAlbum();
                   </p>
                 </div>
 
-                <div class="flex flex-wrap gap-3 pt-1">
-                  <Link href={album.lastFmUrl} external>
-                    View on Last.fm
-                  </Link>
+                <div class="space-y-3 pt-1">
+                  <div class="flex flex-wrap gap-2">
+                    <Link href={album.lastFmUrl} external>
+                      View on Last.fm
+                    </Link>
+                    {album.streaming.odesliUrl && (
+                      <Link href={album.streaming.odesliUrl} external>
+                        All platforms
+                      </Link>
+                    )}
+                  </div>
 
-                  {album.odesliUrl ? (
-                    <Link href={album.odesliUrl} external>
-                      Find on streaming
-                    </Link>
-                  ) : (
-                    <Link href={album.bandcampSearchUrl} external>
-                      Search on Bandcamp
-                    </Link>
+                  {album.streaming.listen.length > 0 && (
+                    <div class="space-y-1">
+                      <p class="text-xs font-semibold uppercase tracking-wider text-black/40 dark:text-white/40">
+                        Listen
+                      </p>
+                      <div class="flex flex-wrap gap-2">
+                        {album.streaming.listen.map((link) => (
+                          <Link href={link.url} external>
+                            {link.name}
+                          </Link>
+                        ))}
+                      </div>
+                    </div>
                   )}
+
+                  {album.streaming.buy.length > 0 && (
+                    <div class="space-y-1">
+                      <p class="text-xs font-semibold uppercase tracking-wider text-black/40 dark:text-white/40">
+                        Buy
+                      </p>
+                      <div class="flex flex-wrap gap-2">
+                        {album.streaming.buy.map((link) => (
+                          <Link href={link.url} external>
+                            {link.name}
+                          </Link>
+                        ))}
+                      </div>
+                    </div>
+                  )}
+
+                  {album.streaming.listen.length === 0 &&
+                    album.streaming.buy.length === 0 &&
+                    !album.streaming.odesliUrl && (
+                      <Link
+                        href={`https://bandcamp.com/search?q=${encodeURIComponent(`${album.artist} ${album.name}`)}`}
+                        external
+                      >
+                        Search on Bandcamp
+                      </Link>
+                    )}
                 </div>
               </div>
             </div>

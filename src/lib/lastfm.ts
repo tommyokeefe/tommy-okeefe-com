@@ -1,11 +1,18 @@
+export type StreamingLink = { name: string; url: string };
+
+export type StreamingLinks = {
+  listen: StreamingLink[];
+  buy: StreamingLink[];
+  odesliUrl: string | null;
+};
+
 export type LastFmAlbum = {
   name: string;
   artist: string;
   imageUrl: string | null;
   lastFmUrl: string;
   chartUrl: string;
-  odesliUrl: string | null;
-  bandcampSearchUrl: string;
+  streaming: StreamingLinks;
 };
 
 async function fetchAppleMusicUrl(
@@ -25,16 +32,45 @@ async function fetchAppleMusicUrl(
   }
 }
 
-async function fetchOdesliUrl(appleMusicUrl: string): Promise<string | null> {
+const LISTEN_PLATFORMS: { key: string; name: string }[] = [
+  { key: "appleMusic", name: "Apple Music" },
+  { key: "spotify", name: "Spotify" },
+  { key: "tidal", name: "Tidal" },
+  { key: "youtubeMusic", name: "YouTube Music" },
+  { key: "amazonMusic", name: "Amazon Music" },
+  { key: "pandora", name: "Pandora" },
+];
+
+const BUY_PLATFORMS: { key: string; name: string }[] = [
+  { key: "bandcamp", name: "Bandcamp" },
+  { key: "itunes", name: "iTunes" },
+  { key: "amazonStore", name: "Amazon" },
+];
+
+async function fetchOdesliLinks(
+  appleMusicUrl: string,
+): Promise<StreamingLinks> {
+  const empty: StreamingLinks = { listen: [], buy: [], odesliUrl: null };
   try {
     const res = await fetch(
       `https://api.song.link/v1-alpha.1/links?url=${encodeURIComponent(appleMusicUrl)}&userCountry=US`,
     );
-    if (!res.ok) return null;
+    if (!res.ok) return empty;
     const data = await res.json();
-    return data?.pageUrl ?? null;
+    const byPlatform: Record<string, { url: string }> =
+      data?.linksByPlatform ?? {};
+    const odesliUrl: string | null = data?.pageUrl ?? null;
+
+    const listen: StreamingLink[] = LISTEN_PLATFORMS.flatMap(({ key, name }) =>
+      byPlatform[key]?.url ? [{ name, url: byPlatform[key].url }] : [],
+    );
+    const buy: StreamingLink[] = BUY_PLATFORMS.flatMap(({ key, name }) =>
+      byPlatform[key]?.url ? [{ name, url: byPlatform[key].url }] : [],
+    );
+
+    return { listen, buy, odesliUrl };
   } catch {
-    return null;
+    return empty;
   }
 }
 
@@ -77,10 +113,12 @@ async function _fetchTopAlbum(): Promise<LastFmAlbum | null> {
     const name: string = album.name ?? "";
     const chartUrl = `https://www.last.fm/user/${username}/library/albums?date_preset=LAST_7_DAYS`;
 
-    const odesliUrl = await fetchAppleMusicUrl(artist, name).then(
-      (appleMusicUrl) => (appleMusicUrl ? fetchOdesliUrl(appleMusicUrl) : null),
+    const streaming = await fetchAppleMusicUrl(artist, name).then(
+      (appleMusicUrl) =>
+        appleMusicUrl
+          ? fetchOdesliLinks(appleMusicUrl)
+          : { listen: [], buy: [], odesliUrl: null },
     );
-    const bandcampSearchUrl = `https://bandcamp.com/search?q=${encodeURIComponent(`${artist} ${name}`)}`;
 
     return {
       name,
@@ -88,8 +126,7 @@ async function _fetchTopAlbum(): Promise<LastFmAlbum | null> {
       imageUrl,
       lastFmUrl,
       chartUrl,
-      odesliUrl,
-      bandcampSearchUrl,
+      streaming,
     };
   } catch (err) {
     console.error("[lastfm] Failed to fetch top album:", err);
