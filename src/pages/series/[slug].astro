@@ -16,7 +16,7 @@ const slug = Astro.params.slug;
 const seriesEntry = Astro.props;
 
 // gather posts belonging to this series, sort by series frontmatter `order` (default: asc)
-const order = (seriesEntry.data as any).order ?? "asc";
+const order = seriesEntry.data.order ?? "asc";
 const posts = (await getCollection("blog"))
     .filter((p) => p.data.series?.slug === slug && !p.data.draft)
     .sort((a, b) =>
