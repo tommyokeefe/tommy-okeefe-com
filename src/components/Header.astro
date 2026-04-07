@@ -1,15 +1,21 @@
 ---
+import { getCollection } from "astro:content";
 import Container from "@components/Container.astro";
 import Link from "@components/Link.astro";
 import { SITE } from "@consts";
 
 const accents = ["cyan", "magenta", "yellow"];
 const accent = accents[Math.floor(Math.random() * 3)];
+
+const allSeries = (await getCollection("series"))
+  .filter((s) => s.data.active)
+  .sort((a, b) => a.data.title.localeCompare(b.data.title));
 ---
 
 <header transition:persist data-header-accent={accent}>
   <Container>
-    <div class="flex flex-wrap justify-between gap-y-2">
+    <div class="flex items-center justify-between gap-4">
+      <!-- Site title -->
       <Link href="/" underline={false}>
         <div
           class="font-serif text-xl font-semibold [text-shadow:0_2px_3px_rgb(255_255_255/0.9)] dark:[text-shadow:0_2px_3px_rgb(0_0_0/0.6)] md:text-3xl"
@@ -17,21 +23,73 @@ const accent = accents[Math.floor(Math.random() * 3)];
           {SITE.TITLE}
         </div>
       </Link>
-      <nav
-        class="flex items-center gap-1 [&_a]:decoration-black/30 [&_a]:hover:text-black [&_a]:hover:decoration-black/50 [&_a]:dark:decoration-white/50 [&_a]:dark:hover:text-white [&_a]:dark:hover:decoration-white/70"
-      >
-        <Link href="/blog">blog</Link>
-        <span>
-          {`/`}
-        </span>
-        <Link href="/rss.xml">rss</Link>
-        <span>
-          {`/`}
-        </span>
-        <!--         <Link href="/projects">projects</Link>
-        <span>
-          {`/`}
-        </span> -->
+
+      <!-- Right side: desktop nav + search (always visible) + hamburger -->
+      <div class="flex items-center gap-3">
+        <!-- Desktop nav -->
+        <nav
+          aria-label="Main navigation"
+          class="hidden items-center gap-4 md:flex [&_a]:text-current [&_a]:decoration-black/30 [&_a]:hover:text-black [&_a]:hover:decoration-black/50 [&_a]:dark:decoration-white/50 [&_a]:dark:hover:text-white [&_a]:dark:hover:decoration-white/70"
+        >
+          <Link href="/blog">blog</Link>
+
+          <!-- Series dropdown -->
+          <div class="relative" id="series-dropdown-wrapper">
+            <button
+              id="series-dropdown-btn"
+              aria-expanded="false"
+              aria-controls="series-dropdown-menu"
+              class="flex items-center gap-1 underline decoration-black/30 underline-offset-[3px] transition-colors duration-300 ease-in-out hover:text-black hover:decoration-black/50 dark:decoration-white/50 dark:hover:text-white dark:hover:decoration-white/70"
+            >
+              series
+              <svg
+                id="series-chevron"
+                width="12"
+                height="12"
+                viewBox="0 0 12 12"
+                fill="none"
+                aria-hidden="true"
+                class="transition-transform duration-200"
+              >
+                <path
+                  d="M2 4L6 8L10 4"
+                  stroke="currentColor"
+                  stroke-width="1.5"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"></path>
+              </svg>
+            </button>
+
+            <div
+              id="series-dropdown-menu"
+              class="absolute left-0 top-full z-50 mt-2 hidden min-w-[180px] rounded border border-black/10 bg-white py-1 shadow-md dark:border-white/10 dark:bg-zinc-900"
+            >
+              <a
+                href="/series"
+                class="block px-4 py-2 text-sm text-current transition-colors duration-150 hover:bg-black/5 dark:hover:bg-white/5"
+              >
+                All Series
+              </a>
+              <div class="my-1 border-t border-black/10 dark:border-white/10">
+              </div>
+              {
+                allSeries.map((s) => (
+                  <a
+                    href={`/series/${s.slug}`}
+                    class="block px-4 py-2 text-sm text-current transition-colors duration-150 hover:bg-black/5 dark:hover:bg-white/5"
+                  >
+                    {s.data.title}
+                  </a>
+                ))
+              }
+            </div>
+          </div>
+
+          <Link href="/tags">tags</Link>
+          <Link href="/rss.xml">rss</Link>
+        </nav>
+
+        <!-- Search button (always visible) -->
         <button
           id="magnifying-glass"
           aria-label="Search"
@@ -51,20 +109,247 @@ const accent = accents[Math.floor(Math.random() * 3)];
           >
           &nbsp;search
         </button>
-      </nav>
+
+        <!-- Hamburger button (mobile only) -->
+        <button
+          id="hamburger-btn"
+          aria-label="Open menu"
+          aria-expanded="false"
+          aria-controls="mobile-menu"
+          class="flex items-center justify-center rounded p-1 text-current transition-colors duration-200 hover:bg-black/10 dark:hover:bg-white/10 md:hidden"
+        >
+          <!-- Hamburger icon -->
+          <svg
+            id="hamburger-icon"
+            width="22"
+            height="22"
+            viewBox="0 0 22 22"
+            fill="none"
+            aria-hidden="true"
+          >
+            <path
+              d="M3 6h16M3 11h16M3 16h16"
+              stroke="currentColor"
+              stroke-width="1.8"
+              stroke-linecap="round"></path>
+          </svg>
+          <!-- Close icon -->
+          <svg
+            id="close-icon"
+            width="22"
+            height="22"
+            viewBox="0 0 22 22"
+            fill="none"
+            aria-hidden="true"
+            class="hidden"
+          >
+            <path
+              d="M5 5l12 12M17 5L5 17"
+              stroke="currentColor"
+              stroke-width="1.8"
+              stroke-linecap="round"></path>
+          </svg>
+        </button>
+      </div>
     </div>
+
+    <!-- Mobile menu -->
+    <nav
+      id="mobile-menu"
+      aria-label="Mobile navigation"
+      class="hidden border-t border-black/10 pb-2 pt-4 dark:border-white/10 md:hidden"
+    >
+      <ul class="flex flex-col gap-1">
+        <li>
+          <a
+            href="/blog"
+            class="block rounded px-2 py-2 text-current transition-colors duration-150 hover:bg-black/5 dark:hover:bg-white/5"
+          >
+            blog
+          </a>
+        </li>
+
+        <!-- Mobile series section -->
+        <li>
+          <button
+            id="mobile-series-btn"
+            aria-expanded="false"
+            aria-controls="mobile-series-list"
+            class="flex w-full items-center justify-between rounded px-2 py-2 text-current transition-colors duration-150 hover:bg-black/5 dark:hover:bg-white/5"
+          >
+            series
+            <svg
+              id="mobile-series-chevron"
+              width="12"
+              height="12"
+              viewBox="0 0 12 12"
+              fill="none"
+              aria-hidden="true"
+              class="transition-transform duration-200"
+            >
+              <path
+                d="M2 4L6 8L10 4"
+                stroke="currentColor"
+                stroke-width="1.5"
+                stroke-linecap="round"
+                stroke-linejoin="round"></path>
+            </svg>
+          </button>
+          <ul id="mobile-series-list" class="hidden pl-4">
+            <li>
+              <a
+                href="/series"
+                class="block rounded px-2 py-2 text-sm text-current transition-colors duration-150 hover:bg-black/5 dark:hover:bg-white/5"
+              >
+                All Series
+              </a>
+            </li>
+            {
+              allSeries.map((s) => (
+                <li>
+                  <a
+                    href={`/series/${s.slug}`}
+                    class="block rounded px-2 py-2 text-sm text-current transition-colors duration-150 hover:bg-black/5 dark:hover:bg-white/5"
+                  >
+                    {s.data.title}
+                  </a>
+                </li>
+              ))
+            }
+          </ul>
+        </li>
+
+        <li>
+          <a
+            href="/tags"
+            class="block rounded px-2 py-2 text-current transition-colors duration-150 hover:bg-black/5 dark:hover:bg-white/5"
+          >
+            tags
+          </a>
+        </li>
+        <li>
+          <a
+            href="/rss.xml"
+            class="block rounded px-2 py-2 text-current transition-colors duration-150 hover:bg-black/5 dark:hover:bg-white/5"
+          >
+            rss
+          </a>
+        </li>
+      </ul>
+    </nav>
   </Container>
+
+  <script>
+    // AbortController at module scope: abort() tears down ALL listeners atomically
+    // (both button-level and document-level) before re-registering them on each
+    // page-load event. This is the correct pattern for transition:persist elements
+    // where the DOM nodes survive view transitions but initHeader() re-runs.
+    let controller = new AbortController();
+
+    function initHeader() {
+      // Tear down all previous listeners in one call, then create a fresh controller
+      controller.abort();
+      controller = new AbortController();
+      const { signal } = controller;
+
+      // --- Element refs ---
+      const hamburgerBtn = document.getElementById("hamburger-btn");
+      const mobileMenu = document.getElementById("mobile-menu");
+      const hamburgerIcon = document.getElementById("hamburger-icon");
+      const closeIcon = document.getElementById("close-icon");
+      const dropdownBtn = document.getElementById("series-dropdown-btn");
+      const dropdownMenu = document.getElementById("series-dropdown-menu");
+      const chevron = document.getElementById("series-chevron");
+      const wrapper = document.getElementById("series-dropdown-wrapper");
+      const mobileSeriesBtn = document.getElementById("mobile-series-btn");
+      const mobileSeriesList = document.getElementById("mobile-series-list");
+      const mobileSeriesChevron = document.getElementById(
+        "mobile-series-chevron",
+      );
+
+      // --- State helpers ---
+      function closeMobileMenu() {
+        mobileMenu?.classList.add("hidden");
+        hamburgerBtn?.setAttribute("aria-expanded", "false");
+        hamburgerBtn?.setAttribute("aria-label", "Open menu");
+        hamburgerIcon?.classList.remove("hidden");
+        closeIcon?.classList.add("hidden");
+      }
+
+      function closeDropdown() {
+        dropdownMenu?.classList.add("hidden");
+        dropdownBtn?.setAttribute("aria-expanded", "false");
+        chevron?.classList.remove("rotate-180");
+      }
+
+      // Reset UI state on each page transition so menus don't persist open
+      closeMobileMenu();
+      closeDropdown();
+
+      // --- Hamburger ---
+      hamburgerBtn?.addEventListener(
+        "click",
+        () => {
+          const isOpen = mobileMenu?.classList.toggle("hidden") === false;
+          hamburgerBtn.setAttribute("aria-expanded", String(isOpen));
+          hamburgerBtn.setAttribute(
+            "aria-label",
+            isOpen ? "Close menu" : "Open menu",
+          );
+          hamburgerIcon?.classList.toggle("hidden", isOpen);
+          closeIcon?.classList.toggle("hidden", !isOpen);
+        },
+        { signal },
+      );
+
+      // --- Desktop series dropdown ---
+      dropdownBtn?.addEventListener(
+        "click",
+        (e) => {
+          e.stopPropagation();
+          const isOpen = dropdownMenu?.classList.toggle("hidden") === false;
+          dropdownBtn.setAttribute("aria-expanded", String(isOpen));
+          chevron?.classList.toggle("rotate-180", isOpen);
+        },
+        { signal },
+      );
+
+      // --- Mobile series expand ---
+      mobileSeriesBtn?.addEventListener(
+        "click",
+        () => {
+          const isOpen = mobileSeriesList?.classList.toggle("hidden") === false;
+          mobileSeriesBtn.setAttribute("aria-expanded", String(isOpen));
+          mobileSeriesChevron?.classList.toggle("rotate-180", isOpen);
+        },
+        { signal },
+      );
+
+      // --- Document-level: close dropdown on outside click or Escape ---
+      document.addEventListener(
+        "click",
+        (e) => {
+          if (wrapper && !wrapper.contains(e.target as Node)) {
+            closeDropdown();
+          }
+        },
+        { signal },
+      );
+
+      document.addEventListener(
+        "keydown",
+        (e) => {
+          if (e.key === "Escape") {
+            closeDropdown();
+            closeMobileMenu();
+          }
+        },
+        { signal },
+      );
+    }
+
+    // astro:page-load fires on initial load AND after every view transition —
+    // the correct event for transition:persist elements.
+    document.addEventListener("astro:page-load", initHeader);
+  </script>
 </header>
-
-<script>
-  function updateHeaderAccent() {
-    const accents = ["cyan", "magenta", "yellow"];
-    const accent = accents[Math.floor(Math.random() * 3)];
-    document
-      .querySelector("header")
-      ?.setAttribute("data-header-accent", accent);
-  }
-
-  // Only re-roll on navigation, not on initial page load/refresh
-  document.addEventListener("astro:after-swap", updateHeaderAccent);
-</script>

@@ -11,11 +11,10 @@ describe("Homepage", () => {
     cy.get("h1").should("contain.text", "Tommy");
   });
 
-  it("has a header with navigation links", () => {
+  it("has a header with site title link and search button", () => {
     cy.get("header").within(() => {
       cy.get("a[href='/']").should("exist");
-      cy.get("a[href='/blog']").should("contain.text", "blog");
-      cy.get("a[href='/rss.xml']").should("contain.text", "rss");
+      cy.get("#magnifying-glass").should("exist");
     });
   });
 
