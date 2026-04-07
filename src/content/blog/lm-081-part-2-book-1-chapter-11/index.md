@@ -8,7 +8,6 @@ part: "part-2"
 book: "book-1"
 chapter: "chapter-11"
 tags:
-  - possibilities
   - potential
   - fate
 ---

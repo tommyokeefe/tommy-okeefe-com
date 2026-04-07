@@ -8,9 +8,7 @@ part: "part-2"
 book: "book-1"
 chapter: "chapter-16"
 tags:
-  - chance
-  - divine will
-  - free will
+  - fate
 ---
 
 > We must view Waterloo coolly in either aspect, rendering unto Chance what belongs to Chance and to God what belongs to God. It was not in the true sense a victory, it was a lucky throw of the dice.

@@ -9,7 +9,7 @@ book: "book-3"
 chapter: "chapter-1"
 tags:
   - cosette
-  - systemic injustice
+  - justice
   - survival
   - innocence
 ---

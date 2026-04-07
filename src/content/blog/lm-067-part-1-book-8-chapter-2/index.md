@@ -14,7 +14,7 @@ tags:
   - uncertainty
   - honesty
   - dishonesty
-  - systemic injustice
+  - justice
   - justice
 ---
 

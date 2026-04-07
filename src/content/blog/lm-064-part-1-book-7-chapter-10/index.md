@@ -8,7 +8,7 @@ part: "part-1"
 book: "book-7"
 chapter: "chapter-10"
 tags:
-  - injustice
+  - justice
   - innocence
   - courage
 ---

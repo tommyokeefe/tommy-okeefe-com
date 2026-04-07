@@ -8,8 +8,6 @@ part: "part-1"
 book: "book-1"
 chapter: "chapter-9"
 tags:
-  - hero
-  - saint
   - heroism
   - sainthood
 ---
