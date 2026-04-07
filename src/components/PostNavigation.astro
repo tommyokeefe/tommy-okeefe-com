@@ -67,16 +67,7 @@ const { prevPost, nextPost } = Astro.props;
 </div>
 
 <script>
-  const ACCENTS: Record<string, { light: string; dark: string; gradientLight: string; gradientDark: string }> = {
-    cyan:    { light: "#00FFFF", dark: "#00BFBF", gradientLight: "rgba(0,255,255,0.18)",   gradientDark: "rgba(0,191,191,0.28)"  },
-    magenta: { light: "#FF00FF", dark: "#BF00BF", gradientLight: "rgba(255,0,255,0.18)",   gradientDark: "rgba(191,0,191,0.28)"  },
-    yellow:  { light: "#FFFF00", dark: "#BFBF00", gradientLight: "rgba(255,255,0,0.18)",   gradientDark: "rgba(191,191,0,0.28)"  },
-  };
-
-  function getHeaderAccent() {
-    const name = document.querySelector("header")?.dataset.headerAccent ?? "cyan";
-    return ACCENTS[name] ?? ACCENTS.cyan;
-  }
+  import { getHeaderAccent } from "@lib/accents";
 
   function applyPostNavAccents() {
     const dark = document.documentElement.classList.contains("dark");

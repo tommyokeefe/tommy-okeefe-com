@@ -46,22 +46,13 @@ function buildToc(headings: Heading[]) {
 </style>
 
 <script>
-  const ACCENTS: Record<string, { light: string; dark: string; bgLight: string; bgDark: string }> = {
-    cyan:    { light: "#00FFFF", dark: "#00BFBF", bgLight: "rgba(0,255,255,0.18)",   bgDark: "rgba(0,191,191,0.28)"  },
-    magenta: { light: "#FF00FF", dark: "#BF00BF", bgLight: "rgba(255,0,255,0.18)",   bgDark: "rgba(191,0,191,0.28)"  },
-    yellow:  { light: "#FFFF00", dark: "#BFBF00", bgLight: "rgba(255,255,0,0.18)",   bgDark: "rgba(191,191,0,0.28)"  },
-  };
-
-  function getHeaderAccent() {
-    const name = document.querySelector("header")?.dataset.headerAccent ?? "cyan";
-    return ACCENTS[name] ?? ACCENTS.cyan;
-  }
+  import { getHeaderAccent } from "@lib/accents";
 
   function applyTocAccent() {
     const dark = document.documentElement.classList.contains("dark");
     const accent = getHeaderAccent();
     document.querySelectorAll<HTMLElement>("[data-toc-summary]").forEach((el) => {
-      el.style.backgroundColor = dark ? accent.bgDark : accent.bgLight;
+      el.style.backgroundColor = dark ? accent.gradientDark : accent.gradientLight;
       el.style.borderBottom = `1px solid ${dark ? accent.dark : accent.light}`;
     });
   }

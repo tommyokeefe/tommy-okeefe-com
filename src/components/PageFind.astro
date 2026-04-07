@@ -92,7 +92,8 @@ import Search from "astro-pagefind/components/Search";
     event.preventDefault();
   });
 
-  // Sync pagefind accent colors with the header accent
+  // Sync pagefind accent colors with the header accent.
+  // NOTE: is:inline prevents ES module imports; only light/dark values needed here.
   const PAGEFIND_ACCENTS = {
     cyan:    { light: "#00FFFF", dark: "#00BFBF" },
     magenta: { light: "#FF00FF", dark: "#BF00BF" },

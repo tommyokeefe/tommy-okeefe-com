@@ -122,16 +122,7 @@ const { Content, headings } = await post.render();
 </Layout>
 
 <script>
-  const ACCENTS: Record<string, { light: string; dark: string }> = {
-    cyan:    { light: "#00FFFF", dark: "#00BFBF" },
-    magenta: { light: "#FF00FF", dark: "#BF00BF" },
-    yellow:  { light: "#FFFF00", dark: "#BFBF00" },
-  };
-
-  function getHeaderAccent() {
-    const name = document.querySelector("header")?.dataset.headerAccent ?? "cyan";
-    return ACCENTS[name] ?? ACCENTS.cyan;
-  }
+  import { getHeaderAccent } from "@lib/accents";
 
   function applyTagAccents() {
     const dark = document.documentElement.classList.contains("dark");
