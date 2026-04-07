@@ -7,6 +7,8 @@ series: "les-miserables"
 part: "part-1"
 book: "book-3"
 chapter: "chapter-1"
+tags:
+  - valjean
 ---
 
 This transition is pretty wild. We go from seeing Jean Valjean at this intense crossroads, having a true crisis in the wake of his encounter(s) with the bishop, wondering what will happen next and Hugo zooms us way out to set the broader scene for what Paris was like at the time he is writing about.

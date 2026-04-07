@@ -7,6 +7,12 @@ series: "les-miserables"
 part: "part-1"
 book: "book-7"
 chapter: "chapter-6"
+tags:
+  - fantine
+  - valjean
+  - cosette
+  - hope
+  - illness
 ---
 
 In this chapter we leave the road to Arras and return to Montreuil-sur-mer, the town where Madeliene is now mayor and Fantine lies in her sick bed, rapidly declining.

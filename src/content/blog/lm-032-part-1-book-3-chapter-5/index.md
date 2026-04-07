@@ -7,6 +7,9 @@ series: "les-miserables"
 part: "part-1"
 book: "book-3"
 chapter: "chapter-5"
+tags:
+  - justice
+  - power
 ---
 
 After describing the place where our merry band of eight lands for dinner Hugo slides into this aside about the way that the Prefect of Police had misread the current situation in Paris among the working population. Essentially he says they are not to be feared. They are small, they are weak, they are not dangerous. He goes as far as to call them "an easy-going riff-raff".

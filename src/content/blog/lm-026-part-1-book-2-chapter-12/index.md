@@ -7,6 +7,12 @@ series: "les-miserables"
 part: "part-1"
 book: "book-2"
 chapter: "chapter-12"
+tags:
+  - valjean
+  - myriel
+  - grace
+  - mercy
+  - redemption
 ---
 
 Bishop Myriel is out in his garden the following morning when it is discovered that the silver has been stolen and Valjean is missing. From the jump Myriel's response is to essentially say the silver wasn't really his to begin with and he should have given it to the poor a long time ago. He then concludes that Valjean was poor so he's essentially good with Valjean having it.

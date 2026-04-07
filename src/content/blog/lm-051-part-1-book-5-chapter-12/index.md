@@ -7,6 +7,11 @@ series: "les-miserables"
 part: "part-1"
 book: "book-5"
 chapter: "chapter-12"
+tags:
+  - fantine
+  - javert
+  - justice
+  - patriarchy
 ---
 
 Monsieur Bamatabois. A small town low budget version of Tholomyés (the fuccboi who ruined Fantine's life) has entered the chat.

@@ -7,6 +7,10 @@ series: "les-miserables"
 part: "part-1"
 book: "book-3"
 chapter: "chapter-8"
+tags:
+  - fantine
+  - patriarchy
+  - compassion
 ---
 
 In this chapter we have more ranting from Tholomyès. He is again pointing his attention and affection away from Fantine and toward others, often fictional imagined people he wishes he could have. He sucks. In the midst of all of this there is a bit of commotion outside as a aging horse harnessed to a heavy cart stumbles and falls. The driver of the cart cursing loudly begins to whip the horse and it collapses again, this time unable to rise.

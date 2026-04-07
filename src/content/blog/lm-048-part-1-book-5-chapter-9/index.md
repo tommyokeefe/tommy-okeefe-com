@@ -7,6 +7,10 @@ series: "les-miserables"
 part: "part-1"
 book: "book-5"
 chapter: "chapter-9"
+tags:
+  - fantine
+  - poverty
+  - compassion
 ---
 
 This chapter gives us more detail around Fantine's struggle to find work after the factory, and she ends up mending clothes for a mere 12 sous a day. The Thenardiers are charging her 10 sous a day to care for Cosette, so she begins to fall behind. She sells all she can but still finds herself about 100 Francs in the hole, unable to leave or to even provide basics for Cosette here she is stuck.

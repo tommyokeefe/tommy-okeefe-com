@@ -7,6 +7,10 @@ series: "les-miserables"
 part: "part-1"
 book: "book-5"
 chapter: "chapter-2"
+tags:
+  - valjean
+  - capitalism
+  - community
 ---
 
 In my commentary on the last chapter I was fairly pointed in my criticism of an orientation toward capitalism that would expect a "rising sea lifts all boats" outcome like the one described. Here in this chapter we see that it wasn't a general truism, but a reflection of the unique commitments and orientation of Père Madeleine. So much so in fact, that the other wealthy folks around him could not make sense of his behavior or choices and continued to assign alternate motivations. Quoting Hugo:

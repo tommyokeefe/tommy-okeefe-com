@@ -7,6 +7,11 @@ series: "les-miserables"
 part: "part-1"
 book: "book-4"
 chapter: "chapter-1"
+tags:
+  - fantine
+  - cosette
+  - poverty
+  - patriarchy
 ---
 
 At the end of the last chapter I assumed that Fantine was pregnant, but it turns out that she ALREADY HAD A CHILD with Tholomyès! This makes what I already viewed as pretty despicable behavior on his part even more awful. He had a two year old daughter that he abandoned without thought. A fucc boi in deed.

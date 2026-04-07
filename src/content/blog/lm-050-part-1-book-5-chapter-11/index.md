@@ -7,6 +7,10 @@ series: "les-miserables"
 part: "part-1"
 book: "book-5"
 chapter: "chapter-11"
+tags:
+  - fantine
+  - poverty
+  - faith
 ---
 
 > At this sad point which our tale has now reached there is nothing left of the girl who was once Fantine. In becoming dirt, she has been turned to stone.
