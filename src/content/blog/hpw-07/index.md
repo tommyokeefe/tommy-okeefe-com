@@ -3,6 +3,12 @@ title: "How Propaganda Works: Is Propaganda Inherently False and Insincere?"
 description: 'Thoughts from Jason Stanley''s book "How Propaganda Works" on propaganda and it''s relationship to truth and sincerity.'
 date: "2024-11-21"
 draft: false
+tags:
+  - propaganda
+  - democracy
+  - ideology
+  - dishonesty
+  - honesty
 ---
 
 Do a quick little thought experiment with me. Think about an example of propaganda - a specific thing from history or something current you’ve seen floating around social media networks. Once you have a clear example in your head, think about what makes it propaganda. Putting a finer point on it, what characteristics does it possess that cause you to categorize it as propaganda?

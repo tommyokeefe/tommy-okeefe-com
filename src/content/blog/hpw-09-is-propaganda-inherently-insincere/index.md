@@ -3,6 +3,13 @@ title: "How Propaganda Works: Is Propaganda Inherently Insincere? Not Always!"
 description: 'Thoughts from Jason Stanley''s book "How Propaganda Works" on refuting what Stanley calls the insincerity condition.'
 date: "2024-12-01"
 draft: false
+tags:
+  - propaganda
+  - democracy
+  - ideology
+  - dishonesty
+  - honesty
+  - identity
 ---
 
 Coming back to Stanley's definition of propaganda, the next important thing he covers is an effort to dispel this idea that propaganda is necessarily insincere. Stanley says the following:

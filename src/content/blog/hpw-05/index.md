@@ -3,6 +3,14 @@ title: "How Propaganda Works: Undemocratic Policies & Propaganda in the USA"
 description: 'Thoughts from the introduction of Jason Stanley''s book "How Propaganda Works" on examples he provides of undemocratic policies that are pushed forward under the cloak of propaganda.'
 date: "2024-11-15"
 draft: false
+tags:
+  - propaganda
+  - democracy
+  - ideology
+  - power
+  - capitalism
+  - justice
+  - poverty
 ---
 
 More thoughts following up on the question _“Are alleged liberal democracies now exploiting confusion between democratic values and managerial values to advance antidemocratic policies?”_ from “How Propaganda Works” by Jason Stanley.

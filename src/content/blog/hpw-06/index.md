@@ -3,6 +3,12 @@ title: "How Propaganda Works: Effective Propaganda & Group Identies"
 description: 'Thoughts from the introduction of Jason Stanley''s book "How Propaganda Works" on how group identities can create fertile grounds for the kinds of flawed ideologies that propaganda can easily exploit.'
 date: "2024-11-16"
 draft: false
+tags:
+  - propaganda
+  - democracy
+  - ideology
+  - identity
+  - faith
 ---
 
 One final idea from the introductory section of “How Propaganda Works” by Jason Stanley that I think really drives home the current shape of the problem of propaganda and how we are all potentially susceptible to it.
