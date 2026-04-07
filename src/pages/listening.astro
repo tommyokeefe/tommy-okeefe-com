@@ -1,0 +1,95 @@
+---
+import Layout from "@layouts/Layout.astro";
+import Container from "@components/Container.astro";
+import Link from "@components/Link.astro";
+import BackToPrevious from "@components/BackToPrevious.astro";
+import { getTopAlbum } from "@lib/lastfm";
+
+const album = await getTopAlbum();
+
+const TOP_ALBUMS_URL =
+  "https://www.last.fm/user/tommyokeefe/library/albums?date_preset=LAST_7_DAYS";
+---
+
+<Layout
+  title="Album of the Week"
+  description={album
+    ? `This week's album: ${album.name} by ${album.artist}.`
+    : "My most-listened album of the week, pulled from Last.fm."}
+>
+  <Container>
+    <div class="space-y-8">
+      <div class="animate">
+        <BackToPrevious href="/">Back home</BackToPrevious>
+      </div>
+
+      <div class="animate space-y-2">
+        <h1
+          class="font-serif text-3xl font-semibold text-black dark:text-white"
+        >
+          Album of the Week
+        </h1>
+        <p class="text-black/60 dark:text-white/60">
+          My most-listened album in the last 7 days, pulled from Last.fm.
+        </p>
+      </div>
+
+      {
+        album ? (
+          <div class="animate space-y-6">
+            <div class="flex flex-col gap-6 sm:flex-row sm:items-start">
+              {album.imageUrl && (
+                <img
+                  src={album.imageUrl}
+                  alt={`${album.name} by ${album.artist}`}
+                  class="h-48 w-48 flex-shrink-0 rounded-lg object-cover shadow-md"
+                  loading="eager"
+                />
+              )}
+              <div class="space-y-3">
+                <div>
+                  <h2 class="font-serif text-2xl font-semibold text-black dark:text-white">
+                    {album.name}
+                  </h2>
+                  <p class="text-lg text-black/70 dark:text-white/70">
+                    {album.artist}
+                  </p>
+                </div>
+
+                <div class="flex flex-wrap gap-3 pt-1">
+                  <Link href={album.lastFmUrl} external>
+                    View on Last.fm
+                  </Link>
+
+                  {album.odesliUrl ? (
+                    <Link href={album.odesliUrl} external>
+                      Find on streaming
+                    </Link>
+                  ) : (
+                    <Link href={album.bandcampSearchUrl} external>
+                      Search on Bandcamp
+                    </Link>
+                  )}
+                </div>
+              </div>
+            </div>
+
+            <div class="rounded-lg border border-black/10 bg-black/[0.02] p-4 text-sm text-black/60 dark:border-white/10 dark:bg-white/[0.02] dark:text-white/60">
+              See{" "}
+              <Link href={TOP_ALBUMS_URL} external>
+                my full Last.fm chart
+              </Link>{" "}
+              for this week.
+            </div>
+          </div>
+        ) : (
+          <div class="animate space-y-4">
+            <p class="text-black/60 dark:text-white/60">
+              Nothing scrobbled yet this week — check back soon.
+            </p>
+          </div>
+        )
+      }
+    </div>
+  </Container>
+</Layout>
