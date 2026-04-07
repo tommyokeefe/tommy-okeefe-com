@@ -62,10 +62,12 @@ const { border: accentBorder, gradientLight, gradientDark } = accents[index % 3]
 <script>
   function applyCardGradients() {
     const dark = document.documentElement.classList.contains("dark");
-    document.querySelectorAll<HTMLElement>("a[data-gradient-light]").forEach((el) => {
-      const color = dark ? el.dataset.gradientDark : el.dataset.gradientLight;
-      el.style.background = `linear-gradient(to right, ${color} 0%, transparent 60%)`;
-    });
+    document
+      .querySelectorAll<HTMLElement>("a[data-gradient-light]:not([data-accent-override])")
+      .forEach((el) => {
+        const color = dark ? el.dataset.gradientDark : el.dataset.gradientLight;
+        el.style.background = `linear-gradient(to right, ${color} 0%, transparent 60%)`;
+      });
   }
 
   document.addEventListener("astro:page-load", applyCardGradients);

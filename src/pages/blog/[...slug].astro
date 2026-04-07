@@ -132,7 +132,9 @@ const { Content, headings } = await post.render();
           seriesEntry && (
             <div class="mt-24">
               <h2>See the rest of the series</h2>
-              <ArrowCard entry={seriesEntry} />
+              <div data-series-card>
+                <ArrowCard entry={seriesEntry} />
+              </div>
             </div>
           )
         }
@@ -177,9 +179,25 @@ const { Content, headings } = await post.render();
     });
   }
 
+  function applySeriesCardAccent() {
+    const dark = document.documentElement.classList.contains("dark");
+    const accent = getHeaderAccent();
+    const color = dark ? accent.dark : accent.light;
+    const gradientColor = dark
+      ? `${accent.dark}47`   // ~28% opacity (0x47)
+      : `${accent.light}2E`; // ~18% opacity (0x2E)
+    document.querySelectorAll<HTMLElement>("[data-series-card] a").forEach((el) => {
+      // Mark the element so ArrowCard's generic gradient sweep skips it
+      el.dataset.accentOverride = "true";
+      el.style.borderLeftColor = color;
+      el.style.background = `linear-gradient(to right, ${gradientColor} 0%, transparent 60%)`;
+    });
+  }
+
   function applyAccents() {
     applyTagAccents();
     applyBlockquoteAccents();
+    applySeriesCardAccent();
   }
 
   document.addEventListener("astro:page-load", applyAccents);
