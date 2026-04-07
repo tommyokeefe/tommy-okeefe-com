@@ -4,7 +4,11 @@ import Container from "@components/Container.astro";
 import { SITE, HOME, SOCIALS } from "@consts";
 import ArrowCard from "@components/ArrowCard.astro";
 import Link from "@components/Link.astro";
+import NowListening from "@components/NowListening.astro";
+import NowReading from "@components/NowReading.astro";
 import { getCollection } from "astro:content";
+import { getTopAlbum } from "@lib/lastfm";
+import { getCurrentBook } from "@lib/reading";
 
 const blog = (await getCollection("blog"))
   .filter((post) => (import.meta.env.PROD ? !post.data.draft : true))
@@ -15,136 +19,165 @@ const series = (await getCollection("series")).filter(
   (series) => series.data.active,
 );
 
-/* const projects: CollectionEntry<"projects">[] = (
-  await getCollection("projects")
-)
-  .filter((project) => !project.data.draft)
-  .sort((a, b) => b.data.date.valueOf() - a.data.date.valueOf())
-  .slice(0, SITE.NUM_PROJECTS_ON_HOMEPAGE); */
+const topAlbum = await getTopAlbum();
+const currentBook = await getCurrentBook();
 ---
 
 <Layout title={HOME.TITLE} description={HOME.DESCRIPTION}>
-  <Container>
-    <aside data-pagefind-ignore>
-      <h1 class="text-3xl font-semibold text-black dark:text-white">
-        Hi, I'm Tommy! 👋🏻
-      </h1>
-      <div class="space-y-16">
-        <section>
-          <article class="space-y-4">
-            <span class="animate">
-              <p>
-                This is primarily a space for me to talk about how I see the
-                world. You'll find my thoughts about the things I'm watching,
-                reading, listening to, and thinking about. Because I am a bit of
-                a "jack of all trades, master of none", the subject matter is
-                likely to be pretty diverse. "I find this interesting" is
-                probably the only real thread that ties it all together.
-              </p>
-              <p>
-                When I'm not here you can occassionally find me posting on
-                <Link href="https://bsky.app/profile/tommyokeefe.com">
-                  Bluesky
-                </Link>
-                .
-              </p>
-              I hope to see you around!
-            </span>
-          </article>
-        </section>
-      </div>
-
-      <section class="animate space-y-6">
-        <div
-          class="flex flex-wrap items-center justify-between gap-y-2 rounded-full bg-accent px-4 py-1 [&_a]:text-accent-foreground [&_a]:decoration-black/30 [&_a]:hover:text-black [&_a]:hover:decoration-black/50 [&_a]:dark:decoration-black/30 [&_a]:dark:hover:text-black [&_a]:dark:hover:decoration-black/50"
-        >
-          <h2 class="font-semibold text-accent-foreground">Active Series</h2>
-          <Link href="/series"> See all series </Link>
+  <!-- Wide container for two-column desktop layout -->
+  <div class="mx-auto w-full max-w-screen-sm px-3 lg:max-w-4xl">
+    <div class="lg:grid lg:grid-cols-[1fr_280px] lg:gap-10">
+      <!-- Main column -->
+      <div data-pagefind-ignore>
+        <h1 class="text-3xl font-semibold text-black dark:text-white">
+          Hi, I'm Tommy! 👋🏻
+        </h1>
+        <div class="space-y-16">
+          <section>
+            <article class="space-y-4">
+              <span class="animate">
+                <p>
+                  This is primarily a space for me to talk about how I see the
+                  world. You'll find my thoughts about the things I'm watching,
+                  reading, listening to, and thinking about. Because I am a bit
+                  of a "jack of all trades, master of none", the subject matter
+                  is likely to be pretty diverse. "I find this interesting" is
+                  probably the only real thread that ties it all together.
+                </p>
+                <p>
+                  When I'm not here you can occasionally find me posting on
+                  <Link href="https://bsky.app/profile/tommyokeefe.com">
+                    Bluesky
+                  </Link>
+                  .
+                </p>
+                I hope to see you around!
+              </span>
+            </article>
+          </section>
         </div>
-        <ul class="not-prose flex flex-col gap-4">
-          {
-            series.map((post, i) => (
-              <li>
-                <ArrowCard entry={post} index={i} />
-              </li>
-            ))
-          }
-        </ul>
-      </section>
 
-      <section class="animate space-y-6">
-        <div
-          class="flex flex-wrap items-center justify-between gap-y-2 rounded-full bg-accent-magenta px-4 py-1 [&_a]:text-accent-foreground [&_a]:decoration-black/30 [&_a]:hover:text-black [&_a]:hover:decoration-black/50 [&_a]:dark:decoration-black/30 [&_a]:dark:hover:text-black [&_a]:dark:hover:decoration-black/50"
-        >
-          <h2 class="font-semibold text-accent-foreground">Latest posts</h2>
-          <Link href="/blog"> See all posts </Link>
+        <!-- Album of the Week: mobile only (desktop version lives in the sidebar) -->
+        <div class="pb-6 lg:hidden">
+          <NowListening album={topAlbum} />
         </div>
-        <ul class="not-prose flex flex-col gap-4">
-          {
-            blog.map((post, i) => (
-              <li>
-                <ArrowCard entry={post} index={i} />
-              </li>
-            ))
-          }
-        </ul>
-      </section>
 
-      <!--         <section class="animate space-y-6">
-          <div class="flex flex-wrap items-center justify-between gap-y-2">
-            <h2 class="font-semibold text-black dark:text-white">
-              Recent projects
-            </h2>
-            <Link href="/projects"> See all projects </Link>
+        <!-- Most Recent Read: mobile only (desktop version lives in the sidebar) -->
+        <div class="pb-6 lg:hidden">
+          <NowReading book={currentBook} />
+        </div>
+
+        <section class="animate space-y-6">
+          <div
+            data-accent-pill
+            class="flex flex-wrap items-center justify-between gap-y-2 rounded-full px-4 py-1 [&_a]:text-accent-foreground [&_a]:decoration-black/30 [&_a]:hover:text-black [&_a]:hover:decoration-black/50 [&_a]:dark:decoration-black/30 [&_a]:dark:hover:text-black [&_a]:dark:hover:decoration-black/50"
+          >
+            <h2 class="font-semibold text-accent-foreground">Active Series</h2>
+            <Link href="/series"> See all series </Link>
           </div>
           <ul class="not-prose flex flex-col gap-4">
             {
-              projects.map((project) => (
+              series.map((post, i) => (
                 <li>
-                  <ArrowCard entry={project} />
+                  <ArrowCard entry={post} index={i} />
                 </li>
               ))
             }
           </ul>
-        </section> -->
+        </section>
 
-      <section class="animate space-y-4">
-        <h2
-          class="block w-full rounded-full bg-accent-yellow px-4 py-1 font-semibold text-accent-foreground"
-        >
-          Let's Connect
-        </h2>
-        <article>
-          <p>
-            If you want to get in touch with me about something or just say hi,
-            reach out on social media or send me an email.
-          </p>
-        </article>
-        <ul class="not-prose flex flex-wrap gap-2">
-          {
-            SOCIALS.map((SOCIAL) => (
-              <li class="flex gap-x-2 text-nowrap">
-                <Link
-                  href={SOCIAL.HREF}
-                  external
-                  aria-label={`${SITE.TITLE} on ${SOCIAL.NAME}`}
-                >
-                  {SOCIAL.NAME}
-                </Link>
-                {"/"}
-              </li>
-            ))
-          }
-          <li class="line-clamp-1">
-            <Link
-              href={`mailto:${SITE.EMAIL}`}
-              aria-label={`Email ${SITE.TITLE}`}
-            >
-              {SITE.EMAIL}
-            </Link>
-          </li>
-        </ul>
-      </section>
-    </aside>
-  </Container>
+        <section class="animate space-y-6">
+          <div
+            data-accent-pill
+            class="flex flex-wrap items-center justify-between gap-y-2 rounded-full px-4 py-1 [&_a]:text-accent-foreground [&_a]:decoration-black/30 [&_a]:hover:text-black [&_a]:hover:decoration-black/50 [&_a]:dark:decoration-black/30 [&_a]:dark:hover:text-black [&_a]:dark:hover:decoration-black/50"
+          >
+            <h2 class="font-semibold text-accent-foreground">Latest posts</h2>
+            <Link href="/blog"> See all posts </Link>
+          </div>
+          <ul class="not-prose flex flex-col gap-4">
+            {
+              blog.map((post, i) => (
+                <li>
+                  <ArrowCard entry={post} index={i} />
+                </li>
+              ))
+            }
+          </ul>
+        </section>
+
+        <section class="animate space-y-4">
+          <h2
+            data-accent-pill
+            class="block w-full rounded-full px-4 py-1 font-semibold text-accent-foreground"
+          >
+            Let's Connect
+          </h2>
+          <article>
+            <p>
+              If you want to get in touch with me about something or just say
+              hi, reach out on social media or send me an email.
+            </p>
+          </article>
+          <ul class="not-prose flex flex-wrap gap-2">
+            {
+              SOCIALS.map((SOCIAL) => (
+                <li class="flex gap-x-2 text-nowrap">
+                  <Link
+                    href={SOCIAL.HREF}
+                    external
+                    aria-label={`${SITE.TITLE} on ${SOCIAL.NAME}`}
+                  >
+                    {SOCIAL.NAME}
+                  </Link>
+                  {"/"}
+                </li>
+              ))
+            }
+            <li class="line-clamp-1">
+              <Link
+                href={`mailto:${SITE.EMAIL}`}
+                aria-label={`Email ${SITE.TITLE}`}
+              >
+                {SITE.EMAIL}
+              </Link>
+            </li>
+          </ul>
+        </section>
+      </div>
+
+      <!-- Sidebar column (desktop only — mobile version is inline above) -->
+      <aside
+        data-pagefind-ignore
+        class="hidden lg:block lg:border-l lg:border-black/10 lg:pl-8 lg:pt-[3.25rem] lg:dark:border-white/10"
+      >
+        <!-- Album of the Week widget -->
+        <div class="pb-6">
+          <NowListening album={topAlbum} />
+        </div>
+
+        <!-- Most Recent Read widget -->
+        <NowReading book={currentBook} />
+      </aside>
+    </div>
+  </div>
 </Layout>
+
+<script>
+  import { getHeaderAccent } from "@lib/accents";
+
+  function applyPillAccents() {
+    const dark = document.documentElement.classList.contains("dark");
+    const accent = getHeaderAccent();
+    const color = dark ? accent.dark : accent.light;
+    document
+      .querySelectorAll<HTMLElement>("[data-accent-pill]")
+      .forEach((el) => {
+        el.style.backgroundColor = color;
+      });
+  }
+
+  document.addEventListener("astro:page-load", applyPillAccents);
+
+  const observer = new MutationObserver(applyPillAccents);
+  observer.observe(document.documentElement, { attributeFilter: ["class"] });
+</script>
