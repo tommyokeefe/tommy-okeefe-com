@@ -8,6 +8,7 @@ part: "part-1"
 book: "book-7"
 chapter: "chapter-7"
 tags:
+  - valjean
   - conscience
   - justice
   - tension

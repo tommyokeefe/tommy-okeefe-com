@@ -8,6 +8,7 @@ part: "part-1"
 book: "book-7"
 chapter: "chapter-8"
 tags:
+  - valjean
   - fear
   - tension
   - courage

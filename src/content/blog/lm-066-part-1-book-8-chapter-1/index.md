@@ -8,6 +8,7 @@ part: "part-1"
 book: "book-8"
 chapter: "chapter-1"
 tags:
+  - valjean
   - hope
   - illness
   - honesty

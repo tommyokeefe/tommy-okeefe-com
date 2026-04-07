@@ -8,6 +8,8 @@ part: "part-1"
 book: "book-8"
 chapter: "chapter-3"
 tags:
+  - valjean
+  - javert
   - law
   - power
   - justice
