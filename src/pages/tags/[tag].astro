@@ -3,58 +3,57 @@ import { type CollectionEntry } from "astro:content";
 import Layout from "@layouts/Layout.astro";
 import Container from "@components/Container.astro";
 import ArrowCard from "@components/ArrowCard.astro";
-import { getAllTags, getPostsForTag, findTagBySlug } from "@lib/tags";
-import { slugifyTag } from "@lib/tags";
+import { getAllTags, getPostsForTag, slugifyTag } from "@lib/tags";
 
 export async function getStaticPaths() {
     const tags = await getAllTags();
-    return tags.map((tag) => ({ params: { tag: slugifyTag(tag) } }));
+    return Promise.all(
+        tags.map(async (tag) => {
+            const posts = await getPostsForTag(tag);
+            return {
+                params: { tag: slugifyTag(tag) },
+                props: { rawTag: tag, posts },
+            };
+        })
+    );
 }
 
-const { tag: tagSlug } = Astro.params as { tag: string };
-// convert slug back to raw tag name
-const rawTag = await findTagBySlug(tagSlug);
+type Props = {
+    rawTag: string;
+    posts: CollectionEntry<"blog">[];
+};
 
-let posts: CollectionEntry<"blog">[] = [];
-if (rawTag) {
-    posts = await getPostsForTag(rawTag);
-} else {
-    // no matching tag, Astro will render an empty page or 404
-}
+const { rawTag, posts } = Astro.props;
 ---
 
 <Layout
-    title={`Posts tagged “${rawTag || tagSlug}”`}
-    description={`All posts tagged with ${rawTag || tagSlug}`}
+    title={`Posts tagged "${rawTag}"`}
+    description={`All posts tagged with ${rawTag}`}
 >
     <Container>
         <aside data-pagefind-ignore>
             <h1 class="text-3xl font-semibold text-black dark:text-white">
-                {rawTag ? `#${rawTag}` : tagSlug}
+                #{rawTag}
             </h1>
             <div class="mt-10 space-y-10">
                 <div class="space-y-4">
                     <span class="animate">
                         {
-                            rawTag ? (
-                                posts.length === 0 ? (
-                                    <p>No posts found for this tag.</p>
-                                ) : (
-                                    <ul class="not-prose flex flex-col gap-4">
-                                        {posts.map((post, i) => (
-                                            <li>
-                                                <ArrowCard entry={post} index={i} />
-                                            </li>
-                                        ))}
-                                    </ul>
-                                )
+                            posts.length === 0 ? (
+                                <p>No posts found for this tag.</p>
                             ) : (
-                                <p>Tag not found.</p>
+                                <ul class="not-prose flex flex-col gap-4">
+                                    {posts.map((post, i) => (
+                                        <li>
+                                            <ArrowCard entry={post} index={i} />
+                                        </li>
+                                    ))}
+                                </ul>
                             )
                         }
                     </span>
                 </div>
             </div>
         </aside>
-    </Container></Layout
->
+    </Container>
+</Layout>

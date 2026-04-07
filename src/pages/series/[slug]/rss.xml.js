@@ -20,7 +20,7 @@ export async function GET(context) {
   }
 
   const posts = (await getCollection("blog"))
-    .filter((post) => post.data.series === slug && !post.data.draft)
+    .filter((post) => post.data.series?.slug === slug && !post.data.draft)
     .sort(
       (a, b) =>
         new Date(b.data.date).valueOf() - new Date(a.data.date).valueOf(),

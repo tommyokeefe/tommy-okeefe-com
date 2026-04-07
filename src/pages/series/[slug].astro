@@ -1,5 +1,5 @@
 ---
-import { getCollection } from "astro:content";
+import { type CollectionEntry, getCollection } from "astro:content";
 import Layout from "@layouts/Layout.astro";
 import Container from "@components/Container.astro";
 import ArrowCard from "@components/ArrowCard.astro";
@@ -10,18 +10,15 @@ export async function getStaticPaths() {
     return allSeries.map((s) => ({ params: { slug: s.slug }, props: s }));
 }
 
+type Props = CollectionEntry<"series">;
+
 const slug = Astro.params.slug;
-const seriesEntry = (await getCollection("series")).find(
-    (s) => s.slug === slug,
-);
-if (!seriesEntry) {
-    throw new Error(`Series '${slug}' not found`);
-}
+const seriesEntry = Astro.props;
 
 // gather posts belonging to this series, sort by series frontmatter `order` (default: asc)
-const order = (seriesEntry.data as any).order ?? "asc";
+const order = seriesEntry.data.order ?? "asc";
 const posts = (await getCollection("blog"))
-    .filter((p) => p.data.series === slug && !p.data.draft)
+    .filter((p) => p.data.series?.slug === slug && (import.meta.env.PROD ? !p.data.draft : true))
     .sort((a, b) =>
         order === "asc"
             ? a.data.date.valueOf() - b.data.date.valueOf()
