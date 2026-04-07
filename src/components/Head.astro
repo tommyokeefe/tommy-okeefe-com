@@ -57,7 +57,9 @@ const { title, description, image } = Astro.props;
   (() => {
     const storedTheme = localStorage.getItem("theme");
     const themePreference =
-      storedTheme === "light" || storedTheme === "dark" || storedTheme === "system"
+      storedTheme === "light" ||
+      storedTheme === "dark" ||
+      storedTheme === "system"
         ? storedTheme
         : "system";
     const resolvedTheme =
@@ -181,9 +183,14 @@ const { title, description, image } = Astro.props;
 
   function addCopyCodeButtons() {
     const copyButtonLabel = "📋";
-    const codeBlocks = Array.from(document.querySelectorAll<HTMLPreElement>("pre"));
+    const codeBlocks = Array.from(
+      document.querySelectorAll<HTMLPreElement>("pre"),
+    );
 
-    async function copyCode(codeBlock: HTMLPreElement, copyButton: HTMLButtonElement) {
+    async function copyCode(
+      codeBlock: HTMLPreElement,
+      copyButton: HTMLButtonElement,
+    ) {
       const codeText = codeBlock.innerText;
       const buttonText = copyButton.innerText;
       const textToCopy = codeText.replace(buttonText, "");

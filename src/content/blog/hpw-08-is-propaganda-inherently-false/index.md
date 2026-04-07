@@ -1,6 +1,6 @@
 ---
 title: "How Propaganda Works: Is Propaganda Inherently False? Not Always!"
-description: "Thoughts from Jason Stanley's book \"How Propaganda Works\" on refuting what Stanley calls the falsity condition."
+description: 'Thoughts from Jason Stanley''s book "How Propaganda Works" on refuting what Stanley calls the falsity condition.'
 date: "2024-11-24"
 draft: false
 ---

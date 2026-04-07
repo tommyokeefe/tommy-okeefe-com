@@ -1,6 +1,6 @@
 ---
 title: "How Propaganda Works: Undemocratic Policies & Propaganda in the USA"
-description: "Thoughts from the introduction of Jason Stanley's book \"How Propaganda Works\" on examples he provides of undemocratic policies that are pushed forward under the cloak of propaganda."
+description: 'Thoughts from the introduction of Jason Stanley''s book "How Propaganda Works" on examples he provides of undemocratic policies that are pushed forward under the cloak of propaganda.'
 date: "2024-11-15"
 draft: false
 ---

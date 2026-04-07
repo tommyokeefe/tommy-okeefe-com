@@ -1,0 +1,17 @@
+# Build output
+dist/
+
+# Generated / third-party assets
+public/pagefind/
+
+# Vercel
+.vercel/
+
+# Dependencies
+node_modules/
+
+# Astro generated types
+.astro/
+
+# Prettier parser incompatibility (deeply nested conditional JSX — valid Astro, not valid JSX)
+src/pages/series/les-miserables.astro

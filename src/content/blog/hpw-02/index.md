@@ -1,6 +1,6 @@
 ---
 title: "How Propaganda Works: When Propaganda Cloaks Undemocratic Structures"
-description: "Thoughts from the introduction of Jason Stanley's book \"How Propaganda Works\" on how propaganda can be used to cloak decidedly undemocratic realities and present them as democratic."
+description: 'Thoughts from the introduction of Jason Stanley''s book "How Propaganda Works" on how propaganda can be used to cloak decidedly undemocratic realities and present them as democratic.'
 date: "2024-11-12"
 draft: false
 ---

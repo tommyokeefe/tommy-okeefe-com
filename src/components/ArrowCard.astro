@@ -18,11 +18,27 @@ const { entry, index = 0 } = Astro.props as {
 };
 
 const accents = [
-  { border: "border-l-accent dark:border-l-[#00BFBF]", gradientLight: "rgba(0,255,255,0.18)", gradientDark: "rgba(0,191,191,0.28)" },
-  { border: "border-l-accent-magenta dark:border-l-[#BF00BF]", gradientLight: "rgba(255,0,255,0.18)", gradientDark: "rgba(191,0,191,0.28)" },
-  { border: "border-l-accent-yellow dark:border-l-[#BFBF00]", gradientLight: "rgba(255,255,0,0.18)", gradientDark: "rgba(191,191,0,0.28)" },
+  {
+    border: "border-l-accent dark:border-l-[#00BFBF]",
+    gradientLight: "rgba(0,255,255,0.18)",
+    gradientDark: "rgba(0,191,191,0.28)",
+  },
+  {
+    border: "border-l-accent-magenta dark:border-l-[#BF00BF]",
+    gradientLight: "rgba(255,0,255,0.18)",
+    gradientDark: "rgba(191,0,191,0.28)",
+  },
+  {
+    border: "border-l-accent-yellow dark:border-l-[#BFBF00]",
+    gradientLight: "rgba(255,255,0,0.18)",
+    gradientDark: "rgba(191,191,0,0.28)",
+  },
 ] as const;
-const { border: accentBorder, gradientLight, gradientDark } = accents[index % 3];
+const {
+  border: accentBorder,
+  gradientLight,
+  gradientDark,
+} = accents[index % 3];
 ---
 
 <a
@@ -63,7 +79,9 @@ const { border: accentBorder, gradientLight, gradientDark } = accents[index % 3]
   function applyCardGradients() {
     const dark = document.documentElement.classList.contains("dark");
     document
-      .querySelectorAll<HTMLElement>("a[data-gradient-light]:not([data-accent-override])")
+      .querySelectorAll<HTMLElement>(
+        "a[data-gradient-light]:not([data-accent-override])",
+      )
       .forEach((el) => {
         const color = dark ? el.dataset.gradientDark : el.dataset.gradientLight;
         el.style.background = `linear-gradient(to right, ${color} 0%, transparent 60%)`;

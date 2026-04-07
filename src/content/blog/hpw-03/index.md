@@ -1,6 +1,6 @@
 ---
 title: "How Propaganda Works: The Treat Of Inequality Is Not New"
-description: "Thoughts from the introduction of Jason Stanley's book \"How Propaganda Works\" on how material inequality was seen as a central source of flawed ideology as far back as the writings of Madison."
+description: 'Thoughts from the introduction of Jason Stanley''s book "How Propaganda Works" on how material inequality was seen as a central source of flawed ideology as far back as the writings of Madison.'
 date: "2024-11-13"
 draft: false
 ---

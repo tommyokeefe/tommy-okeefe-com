@@ -76,7 +76,9 @@
       if (!btn) return;
       const dark = document.documentElement.classList.contains("dark");
       const accent = getHeaderAccent();
-      btn.style.borderColor = dark ? "rgba(255,255,255,0.2)" : "rgba(0,0,0,0.15)";
+      btn.style.borderColor = dark
+        ? "rgba(255,255,255,0.2)"
+        : "rgba(0,0,0,0.15)";
       btn.style.borderBottomColor = dark ? accent.dark : accent.light;
       btn.style.background = `linear-gradient(to top, ${dark ? accent.gradientDark : accent.gradientLight} 0%, transparent 60%)`;
     }

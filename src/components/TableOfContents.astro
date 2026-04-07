@@ -31,7 +31,9 @@ function buildToc(headings: Heading[]) {
   open
   class="animate rounded-lg border border-black/15 dark:border-white/20"
 >
-  <summary data-toc-summary class="font-serif text-lg">Table of Contents</summary>
+  <summary data-toc-summary class="font-serif text-lg"
+    >Table of Contents</summary
+  >
   <nav class="">
     <ul class="py-3">
       {toc.map((heading) => <TableOfContentsHeading heading={heading} />)}
@@ -51,10 +53,14 @@ function buildToc(headings: Heading[]) {
   function applyTocAccent() {
     const dark = document.documentElement.classList.contains("dark");
     const accent = getHeaderAccent();
-    document.querySelectorAll<HTMLElement>("[data-toc-summary]").forEach((el) => {
-      el.style.backgroundColor = dark ? accent.gradientDark : accent.gradientLight;
-      el.style.borderBottom = `1px solid ${dark ? accent.dark : accent.light}`;
-    });
+    document
+      .querySelectorAll<HTMLElement>("[data-toc-summary]")
+      .forEach((el) => {
+        el.style.backgroundColor = dark
+          ? accent.gradientDark
+          : accent.gradientLight;
+        el.style.borderBottom = `1px solid ${dark ? accent.dark : accent.light}`;
+      });
   }
 
   document.addEventListener("astro:page-load", applyTocAccent);

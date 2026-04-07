@@ -11,6 +11,6 @@ chapter: "chapter-11"
 
 > At this sad point which our tale has now reached there is nothing left of the girl who was once Fantine. In becoming dirt, she has been turned to stone.
 
-Hugo's words here are arresting. Society has enslaved and destroyed young Fantine. She has been crushed between it's teeth. her warmth is gone. Ground down to dust, all that is left is stone. 
+Hugo's words here are arresting. Society has enslaved and destroyed young Fantine. She has been crushed between it's teeth. her warmth is gone. Ground down to dust, all that is left is stone.
 
-Is this the end? Is there hope for change? From Fantine's vantage point there is npt. She has abandoned it forever. Hugo however, points us elsewhere: Is there hope? Only God knows, and at this point, God alone is Fantine's only hope. 
+Is this the end? Is there hope for change? From Fantine's vantage point there is npt. She has abandoned it forever. Hugo however, points us elsewhere: Is there hope? Only God knows, and at this point, God alone is Fantine's only hope.

@@ -39,11 +39,15 @@ const { href } = Astro.props;
   function applyBackToPreviousAccent() {
     const dark = document.documentElement.classList.contains("dark");
     const accent = getHeaderAccent();
-    document.querySelectorAll<HTMLElement>("[data-back-to-previous]").forEach((el) => {
-      el.style.borderColor = dark ? "rgba(255,255,255,0.2)" : "rgba(0,0,0,0.15)";
-      el.style.borderLeftColor = dark ? accent.dark : accent.light;
-      el.style.background = `linear-gradient(to right, ${dark ? accent.gradientDark : accent.gradientLight} 0%, transparent 60%)`;
-    });
+    document
+      .querySelectorAll<HTMLElement>("[data-back-to-previous]")
+      .forEach((el) => {
+        el.style.borderColor = dark
+          ? "rgba(255,255,255,0.2)"
+          : "rgba(0,0,0,0.15)";
+        el.style.borderLeftColor = dark ? accent.dark : accent.light;
+        el.style.background = `linear-gradient(to right, ${dark ? accent.gradientDark : accent.gradientLight} 0%, transparent 60%)`;
+      });
   }
 
   document.addEventListener("astro:page-load", applyBackToPreviousAccent);

@@ -6,54 +6,54 @@ import ArrowCard from "@components/ArrowCard.astro";
 import { getAllTags, getPostsForTag, slugifyTag } from "@lib/tags";
 
 export async function getStaticPaths() {
-    const tags = await getAllTags();
-    return Promise.all(
-        tags.map(async (tag) => {
-            const posts = await getPostsForTag(tag);
-            return {
-                params: { tag: slugifyTag(tag) },
-                props: { rawTag: tag, posts },
-            };
-        })
-    );
+  const tags = await getAllTags();
+  return Promise.all(
+    tags.map(async (tag) => {
+      const posts = await getPostsForTag(tag);
+      return {
+        params: { tag: slugifyTag(tag) },
+        props: { rawTag: tag, posts },
+      };
+    }),
+  );
 }
 
 type Props = {
-    rawTag: string;
-    posts: CollectionEntry<"blog">[];
+  rawTag: string;
+  posts: CollectionEntry<"blog">[];
 };
 
 const { rawTag, posts } = Astro.props;
 ---
 
 <Layout
-    title={`Posts tagged "${rawTag}"`}
-    description={`All posts tagged with ${rawTag}`}
+  title={`Posts tagged "${rawTag}"`}
+  description={`All posts tagged with ${rawTag}`}
 >
-    <Container>
-        <aside data-pagefind-ignore>
-            <h1 class="text-3xl font-semibold text-black dark:text-white">
-                #{rawTag}
-            </h1>
-            <div class="mt-10 space-y-10">
-                <div class="space-y-4">
-                    <span class="animate">
-                        {
-                            posts.length === 0 ? (
-                                <p>No posts found for this tag.</p>
-                            ) : (
-                                <ul class="not-prose flex flex-col gap-4">
-                                    {posts.map((post, i) => (
-                                        <li>
-                                            <ArrowCard entry={post} index={i} />
-                                        </li>
-                                    ))}
-                                </ul>
-                            )
-                        }
-                    </span>
-                </div>
-            </div>
-        </aside>
-    </Container>
+  <Container>
+    <aside data-pagefind-ignore>
+      <h1 class="text-3xl font-semibold text-black dark:text-white">
+        #{rawTag}
+      </h1>
+      <div class="mt-10 space-y-10">
+        <div class="space-y-4">
+          <span class="animate">
+            {
+              posts.length === 0 ? (
+                <p>No posts found for this tag.</p>
+              ) : (
+                <ul class="not-prose flex flex-col gap-4">
+                  {posts.map((post, i) => (
+                    <li>
+                      <ArrowCard entry={post} index={i} />
+                    </li>
+                  ))}
+                </ul>
+              )
+            }
+          </span>
+        </div>
+      </div>
+    </aside>
+  </Container>
 </Layout>

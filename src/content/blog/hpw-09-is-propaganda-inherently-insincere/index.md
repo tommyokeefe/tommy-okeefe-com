@@ -1,6 +1,6 @@
 ---
 title: "How Propaganda Works: Is Propaganda Inherently Insincere? Not Always!"
-description: "Thoughts from Jason Stanley's book \"How Propaganda Works\" on refuting what Stanley calls the insincerity condition."
+description: 'Thoughts from Jason Stanley''s book "How Propaganda Works" on refuting what Stanley calls the insincerity condition.'
 date: "2024-12-01"
 draft: false
 ---

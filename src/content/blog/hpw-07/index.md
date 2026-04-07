@@ -1,6 +1,6 @@
 ---
 title: "How Propaganda Works: Is Propaganda Inherently False and Insincere?"
-description: "Thoughts from Jason Stanley's book \"How Propaganda Works\" on propaganda and it's relationship to truth and sincerity."
+description: 'Thoughts from Jason Stanley''s book "How Propaganda Works" on propaganda and it''s relationship to truth and sincerity.'
 date: "2024-11-21"
 draft: false
 ---

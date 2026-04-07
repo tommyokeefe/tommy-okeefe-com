@@ -95,13 +95,14 @@ import Search from "astro-pagefind/components/Search";
   // Sync pagefind accent colors with the header accent.
   // NOTE: is:inline prevents ES module imports; only light/dark values needed here.
   const PAGEFIND_ACCENTS = {
-    cyan:    { light: "#00FFFF", dark: "#00BFBF" },
+    cyan: { light: "#00FFFF", dark: "#00BFBF" },
     magenta: { light: "#FF00FF", dark: "#BF00BF" },
-    yellow:  { light: "#FFFF00", dark: "#BFBF00" },
+    yellow: { light: "#FFFF00", dark: "#BFBF00" },
   };
 
   function applyPagefindAccent() {
-    const name = document.querySelector("header")?.dataset.headerAccent ?? "cyan";
+    const name =
+      document.querySelector("header")?.dataset.headerAccent ?? "cyan";
     const accent = PAGEFIND_ACCENTS[name] ?? PAGEFIND_ACCENTS.cyan;
     const dark = document.documentElement.classList.contains("dark");
     const color = dark ? accent.dark : accent.light;
@@ -124,13 +125,17 @@ import Search from "astro-pagefind/components/Search";
 
   // Watch for dark mode changes
   const themeObserver = new MutationObserver(applyPagefindAccent);
-  themeObserver.observe(document.documentElement, { attributeFilter: ["class"] });
+  themeObserver.observe(document.documentElement, {
+    attributeFilter: ["class"],
+  });
 
   // Watch for navigation (header accent changes since header is transition:persist)
   const headerEl = document.querySelector("header");
   if (headerEl) {
     const headerObserver = new MutationObserver(applyPagefindAccent);
-    headerObserver.observe(headerEl, { attributeFilter: ["data-header-accent"] });
+    headerObserver.observe(headerEl, {
+      attributeFilter: ["data-header-accent"],
+    });
   }
 </script>
 

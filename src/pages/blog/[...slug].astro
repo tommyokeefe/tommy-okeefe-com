@@ -13,7 +13,7 @@ import BlueskyCommentsSection from "@components/BlueskyComments";
 
 export async function getStaticPaths() {
   const posts = (await getCollection("blog"))
-    .filter((post) => import.meta.env.PROD ? !post.data.draft : true)
+    .filter((post) => (import.meta.env.PROD ? !post.data.draft : true))
     .sort((a, b) => b.data.date.valueOf() - a.data.date.valueOf());
   return posts.map((post, index) => ({
     params: { slug: post.slug },
@@ -42,7 +42,9 @@ const { Content, headings } = await post.render();
 >
   <Container>
     <div class="animate">
-      <BackToPrevious href={seriesEntry ? `/series/${seriesEntry.slug}` : "/blog"}>
+      <BackToPrevious
+        href={seriesEntry ? `/series/${seriesEntry.slug}` : "/blog"}
+      >
         {seriesEntry ? `Back to ${seriesEntry.data.title}` : "Back to blog"}
       </BackToPrevious>
     </div>
@@ -65,7 +67,7 @@ const { Content, headings } = await post.render();
             {post.data.tags.map((tag) => (
               <a
                 data-tag-pill
-                class="rounded-full px-2 py-0.5 text-xs uppercase font-semibold"
+                class="rounded-full px-2 py-0.5 text-xs font-semibold uppercase"
                 href={`/tags/${slugifyTag(tag)}`}
               >
                 {tag}
@@ -128,24 +130,30 @@ const { Content, headings } = await post.render();
     const dark = document.documentElement.classList.contains("dark");
     const accent = getHeaderAccent();
     const bg = dark ? accent.dark : accent.light;
-    document.querySelectorAll<HTMLElement>("[data-tags]").forEach((container) => {
-      container.querySelectorAll<HTMLElement>("[data-tag-pill]").forEach((pill) => {
-        pill.style.backgroundColor = bg;
-        pill.style.color = "black";
+    document
+      .querySelectorAll<HTMLElement>("[data-tags]")
+      .forEach((container) => {
+        container
+          .querySelectorAll<HTMLElement>("[data-tag-pill]")
+          .forEach((pill) => {
+            pill.style.backgroundColor = bg;
+            pill.style.color = "black";
+          });
       });
-    });
   }
 
   function applyBlockquoteAccents() {
     const dark = document.documentElement.classList.contains("dark");
     const accent = getHeaderAccent();
     const color = dark ? accent.dark : accent.light;
-    document.querySelectorAll<HTMLElement>("article blockquote").forEach((el) => {
-      el.style.borderLeftColor = color;
-      el.style.background = dark
-        ? `linear-gradient(to right, ${color}22, transparent)`
-        : `linear-gradient(to right, ${color}55, transparent)`;
-    });
+    document
+      .querySelectorAll<HTMLElement>("article blockquote")
+      .forEach((el) => {
+        el.style.borderLeftColor = color;
+        el.style.background = dark
+          ? `linear-gradient(to right, ${color}22, transparent)`
+          : `linear-gradient(to right, ${color}55, transparent)`;
+      });
   }
 
   function applySeriesCardAccent() {
@@ -153,14 +161,16 @@ const { Content, headings } = await post.render();
     const accent = getHeaderAccent();
     const color = dark ? accent.dark : accent.light;
     const gradientColor = dark
-      ? `${accent.dark}47`   // ~28% opacity (0x47)
+      ? `${accent.dark}47` // ~28% opacity (0x47)
       : `${accent.light}2E`; // ~18% opacity (0x2E)
-    document.querySelectorAll<HTMLElement>("[data-series-card] a").forEach((el) => {
-      // Mark the element so ArrowCard's generic gradient sweep skips it
-      el.dataset.accentOverride = "true";
-      el.style.borderLeftColor = color;
-      el.style.background = `linear-gradient(to right, ${gradientColor} 0%, transparent 60%)`;
-    });
+    document
+      .querySelectorAll<HTMLElement>("[data-series-card] a")
+      .forEach((el) => {
+        // Mark the element so ArrowCard's generic gradient sweep skips it
+        el.dataset.accentOverride = "true";
+        el.style.borderLeftColor = color;
+        el.style.background = `linear-gradient(to right, ${gradientColor} 0%, transparent 60%)`;
+      });
   }
 
   function applyAccents() {

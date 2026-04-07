@@ -1,10 +1,9 @@
 ---
 title: "How Propaganda Works: Plato, Democracy, & Managerial Societies"
-description: "Thoughts from the introduction of Jason Stanley's book \"How Propaganda Works\" on Plato's views of democracy and how that correlates with some of what we see today."
+description: 'Thoughts from the introduction of Jason Stanley''s book "How Propaganda Works" on Plato''s views of democracy and how that correlates with some of what we see today.'
 date: "2024-11-14"
 draft: false
 ---
-
 
 Thoughts on Plato, Democracy, & Managerial Societies from Jason Stanley’s book “How Propaganda Works”.
 

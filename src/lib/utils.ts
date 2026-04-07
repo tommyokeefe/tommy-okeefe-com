@@ -26,7 +26,7 @@ export function slugify(text: string) {
     .toString()
     .trim()
     .toLowerCase()
-    .replace(/\s+/g, '-') // replace spaces with -
-    .replace(/[^a-z0-9\-]/g, '') // remove non-alphanumeric
-    .replace(/\-+/g, '-'); // collapse multiple hyphens
+    .replace(/\s+/g, "-") // replace spaces with -
+    .replace(/[^a-z0-9\-]/g, "") // remove non-alphanumeric
+    .replace(/\-+/g, "-"); // collapse multiple hyphens
 }

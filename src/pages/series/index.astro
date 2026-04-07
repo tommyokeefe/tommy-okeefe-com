@@ -10,60 +10,59 @@ const allPosts = await getCollection("blog");
 // Build a map of series slug → most recent post date
 const latestPostDate = new Map<string, number>();
 for (const post of allPosts) {
-    if (!post.data.series) continue;
-    const slug = post.data.series.slug;
-    const date = post.data.date.valueOf();
-    if (!latestPostDate.has(slug) || date > latestPostDate.get(slug)!) {
-        latestPostDate.set(slug, date);
-    }
+  if (!post.data.series) continue;
+  const slug = post.data.series.slug;
+  const date = post.data.date.valueOf();
+  if (!latestPostDate.has(slug) || date > latestPostDate.get(slug)!) {
+    latestPostDate.set(slug, date);
+  }
 }
 
 const data = (await getCollection("series"))
-    .filter((series) => series.data.active)
-    .sort((a, b) => {
-        const aDate = latestPostDate.get(a.slug) ?? 0;
-        const bDate = latestPostDate.get(b.slug) ?? 0;
-        return bDate - aDate; // most recently active first
-    });
+  .filter((series) => series.data.active)
+  .sort((a, b) => {
+    const aDate = latestPostDate.get(a.slug) ?? 0;
+    const bDate = latestPostDate.get(b.slug) ?? 0;
+    return bDate - aDate; // most recently active first
+  });
 ---
 
 <Layout title={SERIES.TITLE} description={SERIES.DESCRIPTION}>
-    <Container>
-        <aside data-pagefind-ignore>
-            <h1 class="text-3xl font-semibold text-black dark:text-white">
-                Active Series
-            </h1>
-            <div class="space-y-16">
-                <section>
-                    <article class="space-y-4">
-                        <span class="animate">
-                            <p>
-                                Not everything I post on my blog is a part of a
-                                series, but for the things that are this is the
-                                easiest way to find specific content you may be
-                                looking for.
-                            </p>
-                        </span>
-                    </article>
-                </section>
+  <Container>
+    <aside data-pagefind-ignore>
+      <h1 class="text-3xl font-semibold text-black dark:text-white">
+        Active Series
+      </h1>
+      <div class="space-y-16">
+        <section>
+          <article class="space-y-4">
+            <span class="animate">
+              <p>
+                Not everything I post on my blog is a part of a series, but for
+                the things that are this is the easiest way to find specific
+                content you may be looking for.
+              </p>
+            </span>
+          </article>
+        </section>
+      </div>
+      <div class="space-y-10">
+        <div class="space-y-4">
+          <section class="animate space-y-4">
+            <div>
+              <ul class="not-prose flex flex-col gap-4">
+                {
+                  data.map((series, i) => (
+                    <li>
+                      <ArrowCard entry={series} index={i} />
+                    </li>
+                  ))
+                }
+              </ul>
             </div>
-            <div class="space-y-10">
-                <div class="space-y-4">
-                    <section class="animate space-y-4">
-                        <div>
-                            <ul class="not-prose flex flex-col gap-4">
-                                {
-                                    data.map((series, i) => (
-                                        <li>
-                                            <ArrowCard entry={series} index={i} />
-                                        </li>
-                                    ))
-                                }
-                            </ul>
-                        </div>
-                    </section>
-                </div>
-            </div>
-        </aside>
-    </Container>
+          </section>
+        </div>
+      </div>
+    </aside>
+  </Container>
 </Layout>

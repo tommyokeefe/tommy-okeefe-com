@@ -1,6 +1,6 @@
 ---
 title: "How Propaganda Works: Inequality, Flawed Ideology, & Propaganda"
-description: "Thoughts from the introduction of Jason Stanley's book \"How Propaganda Works\" on how inequalites in a democracy lead to flawed ideologies & those provide a fertile ground for the production and proliferation of propoganda."
+description: 'Thoughts from the introduction of Jason Stanley''s book "How Propaganda Works" on how inequalites in a democracy lead to flawed ideologies & those provide a fertile ground for the production and proliferation of propoganda.'
 date: "2024-11-11"
 draft: false
 ---
