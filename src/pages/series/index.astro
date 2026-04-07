@@ -5,9 +5,26 @@ import Container from "@components/Container.astro";
 import ArrowCard from "@components/ArrowCard.astro";
 import { SERIES } from "@consts";
 
-const data = (await getCollection("series")).filter(
-    (series) => series.data.active,
-);
+const allPosts = await getCollection("blog");
+
+// Build a map of series slug → most recent post date
+const latestPostDate = new Map<string, number>();
+for (const post of allPosts) {
+    if (!post.data.series) continue;
+    const slug = post.data.series.slug;
+    const date = post.data.date.valueOf();
+    if (!latestPostDate.has(slug) || date > latestPostDate.get(slug)!) {
+        latestPostDate.set(slug, date);
+    }
+}
+
+const data = (await getCollection("series"))
+    .filter((series) => series.data.active)
+    .sort((a, b) => {
+        const aDate = latestPostDate.get(a.slug) ?? 0;
+        const bDate = latestPostDate.get(b.slug) ?? 0;
+        return bDate - aDate; // most recently active first
+    });
 ---
 
 <Layout title={SERIES.TITLE} description={SERIES.DESCRIPTION}>
