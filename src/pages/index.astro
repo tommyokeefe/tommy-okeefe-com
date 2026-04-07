@@ -54,6 +54,11 @@ const topAlbum = await getTopAlbum();
           </section>
         </div>
 
+        <!-- Album of the Week: mobile only (desktop version lives in the sidebar) -->
+        <div class="lg:hidden">
+          <NowListening album={topAlbum} />
+        </div>
+
         <section class="animate space-y-6">
           <div
             data-accent-pill
@@ -132,10 +137,10 @@ const topAlbum = await getTopAlbum();
         </section>
       </div>
 
-      <!-- Sidebar column (stacks below on mobile, right column on desktop) -->
+      <!-- Sidebar column (desktop only — mobile version is inline above) -->
       <aside
         data-pagefind-ignore
-        class="mt-10 space-y-6 lg:mt-0 lg:border-l lg:border-black/10 lg:pl-8 lg:pt-[3.25rem] lg:dark:border-white/10"
+        class="hidden lg:block lg:border-l lg:border-black/10 lg:pl-8 lg:pt-[3.25rem] lg:dark:border-white/10"
       >
         <!-- Album of the Week widget -->
         <NowListening album={topAlbum} />
