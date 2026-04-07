@@ -24,6 +24,9 @@ jobs:
         env:
           HUSKY: "0"
 
+      - name: Check formatting
+        run: npm run format:check
+
       - name: Build site
         run: npm run build
 
