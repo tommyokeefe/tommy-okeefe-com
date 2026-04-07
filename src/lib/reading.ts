@@ -30,7 +30,8 @@ async function fetchOpenLibraryData(
   const empty = { coverUrl: null, openLibraryUrl: null };
 
   try {
-    // If ISBN is provided, use it directly for covers (more reliable, no search needed)
+    // Note: Open Library Covers returns a 1×1 blank GIF (not 404) for unknown ISBNs,
+    // so coverUrl will be non-null even when no cover exists.
     const isbnCoverUrl = isbn
       ? `https://covers.openlibrary.org/b/isbn/${isbn}-L.jpg`
       : null;
@@ -54,14 +55,15 @@ async function fetchOpenLibraryData(
       (coverId ? `https://covers.openlibrary.org/b/id/${coverId}-L.jpg` : null);
 
     return { coverUrl, openLibraryUrl };
-  } catch {
+  } catch (err) {
+    console.error("[reading] Failed to fetch Open Library data:", err);
     return empty;
   }
 }
 
 async function _fetchCurrentBook(): Promise<CurrentBook> {
   const { title, author, rating, tags, storygraph } = bookData;
-  const isbn = "isbn" in bookData ? (bookData.isbn as string) : null;
+  const isbn = bookData.isbn ?? null;
 
   const { coverUrl, openLibraryUrl } = await fetchOpenLibraryData(
     title,
