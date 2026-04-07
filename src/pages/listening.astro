@@ -98,10 +98,7 @@ const album = await getTopAlbum();
                   {album.streaming.listen.length === 0 &&
                     album.streaming.buy.length === 0 &&
                     !album.streaming.odesliUrl && (
-                      <Link
-                        href={`https://bandcamp.com/search?q=${encodeURIComponent(`${album.artist} ${album.name}`)}`}
-                        external
-                      >
+                      <Link href={album.streaming.bandcampFallbackUrl} external>
                         Search on Bandcamp
                       </Link>
                     )}

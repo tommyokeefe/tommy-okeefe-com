@@ -4,6 +4,7 @@ export type StreamingLinks = {
   listen: StreamingLink[];
   buy: StreamingLink[];
   odesliUrl: string | null;
+  bandcampFallbackUrl: string;
 };
 
 export type LastFmAlbum = {
@@ -49,8 +50,14 @@ const BUY_PLATFORMS: { key: string; name: string }[] = [
 
 async function fetchOdesliLinks(
   appleMusicUrl: string,
+  bandcampFallbackUrl: string,
 ): Promise<StreamingLinks> {
-  const empty: StreamingLinks = { listen: [], buy: [], odesliUrl: null };
+  const empty: StreamingLinks = {
+    listen: [],
+    buy: [],
+    odesliUrl: null,
+    bandcampFallbackUrl,
+  };
   try {
     const res = await fetch(
       `https://api.song.link/v1-alpha.1/links?url=${encodeURIComponent(appleMusicUrl)}&userCountry=US`,
@@ -68,7 +75,7 @@ async function fetchOdesliLinks(
       byPlatform[key]?.url ? [{ name, url: byPlatform[key].url }] : [],
     );
 
-    return { listen, buy, odesliUrl };
+    return { listen, buy, odesliUrl, bandcampFallbackUrl };
   } catch {
     return empty;
   }
@@ -113,11 +120,17 @@ async function _fetchTopAlbum(): Promise<LastFmAlbum | null> {
     const name: string = album.name ?? "";
     const chartUrl = `https://www.last.fm/user/${username}/library/albums?date_preset=LAST_7_DAYS`;
 
+    const bandcampFallbackUrl = `https://bandcamp.com/search?q=${encodeURIComponent(`${artist} ${name}`)}`;
     const streaming = await fetchAppleMusicUrl(artist, name).then(
       (appleMusicUrl) =>
         appleMusicUrl
-          ? fetchOdesliLinks(appleMusicUrl)
-          : { listen: [], buy: [], odesliUrl: null },
+          ? fetchOdesliLinks(appleMusicUrl, bandcampFallbackUrl)
+          : {
+              listen: [],
+              buy: [],
+              odesliUrl: null,
+              bandcampFallbackUrl,
+            },
     );
 
     return {
