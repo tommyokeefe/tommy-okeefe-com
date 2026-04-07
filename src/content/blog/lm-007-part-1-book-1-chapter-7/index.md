@@ -7,7 +7,7 @@ series: "les-miserables"
 part: "part-1"
 book: "book-1"
 chapter: "chapter-7"
-Tags:
+tags:
   - faith
   - simplicity
 ---

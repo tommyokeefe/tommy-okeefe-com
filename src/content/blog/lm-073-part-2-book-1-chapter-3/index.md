@@ -11,7 +11,7 @@ tags:
   - weather
   - fate
   - destiny
-  - Napoleon
+  - napoleon
 ---
 
 Hugo writes a bit about the role that weather played in the battle of Waterloo and how it unfolded. In this case, very specifically, he focuses on the fact that it rained, and as a result the cannons that Napoleon's strategy were so dependent on could not be deployed until mid-morning, which meant that rather than the battle beginning around 6 am, hours before the allies of the opposing forces could arrive, it actually started around 11 am, giving the allies of Napoleon's enemies plenty of time to reinforce and brace for the attack.
