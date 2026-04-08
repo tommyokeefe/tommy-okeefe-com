@@ -1,16 +1,15 @@
 describe("Most Recent Read", () => {
   describe("Homepage widget", () => {
     beforeEach(() => {
+      cy.viewport("macbook-15");
       cy.visit("/");
     });
 
     it("displays the 'Most Recent Read' widget header on desktop sidebar", () => {
-      cy.viewport("macbook-15");
       cy.get("aside").contains("h2", "Most Recent Read").should("be.visible");
     });
 
     it("displays a book cover with correct aspect ratio in the widget", () => {
-      cy.viewport("macbook-15");
       // Verify the widget card contains an image
       cy.get("aside").find("a[href='/reading']").should("be.visible");
       cy.get("aside")
@@ -21,27 +20,24 @@ describe("Most Recent Read", () => {
     });
 
     it("displays book title and author in the widget", () => {
-      cy.viewport("macbook-15");
       cy.get("aside")
         .find("a[href='/reading']")
-        .find("h2, div") // More flexible selector for text content
-        .should("have.length.greaterThan", 0); // At least some content
-      cy.get("aside").find("a[href='/reading']").should("contain.text", " "); // Has some text (title and author)
+        .find("h2, div")
+        .should("have.length.greaterThan", 0);
+      cy.get("aside").find("a[href='/reading']").should("contain.text", " ");
     });
 
     it("links to the /reading detail page", () => {
-      cy.viewport("macbook-15");
       cy.get("aside").find("a[href='/reading']").should("exist");
     });
 
     it("displays the widget inline on mobile", () => {
-      cy.viewport("iphone-x");
+      cy.viewport("iphone-x"); // Override to mobile for this test only
       cy.contains("h2", "Most Recent Read").should("be.visible");
     });
 
     it("has spacing between widgets on desktop", () => {
-      cy.viewport("macbook-15");
-      cy.get("aside").find("[class*='pb-']").should("exist"); // Some padding class
+      cy.get("aside").find("[class*='pb-']").should("exist");
     });
   });
 
@@ -132,9 +128,11 @@ describe("Most Recent Read", () => {
 
     it("external links have proper rel attributes for security", () => {
       cy.visit("/reading");
-      cy.contains("a", "View on Open Library")
-        .should("have.attr", "rel")
-        .and("include", "noopener");
+      cy.contains("a", "View on Open Library").should(
+        "have.attr",
+        "rel",
+        "noopener noreferrer",
+      );
     });
   });
 
@@ -161,9 +159,9 @@ describe("Most Recent Read", () => {
 
     it("renders exactly 5 star icons", () => {
       // The rating display should always have 5 stars (full, half, or empty)
-      // Look for the SVG container with the aria-label that indicates stars
+      // Uses data-star-rating sentinel attribute as a stable Cypress hook
       cy.get("main")
-        .find("[aria-label*='star'], [aria-label*='rating']")
+        .find("[data-star-rating]")
         .find("svg")
         .should("have.length", 5);
     });
