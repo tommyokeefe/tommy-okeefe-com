@@ -2,6 +2,7 @@
 import { getTagsWithCounts, slugifyTag } from "@lib/tags";
 import Layout from "@layouts/Layout.astro";
 import Container from "@components/Container.astro";
+import BackToPrevious from "@components/BackToPrevious.astro";
 
 const tagsWithCounts = await getTagsWithCounts();
 
@@ -22,9 +23,12 @@ function fontSize(count: number): string {
 <Layout title="Tags" description="Browse posts by tag">
   <Container>
     <aside data-pagefind-ignore>
-      <h1 class="mb-10 text-3xl font-semibold text-black dark:text-white">
-        Tags
-      </h1>
+      <div class="animate">
+        <BackToPrevious href="/">Back to Home</BackToPrevious>
+      </div>
+      <div class="my-10">
+        <h1 class="text-3xl font-semibold text-black dark:text-white">Tags</h1>
+      </div>
       {
         tagsWithCounts.length === 0 ? (
           <p>No tags have been added yet.</p>

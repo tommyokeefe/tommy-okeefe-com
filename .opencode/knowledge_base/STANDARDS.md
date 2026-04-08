@@ -53,14 +53,35 @@
 ## Astro Runtime Accent Theming (Site-Specific)
 
 - **Source of truth:** The page's active accent color is always read from `document.querySelector("header")?.dataset.headerAccent` — never hardcoded or assumed.
+- **Session-persistent design:** Accents are rolled once when the page first loads and persist unchanged for the entire user session. This is intentional:
+  - `<header>` uses `transition:persist`, so it stays in the DOM across all View Transitions client-side navigations.
+  - `data-header-accent` is set once on initial load and **never updated** during navigation.
+  - All components read the same persistent value via `getHeaderAccent()`, ensuring visual consistency throughout the session.
+  - New tabs or page refresh will generate a fresh random accent for that session only.
+  - **Implication:** Components should **not** expect accent changes during navigation. Defensive MutationObservers watching `data-header-accent` will never fire in normal operation — they are acceptable as safe scaffolding but should not be required. If you ever want accents to re-roll per page, the only change needed would be in `Header.astro` — all consuming components would automatically work without modification.
 - **Canonical module:** All runtime accent data lives in `src/lib/accents.ts` — the `Accent` type, the `ACCENTS` Record, and the `getHeaderAccent()` helper. Import from `@lib/accents` in any standard `<script>` block. Do **not** re-declare inline.
 - **`is:inline` exception:** Astro `<script is:inline>` blocks cannot use ES module imports (`@lib/accents` will be unavailable). Components that require `is:inline` (e.g., `PageFind.astro`, which must access the DOM before Astro's module graph resolves) must declare a minimal local accent table — only the fields they actually need (e.g., `{ light, dark }` without gradient values). Document the constraint with a `// NOTE: is:inline prevents ES module imports` comment. This is an accepted, narrow exception — not a general pattern.
 - **SSR build-time exception:** Components that select an accent at build time via Tailwind class names (e.g., `ArrowCard.astro` using `index % 3` to pick a CSS class) cannot use `getHeaderAccent()` because the DOM does not exist during SSR. These components may maintain a local accent array scoped to the Astro frontmatter (`---` block) for build-time class selection only. The gradient `rgba` values in such arrays will duplicate `ACCENTS` — this is accepted, known debt. Runtime gradient application (post-hydration) must still read from the canonical source.
 - **Standard script structure:** Every accent-aware component `<script>` follows this shape: `apply*Accent()` function → `document.addEventListener("astro:page-load", ...)` → `new MutationObserver(...)` watching `document.documentElement` with `attributeFilter: ["class"]`.
-- **Dual-observer requirement for `transition:persist` components:** Any component that (a) applies a runtime accent AND (b) is inside a `transition:persist` element (or is itself `transition:persist`) requires a **second** MutationObserver watching `document.querySelector("header")` with `attributeFilter: ["data-header-accent"]`. Reason: `connectedCallback` (for Custom Elements) or `astro:page-load` fires during the View Transition swap, before `Header.astro` has re-rolled `data-header-accent` for the new page. Without the second observer, the accent reads the *previous* page's value. Both `PageFind.astro` and `BackToTop.astro` use this dual-observer shape.
+- **Dual-observer requirement for `transition:persist` components (legacy pattern):** This pattern exists for historical reasons. Do NOT add new dual-observers watching `data-header-accent`. The accent persistence design makes these unnecessary in normal operation. If you encounter a `transition:persist` component with a defensive second observer watching `data-header-accent`, leave it in place for robustness (no harm) but document it with a note: "Accents persist for the session; this observer won't fire during normal navigation but is defensive and safe to keep."
 - **Sentinel attributes:** Use `data-*` attributes on wrapper elements (e.g., `data-series-card`, `data-post-nav`) to scope querySelector calls to the correct elements. Prefer sentinel attributes over relying on structural CSS selectors.
 - **Third-party component guard:** When a wrapper applies a runtime accent to an element that a child component also styles (e.g., `ArrowCard`'s `applyCardGradients`), stamp `data-accent-override="true"` on the element from the wrapper's script and guard the child's selector with `:not([data-accent-override])` to prevent style conflicts.
 - **Dark mode values:** Light mode uses full-saturation hex (`#00FFFF`, `#FF00FF`, `#FFFF00`); dark mode uses 75%-brightness hex (`#00BFBF`, `#BF00BF`, `#BFBF00`). Gradient opacity: ~18% light (`rgba(...,0.18)` or `2E` hex alpha), ~28% dark (`rgba(...,0.28)` or `47` hex alpha).
+
+## Cypress Testing — Navigation Links & "Back To" Patterns (Site-Specific)
+
+- **When to write navigation link tests:** Any new "back to" or collection-to-detail navigation link must be accompanied by Cypress tests verifying:
+  1. The link element exists and is accessible (via `data-back-to-previous` sentinel or href target).
+  2. The link text is correct and visible.
+  3. Clicking the link navigates to the intended destination.
+  4. Page state is preserved across the View Transition (e.g., `.animate` elements have `.show` class, showing init() re-ran).
+- **Test structure for collection → detail → collection round-trips:** Add a dedicated describe block within the collection or detail page spec. Include:
+  - Positive navigation (e.g., "has 'Back to Tags' link")
+  - Link visibility (e.g., "displays 'Back to Tags' text")
+  - Navigation behavior (e.g., "navigates to tags when 'Back to Tags' link is clicked")
+  - View Transition state (e.g., "preserves page state during view transition from tag detail to tags")
+- **Sentinel attribute for "back to" links:** Always use `data-back-to-previous` as the selector hook for back navigation links (e.g., `cy.get("a[data-back-to-previous][href='/tags']")`). This matches the sentinel used in component scripts and ensures tests are resilient to markup changes.
+- **Round-trip tests (optional but recommended):** Add a separate describe block testing multi-leg navigation paths (e.g., "allows round-trip navigation: tags → tag detail → tags"). These catch breakage in entire user workflows, not just individual links.
 
 ## Cypress Testing — General Conventions (Site-Specific)
 

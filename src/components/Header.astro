@@ -12,6 +12,12 @@ const allSeries = (await getCollection("series"))
   .sort((a, b) => a.data.title.localeCompare(b.data.title));
 ---
 
+<!-- 
+  transition:persist keeps the header in the DOM across view transitions.
+  The accent is rolled once on initial load and persists for the entire session.
+  This intentional design means accent colors remain consistent as the user navigates,
+  only changing on page refresh or new tab. All components read via getHeaderAccent().
+-->
 <header transition:persist data-header-accent={accent}>
   <Container>
     <div class="flex items-center justify-between gap-4">

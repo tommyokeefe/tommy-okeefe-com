@@ -32,7 +32,6 @@
 
   class BackToTopButton extends HTMLElement {
     private observer: MutationObserver | null = null;
-    private headerObserver: MutationObserver | null = null;
 
     connectedCallback() {
       const btn = this.querySelector("button");
@@ -50,25 +49,11 @@
       this.observer.observe(document.documentElement, {
         attributeFilter: ["class"],
       });
-
-      // Re-apply when the header accent re-rolls after a View Transition.
-      // <header> is transition:persist, so it stays in the DOM across navigations;
-      // connectedCallback fires mid-swap before Header.astro re-rolls data-header-accent,
-      // so we must watch the attribute to catch the updated value.
-      const headerEl = document.querySelector("header");
-      if (headerEl) {
-        this.headerObserver = new MutationObserver(() => this.applyAccent());
-        this.headerObserver.observe(headerEl, {
-          attributeFilter: ["data-header-accent"],
-        });
-      }
     }
 
     disconnectedCallback() {
       this.observer?.disconnect();
       this.observer = null;
-      this.headerObserver?.disconnect();
-      this.headerObserver = null;
     }
 
     applyAccent() {

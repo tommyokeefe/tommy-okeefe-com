@@ -1,12 +1,18 @@
 /**
  * Canonical accent color definitions for the site's runtime theming system.
  *
+ * DESIGN: Accents persist for the entire session and do not re-roll on navigation.
+ * This is intentional: <header> uses transition:persist, so it stays in the DOM
+ * across view transitions. The data-header-accent attribute is set once on initial
+ * page load and remains unchanged throughout the user's session. New tabs/refresh
+ * will generate a new random accent.
+ *
  * Each accent has:
  *   - light / dark:                 solid hex colors for borders, text, icons
  *   - gradientLight / gradientDark: rgba values for background gradient fills (~18% / ~28% opacity)
  *
  * The active accent name is stored on <header data-header-accent="..."> and
- * re-rolled on each astro:after-swap by Header.astro.
+ * is NOT re-rolled during view transitions (by design).
  */
 
 export type Accent = {

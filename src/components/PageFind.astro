@@ -129,7 +129,10 @@ import Search from "astro-pagefind/components/Search";
     attributeFilter: ["class"],
   });
 
-  // Watch for navigation (header accent changes since header is transition:persist)
+  // Watch for accent changes (header is transition:persist).
+  // NOTE: In normal operation, accents persist for the session and never change.
+  // This observer is defensive and won't fire during standard navigation, but it
+  // ensures PageFind stays synced if the accent attribute were to change.
   const headerEl = document.querySelector("header");
   if (headerEl) {
     const headerObserver = new MutationObserver(applyPagefindAccent);
