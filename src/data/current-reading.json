@@ -1,21 +1,16 @@
 {
-  "title": "Neuromancer",
-  "author": "William Gibson",
-  "isbn": "9781101146460",
-  "rating": 4.5,
+  "title": "Technofeudalism: What Killed Capitalism",
+  "author": "Yanis Varoufakis",
+  "isbn": "9781529926095",
+  "coverUrl": "https://images2.penguinrandomhouse.com/cover/9781685891244",
+  "rating": 5,
   "tags": [
-    "adventurous",
-    "challenging",
-    "dark",
-    "mysterious",
-    "tense",
-    "fast-paced"
-  ],
-  "storygraph": {
-    "plotOrCharacterDriven": "Plot",
-    "strongCharacterDevelopment": "Complicated",
-    "loveableCharacters": "Complicated",
-    "diverseCast": "Yes",
-    "flawsAMainFocus": "Complicated"
-  }
+    "nonfiction",
+    "business",
+    "economics",
+    "politics",
+    "informative",
+    "reflective",
+    "medium-paced"
+  ]
 }

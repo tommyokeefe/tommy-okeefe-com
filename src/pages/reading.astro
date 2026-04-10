@@ -15,10 +15,12 @@ const storyGraphLabels: Record<string, string> = {
   flawsAMainFocus: "Flaws of Characters a Main Focus",
 };
 
-const storyGraphEntries = Object.entries(book.storygraph) as [
-  keyof typeof book.storygraph,
-  string,
-][];
+const storyGraphEntries = book.storygraph
+  ? (Object.entries(book.storygraph) as [
+      keyof typeof book.storygraph,
+      string,
+    ][])
+  : [];
 
 type StarType = "full" | "half" | "empty";
 const stars: StarType[] = Array.from({ length: 5 }, (_, i) => {
@@ -134,32 +136,32 @@ const stars: StarType[] = Array.from({ length: 5 }, (_, i) => {
         </div>
 
         <!-- StoryGraph metadata -->
-        <div
-          class="rounded-lg border border-black/10 bg-black/[0.02] p-4 dark:border-white/10 dark:bg-white/[0.02]"
-        >
-          <p
-            class="mb-3 text-xs font-semibold uppercase tracking-wider text-black/40 dark:text-white/40"
-          >
-            <Link
-              href="https://app.thestorygraph.com/profile/tommyokeefe"
-              external>StoryGraph Metadata</Link
-            >
-          </p>
-          <dl class="space-y-1.5">
-            {
-              storyGraphEntries.map(([key, value]) => (
-                <div class="flex flex-wrap items-baseline justify-between gap-x-4 gap-y-0.5 text-sm">
-                  <dt class="text-black/60 dark:text-white/60">
-                    {storyGraphLabels[key]}
-                  </dt>
-                  <dd class="font-medium text-black dark:text-white">
-                    {value}
-                  </dd>
-                </div>
-              ))
-            }
-          </dl>
-        </div>
+        {
+          book.storygraph && (
+            <div class="rounded-lg border border-black/10 bg-black/[0.02] p-4 dark:border-white/10 dark:bg-white/[0.02]">
+              <p class="mb-3 text-xs font-semibold uppercase tracking-wider text-black/40 dark:text-white/40">
+                <Link
+                  href="https://app.thestorygraph.com/profile/tommyokeefe"
+                  external
+                >
+                  StoryGraph Metadata
+                </Link>
+              </p>
+              <dl class="space-y-1.5">
+                {storyGraphEntries.map(([key, value]) => (
+                  <div class="flex flex-wrap items-baseline justify-between gap-x-4 gap-y-0.5 text-sm">
+                    <dt class="text-black/60 dark:text-white/60">
+                      {storyGraphLabels[key]}
+                    </dt>
+                    <dd class="font-medium text-black dark:text-white">
+                      {value}
+                    </dd>
+                  </div>
+                ))}
+              </dl>
+            </div>
+          )
+        }
       </div>
     </div>
   </Container>
