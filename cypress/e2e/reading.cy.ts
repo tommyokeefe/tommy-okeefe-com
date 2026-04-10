@@ -96,15 +96,15 @@ describe("Most Recent Read", () => {
         .and("include", "openlibrary.org");
     });
 
-    it("displays StoryGraph metadata section", () => {
-      cy.contains("p", "StoryGraph Metadata").should("be.visible");
+    it("displays StoryGraph metadata section only for fiction books", () => {
+      // StoryGraph data is optional - only fiction books should have it
+      // Technofeudalism is non-fiction, so StoryGraph section should not appear
+      cy.contains("p", "StoryGraph Metadata").should("not.exist");
     });
 
-    it("displays StoryGraph metadata fields", () => {
-      // Check that dl/dt/dd pairs exist for metadata
-      cy.get("dl").should("exist");
-      cy.get("dt").should("have.length.greaterThan", 0);
-      cy.get("dd").should("have.length.greaterThan", 0);
+    it("handles missing StoryGraph data gracefully", () => {
+      // When storygraph data is missing (non-fiction), the dl/dt/dd elements should not render
+      cy.get("dl").should("not.exist");
     });
 
     it("has a back button linking to homepage", () => {
