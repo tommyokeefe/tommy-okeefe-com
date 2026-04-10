@@ -6,6 +6,47 @@ This file tracks the "Institutional Memory" of the Evolution Loop framework. It 
 
 ---
 
+### Journey: 2026-04-10 — Update "Most Recent Read" Widget + Add Custom Cover URL Support
+
+**Goal:** Update the most recent read widget on homepage to display "Technofeudalism: What Killed Capitalism" by Yanis Varoufakis with a custom cover image. Add support for custom cover URLs in the reading system to handle non-fiction books gracefully.
+
+**Commits:** `5d26b20` (feature), `ef2febb` (fix)
+
+**Steps:**
+
+1. Located `src/data/current-reading.json` powering the reading widget
+2. Updated book metadata: Neuromancer → Technofeudalism (Varoufakis), ISBN 9781529926095, rating 5/5, nonfiction tags
+3. **Issue:** Removed `storygraph` field (non-fiction books don't have it) → caused TypeError at runtime
+4. **Fix:** Made `storygraph` optional in `CurrentBook` type definition (`src/lib/reading.ts`)
+5. Added conditional rendering for StoryGraph section in `src/pages/reading.astro` (only shows if data exists)
+6. **Feature:** Added `coverUrl` field to JSON structure for custom cover images
+7. Updated `_fetchCurrentBook()` to prioritize custom `coverUrl` if provided
+8. Improved cover detection logic:
+   - Validates ISBN cover via HEAD request (checks file size to avoid blank GIFs)
+   - Falls back to Open Library `cover_i` if ISBN lookup fails
+   - Gracefully returns `null` if no covers found
+9. Set custom cover URL to Penguin Random House image: `https://images2.penguinrandomhouse.com/cover/9781685891244`
+10. **TypeScript Issues:** Destructuring `storygraph` from JSON that doesn't have the field → compilation error
+11. **Fix:** Safely extracted optional `storygraph` using type coercion; explicitly typed `coverUrl` variable for proper narrowing
+12. Verified `astro check` passes with zero type errors
+
+**Audit Result:** @REFLECTOR — Pass (after TypeScript fixes in `ef2febb`)
+
+**Quality Metrics:**
+- TypeScript errors: 0 (before: 2)
+- Code complexity: Reduced (net -4 lines in final fix)
+- Type safety: Improved (removed unsafe cast)
+- Production readiness: ✅ Approved
+
+**Agents Involved:** Engineer → @REFLECTOR (2 passes: initial concerns, post-fix approval)
+
+**Evolution Notes:**
+- Pattern identified: Optional fields in JSON data sources require defensive extraction patterns
+- No new skill candidates identified (this is a one-off enhancement to existing reading system)
+- STANDARDS.md updated implicitly: defensive JSON field extraction documented in code comments
+
+---
+
 ### Journey: 2026-04-07 — "Album of the Week" Feature + Homepage Two-Column Layout
 
 **Goal:** Add an "Album of the Week" sidebar widget to the homepage showing the top Last.fm album of the last 7 days (build-time fetch), a `/listening` detail page, and a desktop two-column homepage layout. Resolves GitHub issue #9.
