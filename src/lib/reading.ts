@@ -75,18 +75,14 @@ async function fetchOpenLibraryData(
 }
 
 async function _fetchCurrentBook(): Promise<CurrentBook> {
-  const {
-    title,
-    author,
-    rating,
-    tags,
-    storygraph,
-    coverUrl: customCoverUrl,
-  } = bookData;
+  const { title, author, rating, tags, coverUrl: customCoverUrl } = bookData;
   const isbn = bookData.isbn ?? null;
+  const storygraph = (bookData as Record<string, unknown>).storygraph as
+    | StorygraphMeta
+    | undefined;
 
   // Use custom coverUrl if provided, otherwise fetch from Open Library
-  let coverUrl = customCoverUrl ?? null;
+  let coverUrl: string | null = customCoverUrl ?? null;
   let openLibraryUrl: string | null = null;
 
   if (!coverUrl) {
@@ -105,7 +101,7 @@ async function _fetchCurrentBook(): Promise<CurrentBook> {
     isbn,
     rating,
     tags,
-    storygraph: storygraph as StorygraphMeta,
+    storygraph,
     coverUrl,
     openLibraryUrl,
   };
