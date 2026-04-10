@@ -16,7 +16,12 @@
 set -euo pipefail
 
 # Detect project root (parent of .opencode directory)
-SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
+# Handle both bash and zsh
+if [[ -n "${BASH_SOURCE[0]:-}" ]]; then
+  SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
+else
+  SCRIPT_DIR="$(cd "$(dirname "$0")" && pwd)"
+fi
 PROJECT_ROOT="$(cd "$SCRIPT_DIR/../../.." && pwd)"
 BLOG_DIR="${PROJECT_ROOT}/src/content/blog"
 SERIES_DIR="${PROJECT_ROOT}/src/content/series"
@@ -30,7 +35,8 @@ CHAPTER=""
 TITLE=""
 DESCRIPTION=""
 TAGS=""
-DRAFT="false"
+DRAFT="true"
+CUSTOM_DATE=""
 
 # Colors for output
 RED='\033[0;31m'
@@ -48,16 +54,17 @@ print_usage() {
 Usage: ${0##*/} [OPTIONS]
 
 OPTIONS:
-  --series SLUG          Series slug (e.g., 'les-miserables') [REQUIRED]
-  --number NUM|auto      Post number (3-digit e.g., '097') or 'auto' [default: auto]
-  --part PART            Part identifier (e.g., 'part-2') [REQUIRED]
-  --book BOOK            Book identifier (e.g., 'book-3') [REQUIRED]
-  --chapter CHAPTER      Chapter identifier (e.g., 'chapter-5') [REQUIRED]
-  --title TITLE          Post title [optional]
-  --description DESC     Post description [optional]
-  --tags TAGS            Comma-separated tags (e.g., 'cosette,desire') [optional]
-  --draft                Mark as draft (draft: true) [default: false]
-  --help                 Show this help message
+   --series SLUG          Series slug (e.g., 'les-miserables') [REQUIRED]
+   --number NUM|auto      Post number (3-digit e.g., '097') or 'auto' [default: auto]
+   --part PART            Part identifier (e.g., 'part-2') [REQUIRED]
+   --book BOOK            Book identifier (e.g., 'book-3') [REQUIRED]
+   --chapter CHAPTER      Chapter identifier (e.g., 'chapter-5') [REQUIRED]
+   --title TITLE          Post title [optional]
+   --description DESC     Post description [optional]
+   --tags TAGS            Comma-separated tags (e.g., 'cosette,desire') [optional]
+   --date DATE            Publication date in YYYY-MM-DD format [default: today]
+   --published            Mark as published (draft: false) [default: draft=true]
+   --help                 Show this help message
 
 EXAMPLES:
   # Create with auto-numbering
@@ -94,10 +101,10 @@ success() {
 ##############################################################################
 
 validate_required_params() {
-  [[ -z "$SERIES_SLUG" ]] && error "Missing --series. See --help for usage."
-  [[ -z "$PART" ]] && error "Missing --part. See --help for usage."
-  [[ -z "$BOOK" ]] && error "Missing --book. See --help for usage."
-  [[ -z "$CHAPTER" ]] && error "Missing --chapter. See --help for usage."
+   [[ -z "$SERIES_SLUG" ]] && error "Missing --series. See --help for usage."
+   [[ -z "$PART" ]] && error "Missing --part. See --help for usage."
+   [[ -z "$BOOK" ]] && error "Missing --book. See --help for usage."
+   [[ -z "$CHAPTER" ]] && error "Missing --chapter. See --help for usage."
 }
 
 validate_series_exists() {
@@ -108,13 +115,21 @@ validate_series_exists() {
 }
 
 validate_format() {
-  local pattern="^[a-z]+-[0-9]+$"
-  for identifier in "$PART" "$BOOK" "$CHAPTER"; do
-    if ! [[ "$identifier" =~ $pattern ]]; then
-      error "'$identifier' does not match format 'name-N' (lowercase, hyphenated)"
-    fi
-  done
-  info "Part/book/chapter format valid"
+   local pattern="^[a-z]+-[0-9]+$"
+   for identifier in "$PART" "$BOOK" "$CHAPTER"; do
+     if ! [[ "$identifier" =~ $pattern ]]; then
+       error "'$identifier' does not match format 'name-N' (lowercase, hyphenated)"
+     fi
+   done
+   info "Part/book/chapter format valid"
+   
+   # Validate custom date if provided
+   if [[ -n "$CUSTOM_DATE" ]]; then
+     if ! [[ "$CUSTOM_DATE" =~ ^[0-9]{4}-[0-9]{2}-[0-9]{2}$ ]]; then
+       error "Date must be in YYYY-MM-DD format, got: $CUSTOM_DATE"
+     fi
+     info "Custom date format valid: $CUSTOM_DATE"
+   fi
 }
 
 ##############################################################################
@@ -153,23 +168,23 @@ auto_detect_next_number() {
 }
 
 resolve_post_number() {
-  local prefix="$1"
-  
-  if [[ "$POST_NUMBER" == "auto" ]] || [[ -z "$POST_NUMBER" ]]; then
-    POST_NUMBER=$(auto_detect_next_number "$prefix")
-    info "Auto-detected post number: $prefix-$POST_NUMBER"
-  else
-    if ! [[ "$POST_NUMBER" =~ ^[0-9]{3}$ ]]; then
-      error "Post number must be 3-digit zero-padded (e.g., '097'), got: $POST_NUMBER"
-    fi
-  fi
-  
-  local existing=$(find "$BLOG_DIR" -maxdepth 1 -type d -name "${prefix}-${POST_NUMBER}-*" 2>/dev/null || true)
-  if [[ -n "$existing" ]]; then
-    error "Post ${prefix}-${POST_NUMBER}-* already exists: $existing"
-  fi
-  
-  success "Post number: ${prefix}-${POST_NUMBER}"
+   local prefix="$1"
+   
+   if [[ "$POST_NUMBER" == "auto" ]] || [[ -z "$POST_NUMBER" ]]; then
+     POST_NUMBER=$(auto_detect_next_number "$prefix") || error "Failed to detect next post number"
+     echo "Auto-detected post number: $prefix-$POST_NUMBER" >&2
+   else
+     if ! [[ "$POST_NUMBER" =~ ^[0-9]{3}$ ]]; then
+       error "Post number must be 3-digit zero-padded (e.g., '097'), got: $POST_NUMBER"
+     fi
+   fi
+   
+   local existing=$(find "$BLOG_DIR" -maxdepth 1 -type d -name "${prefix}-${POST_NUMBER}-*" 2>/dev/null || true)
+   if [[ -n "$existing" ]]; then
+     error "Post ${prefix}-${POST_NUMBER}-* already exists: $existing"
+   fi
+   
+   echo "Post number: ${prefix}-${POST_NUMBER}" >&2
 }
 
 ##############################################################################
@@ -191,17 +206,55 @@ convert_tags_to_yaml() {
 }
 
 get_current_date() {
-  date -u +"%Y-%m-%d"
+  if [[ -n "$CUSTOM_DATE" ]]; then
+    echo "$CUSTOM_DATE"
+  else
+    date -u +"%Y-%m-%d"
+  fi
+}
+
+generate_auto_title() {
+   # For les-miserables, auto-generate: "Les Miserables: <subtitle>"
+   # If title is not provided, leave it empty for user to fill in
+   if [[ -n "$TITLE" ]]; then
+     echo "$TITLE"
+   else
+     # Format: "Les Miserables: " with chapter info as placeholder guidance
+     case "$SERIES_SLUG" in
+       les-miserables)
+         echo "Les Miserables: "
+         ;;
+       *)
+         echo ""
+         ;;
+     esac
+   fi
+}
+
+generate_auto_description() {
+   # Extract numeric values from part/book/chapter
+   local part_num="${PART##*-}"
+   local book_num="${BOOK##*-}"
+   local chapter_num="${CHAPTER##*-}"
+   
+   if [[ -n "$DESCRIPTION" ]]; then
+     echo "$DESCRIPTION"
+   else
+     # Format: "Part X, book Y, chapter Z - "
+     echo "Part $part_num, book $book_num, chapter $chapter_num - "
+   fi
 }
 
 generate_frontmatter() {
-  local current_date=$(get_current_date)
-  local tags_yaml=$(convert_tags_to_yaml "$TAGS")
-  
-  cat <<EOF
+   local current_date=$(get_current_date)
+   local tags_yaml=$(convert_tags_to_yaml "$TAGS")
+   local auto_title=$(generate_auto_title)
+   local auto_description=$(generate_auto_description)
+   
+   cat <<EOF
 ---
-title: "$TITLE"
-description: "$DESCRIPTION"
+title: "$auto_title"
+description: "$auto_description"
 date: "$current_date"
 draft: $DRAFT
 series: "$SERIES_SLUG"
@@ -296,13 +349,17 @@ main() {
         shift 2
         ;;
       --tags)
-        TAGS="$2"
-        shift 2
-        ;;
-      --draft)
-        DRAFT="true"
-        shift
-        ;;
+         TAGS="$2"
+         shift 2
+         ;;
+       --date)
+         CUSTOM_DATE="$2"
+         shift 2
+         ;;
+       --published)
+         DRAFT="false"
+         shift
+         ;;
       --help)
         print_usage
         exit 0
@@ -314,9 +371,9 @@ main() {
   done
   
   # Validate
-  validate_required_params
-  validate_series_exists
-  validate_format
+   validate_required_params
+   validate_series_exists
+   validate_format
   
   # Determine series prefix and resolve post number
   local prefix=$(get_series_prefix "$SERIES_SLUG")

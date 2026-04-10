@@ -48,29 +48,34 @@ Load this skill when the task is:
 | `{{ v_part }}` | string | yes | Part identifier in lowercase hyphenated form (e.g., `part-1`, `part-2`) |
 | `{{ v_book }}` | string | yes | Book identifier in lowercase hyphenated form (e.g., `book-1`, `book-3`) |
 | `{{ v_chapter }}` | string | yes | Chapter identifier in lowercase hyphenated form (e.g., `chapter-1`, `chapter-5`) |
-| `{{ v_title }}` | string | no | Post title (can be empty for draft state). Example: `"Les Miserables: Cosette & The Doll"` |
-| `{{ v_description }}` | string | no | Single-line post summary (can be empty for draft state). Example: `"Part two, book three, chapter four - A large doll reveals Cosette's reality to her and us"` |
+| `{{ v_title }}` | string | no | Post subtitle (appends to auto-generated series prefix). Example: `"Cosette & The Doll"` auto-generates to `"Les Miserables: Cosette & The Doll"`. Leave empty to scaffold with series name only. |
+| `{{ v_description }}` | string | no | Post summary suffix. Example: `"A large doll reveals Cosette's reality to her and us"` auto-generates to `"Part two, book three, chapter four - A large doll reveals Cosette's reality to her and us"`. Leave empty to scaffold with part/book/chapter prefix only. |
 | `{{ v_tags }}` | string (comma-separated) | no | Post tags (e.g., `cosette,thenardier,desire,beauty,reality`). Converted to YAML array. Defaults to empty. |
-| `{{ v_draft }}` | boolean | no | Draft state flag. Defaults to `false` (published). Set to `true` to mark as work-in-progress. |
+| `{{ v_date }}` | string (YYYY-MM-DD) | no | Publication date. Format: `YYYY-MM-DD` (e.g., `2026-04-09`). Defaults to today's date (UTC). |
+| `{{ v_draft }}` | boolean | no | Draft state flag. Defaults to `true` (draft mode). Use `--published` flag to set `draft: false` for published posts. |
 
 ## Example Usage
 
-### Create the next Les Misérables post with auto-numbering:
+### Create the next Les Misérables post with auto-numbering and custom date:
 
 ```bash
 astro-blog-series-scaffold \
   --series "les-miserables" \
   --part "part-2" \
   --book "book-3" \
-  --chapter "chapter-5" \
-  --title "Les Miserables: Cosette & The Doll" \
-  --description "Part two, book three, chapter four - A large doll reveals Cosette's reality" \
-  --tags "cosette,thenardier,desire,beauty,reality"
+  --chapter "chapter-7" \
+  --title "Valjean's Journey to Montfermeil" \
+  --description "Hugo reveals the Christmas night where Valjean and Cosette were fated to meet" \
+  --tags "valjean,cosette,montfermeil,fate" \
+  --date "2026-04-09"
 ```
 
 **Result:**
-- Folder: `src/content/blog/lm-097-part-2-book-3-chapter-5/`
-- File: `index.md` with complete frontmatter and empty body
+- Folder: `src/content/blog/lm-099-part-2-book-3-chapter-7/`
+- File: `index.md` with frontmatter:
+  - Title: `"Les Miserables: Valjean's Journey to Montfermeil"`
+  - Description: `"Part 2, book 3, chapter 7 - Hugo reveals the Christmas night where Valjean and Cosette were fated to meet"`
+  - Date: `2026-04-09`
 
 ### Create with explicit post number:
 
