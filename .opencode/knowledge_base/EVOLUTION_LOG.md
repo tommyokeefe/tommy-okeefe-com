@@ -566,6 +566,57 @@ All 9 findings from the audit are now @REFLECTOR-approved. Cross-session pattern
 
 ---
 
+### Journey: 2026-04-10 — Update "Most Recent Read" Widget + Establish Deployment Gate
+
+**Goal:** Update the "Most Recent Read" widget to display "Technofeudalism: What Killed Capitalism" by Yanis Varoufakis with a custom cover image. Establish a proper deployment gate that prevents production deployments unless E2E tests pass.
+
+**Commits:** `5d26b20` (feature), `ef2febb` (fix), `aa2bb10` (test), `a6389bc` (docs), `80f6352` (config), `b056855` (test push)
+
+**Steps:**
+
+1. Updated `src/data/current-reading.json` with new book: Technofeudalism (Varoufakis), ISBN 9781529926095, rating 5/5, nonfiction tags (removed `storygraph` field for non-fiction)
+2. **Issue:** Removing `storygraph` from JSON caused TypeError at runtime
+3. **Fix:** Made `storygraph` optional in `CurrentBook` type definition (`src/lib/reading.ts`)
+4. Added conditional rendering for StoryGraph section in `src/pages/reading.astro` (only shows if data exists)
+5. **Feature:** Added `coverUrl` field support for custom cover images
+6. Updated `_fetchCurrentBook()` to prioritize custom `coverUrl` if provided; fallback to ISBN lookup, then Open Library
+7. Improved cover detection logic: validates ISBN cover via HEAD request (checks file size), falls back to Open Library, returns null gracefully
+8. Fixed TypeScript errors: safe extraction of optional fields using type narrowing
+9. Updated `cypress/e2e/reading.cy.ts` to verify StoryGraph is hidden for non-fiction books
+10. **Deployment Gate Setup:**
+    - Removed incorrect `vercel.json` that tried to run tests in Vercel build (commit `80f6352`)
+    - Configured Vercel dashboard to require `E2E Tests` GitHub Action status check before production deployment
+    - Created test push commit `b056855` to verify gate works
+    - GitHub Actions E2E workflow runs on all pushes/PRs to main; all 118 tests passing
+
+**Audit Result:** @REFLECTOR — Pass (reading widget complete and approved; deployment gate functionally verified by user)
+
+**Quality Metrics:**
+- TypeScript errors: 0 (before: 2)
+- E2E tests: 118/118 passing consistently
+- Deployment gate status: ✅ Verified working by user
+- Production readiness: ✅ Approved
+
+**Agents Involved:** Engineer → @REFLECTOR → @CURATOR
+
+**Evolution Notes:**
+
+- **Pattern: Optional metadata handling:** The `storygraph` field pattern is the second confirmed instance (first: generic optional fields in JSON). Graceful degradation with conditional rendering is now the standard for optional API enrichment fields.
+- **Pattern: Graceful fallback chains:** Cover detection (custom → ISBN → Open Library → null) is a well-executed multi-step fallback. Watch for recurrence (e.g., book links, author pages).
+- **Pattern: E2E tests for optional UI sections:** Tests verify both presence (fiction) and absence (non-fiction) of conditional components. Data-agnostic pattern established.
+- **Pattern: Deployment gate via GitHub Actions status checks:** E2E tests run in GitHub Actions; Vercel requires passing status check before production deployment. No tests run in Vercel build (correct separation of concerns).
+
+**Standards Updated:**
+- Confirmed: Optional metadata handling in build-time API libs (e.g., `storygraph: StoryGraphMeta | undefined`)
+- Confirmed: Graceful fallback chains with HEAD validation and size checks (avoid blank GIFs)
+- Confirmed: Data-agnostic E2E test assertions for optional UI sections
+- New: Deployment gate best practice — GitHub Actions status checks via Vercel dashboard (not `vercel.json` test runners)
+
+**Known Process Note:**
+- The conflicting commits (add then remove `vercel.json`) reflect a transition from version-controlled gates to dashboard configuration. Both approaches are valid; dashboard approach chosen. Future manual dashboard operations should be documented in EVOLUTION_LOG.md with screenshots or verification evidence to create an audit trail.
+
+---
+
 ### Journey: 2026-04-07 — Draft and Certify `cypress-view-transitions-check` Skill
 
 **Goal:** Convert the `cypress-view-transitions-check` CANDIDATE pattern into a production-ready, @REFLECTOR-approved `SKILL.md` at `.opencode/skills/cypress-view-transitions-check/SKILL.md`.
