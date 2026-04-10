@@ -1,0 +1,5 @@
+{
+  "buildCommand": "npm run build && npm run test:e2e",
+  "devCommand": "npm run dev",
+  "installCommand": "npm install"
+}
