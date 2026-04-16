@@ -1,7 +1,7 @@
 ---
 title: "Les Miserables: Filling In The Gaps For Valjean"
 description: "Part 2, book 3, chapter 11 - We learn that Valjean's primary focus had indeed been retrieving Cosette, and it was with a mind to properly mourn the passing of her mother Fantine"
-date: "2026-03-13"
+date: "2026-04-13"
 draft: false
 series: "les-miserables"
 part: "part-2"

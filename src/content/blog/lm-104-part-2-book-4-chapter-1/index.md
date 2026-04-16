@@ -1,7 +1,7 @@
 ---
 title: "Les Miserables: A First View Of THre Gorbeau Tenement"
 description: "Part 2, book 4, chapter 1: Hugo describes the terrifying environs of the Gorbeau tenement"
-date: "2026-03-14"
+date: "2026-04-14"
 draft: false
 series: "les-miserables"
 part: "part-2"

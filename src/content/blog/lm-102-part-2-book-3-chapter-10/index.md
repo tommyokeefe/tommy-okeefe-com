@@ -1,7 +1,7 @@
 ---
 title: "Les Miserables: Thenardier Attempts To Squeeze Valjean For More Money"
 description: "Part 2, book 3, chapter 10 - the Thenardiers once again demonstrate the depths of their greed but are thwarted by Valjean"
-date: "2026-03-12"
+date: "2026-04-12"
 draft: false
 series: "les-miserables"
 part: "part-2"

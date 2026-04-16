@@ -1,7 +1,7 @@
 ---
 title: "Les Miserables: The Balance of Destiny"
 description: "Part 2, book 4, chapter 3 - in which we see that Cosette and Valjean both learned to love in this humble tenement home"
-date: "2026-03-16"
+date: "2026-04-16"
 draft: false
 series: "les-miserables"
 part: "part-2"

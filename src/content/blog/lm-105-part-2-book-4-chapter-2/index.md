@@ -1,7 +1,7 @@
 ---
 title: "Les Miserables: Gorbeau Through The Eyes Of A Child"
 description: "Part 2, book 4, chapter 2 - in which Hugo contrasts all the horrors we read last chapter of this scene with the wonder of a child who is finally and truly free."
-date: "2026-03-15"
+date: "2026-04-15"
 draft: false
 series: "les-miserables"
 part: "part-2"
