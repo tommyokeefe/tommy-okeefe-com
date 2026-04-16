@@ -6,6 +6,48 @@ This file tracks the "Institutional Memory" of the Evolution Loop framework. It 
 
 ---
 
+### Journey: 2026-04-16 — Les Misérables Blog Series Scaffold (lm-102 through lm-106)
+
+**Goal:** Scaffold 5 blog posts for the Les Misérables series covering March 12–16, 2026 (part 2 book 3 chapters 10–11, then part 2 book 4 chapters 1–3). First production use of `astro-blog-series-scaffold` skill.
+
+**Commits:** None (posts untracked in git, awaiting content authoring)
+
+**Steps:**
+
+1. Used skill `astro-blog-series-scaffold` to create lm-102–103 (book 3 chapters)
+2. **Issue:** Created invalid chapters 14–15 (book 3 only has 13 chapters)
+3. **Correction:** Deleted lm-102–103; verified book 3 ends at chapter 11, book 4 begins after
+4. Re-ran skill to create lm-104–106 as book 4 chapters 1–3
+5. All 5 posts created with correct frontmatter, untracked in git
+
+**Audit Result:** @REFLECTOR — 100% confidence (all 5 posts correct and ready)
+
+**Quality Metrics:**
+- Numbering: ✅ Correct (lm-102 through lm-106)
+- Dates: ✅ Sequential (March 12–16, 2026)
+- Structure: ✅ Part/book/chapter values correct per Les Misérables structure
+- Draft status: ✅ All marked `draft: true`
+- Git status: ✅ Untracked (not committed)
+
+**Agents Involved:** Engineer → Skill (`astro-blog-series-scaffold`) → @REFLECTOR → @CURATOR
+
+**Evolution Notes:**
+
+- **Pattern: Skill now production-verified (2x instances)** — Original 97 posts ad-hoc; this Journey skill-driven. Meets Candidate threshold.
+- **Skill Promotion: `astro-blog-series-scaffold` → CERTIFIED** — Auto-numbering, naming, frontmatter generation all correct. Skill is production-ready.
+- **Enhancement Opportunity:** Skill validates format (regex) but not domain logic (book/chapter ranges). Adding `--dry-run` mode would prevent similar errors in future.
+- **Domain Responsibility:** User remains responsible for providing valid part/book/chapter values. When scaffolding multi-post batches, verify series structure beforehand.
+
+**Standards Updated:**
+- New subsection: "Skill Usage Guidelines" (batch creation best practices, domain responsibility, error recovery)
+- Reference: Les Misérables structure (Part 2 Book 3 ends at chapter 13; Book 4 begins at chapter 1)
+
+**Known Enhancement (non-blocking):**
+- Add `--dry-run` flag to preview folder names and frontmatter before execution
+- Optional `--metadata-source` parameter for domain validation (book/chapter ranges)
+
+---
+
 ### Journey: 2026-04-10 — Update "Most Recent Read" Widget + Add Custom Cover URL Support
 
 **Goal:** Update the most recent read widget on homepage to display "Technofeudalism: What Killed Capitalism" by Yanis Varoufakis with a custom cover image. Add support for custom cover URLs in the reading system to handle non-fiction books gracefully.
