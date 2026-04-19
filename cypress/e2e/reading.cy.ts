@@ -97,14 +97,25 @@ describe("Most Recent Read", () => {
     });
 
     it("displays StoryGraph metadata section only for fiction books", () => {
-      // StoryGraph data is optional - only fiction books should have it
-      // Technofeudalism is non-fiction, so StoryGraph section should not appear
-      cy.contains("p", "StoryGraph Metadata").should("not.exist");
+      cy.readFile("src/data/current-reading.json").then((book) => {
+        const hasStorygraph = book.storygraph !== undefined;
+        if (hasStorygraph) {
+          cy.contains("p", "StoryGraph Metadata").should("exist");
+        } else {
+          cy.contains("p", "StoryGraph Metadata").should("not.exist");
+        }
+      });
     });
 
     it("handles missing StoryGraph data gracefully", () => {
-      // When storygraph data is missing (non-fiction), the dl/dt/dd elements should not render
-      cy.get("dl").should("not.exist");
+      cy.readFile("src/data/current-reading.json").then((book) => {
+        const hasStorygraph = book.storygraph !== undefined;
+        if (hasStorygraph) {
+          cy.get("dl").should("exist");
+        } else {
+          cy.get("dl").should("not.exist");
+        }
+      });
     });
 
     it("has a back button linking to homepage", () => {
