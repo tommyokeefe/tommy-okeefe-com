@@ -1,7 +1,7 @@
 ---
 title: "Les Miserables: Valjean Raises Suspicions"
 description: "Part 2, book 4, chapter 4 - in which we explore the tensions between hiding away and continuing to be the kind and compassionate man Valjean has become"
-date: "2026-03-17"
+date: "2026-04-17"
 draft: false
 series: "les-miserables"
 part: "part-2"

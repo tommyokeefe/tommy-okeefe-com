@@ -1,7 +1,7 @@
 ---
 title: "Les Miserables: Sightings of Javert"
 description: "Part 2, book 4, chapter 5 - Valjean fears he has seen Javert and ends up on the run with Cosette in tow."
-date: "2026-03-18"
+date: "2026-04-18"
 draft: false
 series: "les-miserables"
 part: "part-2"

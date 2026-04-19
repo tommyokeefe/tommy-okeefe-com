@@ -1,7 +1,7 @@
 ---
 title: "Les Miserables: Valjean the Hunted"
 description: "Part 2, book 5, chapter 1 - fleeing with no intention of returning, Valjean and Cosette look for temporary refuge and see that Javert and other cops are on their tail"
-date: "2026-03-19"
+date: "2026-04-19"
 draft: false
 series: "les-miserables"
 part: "part-2"
