@@ -8,6 +8,25 @@ This file tracks the "Institutional Memory" of the Evolution Loop framework. It 
 
 ---
 
+### Journey: 2026-04-19 — Fix Reading Tests for Dynamic Book Data
+
+**Goal:** Fix failing StoryGraph tests in reading.cy.ts by reading JSON data directly.
+
+**Commits:**
+- `2e58800` — "test(reading): make StoryGraph tests check JSON data directly"
+
+**Steps:**
+1. Tests failed after updating book metadata (new book has storygraph, old tests expected no storygraph)
+2. Updated tests to read `src/data/current-reading.json` using `cy.readFile()`
+3. Tests now dynamically check if `storygraph` key exists and assert UI accordingly
+4. All 118 tests pass
+
+**Audit Result:** @REFLECTOR — PASS
+
+**Pattern Analysis:** @CURATOR — NEW pattern (first instance), no skill candidate
+
+---
+
 ### Journey: 2026-04-19 — Update Current Book Metadata
 
 **Goal:** Update most recent book from Technofeudalism to The Lies of the Ajungo with new metadata including optional storygraph fields.
