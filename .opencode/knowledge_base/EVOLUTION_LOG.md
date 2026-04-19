@@ -6,6 +6,35 @@ This file tracks the "Institutional Memory" of the Evolution Loop framework. It 
 
 ---
 
+---
+
+### Journey: 2026-04-19 — Update Current Book Metadata
+
+**Goal:** Update most recent book from Technofeudalism to The Lies of the Ajungo with new metadata including optional storygraph fields.
+
+**Commits:** 
+- `28f98f2` — "update current book to The Lies of the Ajungo"
+
+**Steps:**
+
+1. User requested one-field-at-a-time update of `src/data/current-reading.json`
+2. Collected all fields interactively:
+   - title: The Lies of the Ajungo
+   - author: Moses Ose Utomi
+   - isbn: 9781250848420
+   - coverUrl: null (auto-fetch from Open Library)
+   - rating: 4.5
+   - tags: adventurous, dark, emotional, hopeful, inspiring, mysterious, fast-paced
+   - storygraph: plotOrCharacterDriven=Plot, strongCharacterDevelopment=Yes, loveableCharacters=Yes, diverseCast=Complicated, flawsAMainFocus=Complicated
+3. Wrote JSON file, built successfully (286 pages)
+4. Committed and pushed
+
+**Audit Result:** @REFLECTOR — PASS (JSON schema valid, all fields correct, rating 4.5 valid, storygraph enums valid)
+
+**Pattern Analysis:** @CURATOR — REPEATING (3x) but trivial, no skill candidate needed
+
+---
+
 ### Journey: 2026-04-16 — Les Misérables Blog Series Scaffold (lm-102 through lm-106)
 
 **Goal:** Scaffold 5 blog posts for the Les Misérables series covering March 12–16, 2026 (part 2 book 3 chapters 10–11, then part 2 book 4 chapters 1–3). First production use of `astro-blog-series-scaffold` skill.
