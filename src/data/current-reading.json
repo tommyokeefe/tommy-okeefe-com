@@ -1,16 +1,23 @@
 {
-  "title": "Technofeudalism: What Killed Capitalism",
-  "author": "Yanis Varoufakis",
-  "isbn": "9781529926095",
-  "coverUrl": "https://images2.penguinrandomhouse.com/cover/9781685891244",
-  "rating": 5,
+  "title": "The Lies of the Ajungo",
+  "author": "Moses Ose Utomi",
+  "isbn": "9781250848420",
+  "coverUrl": null,
+  "rating": 4.5,
   "tags": [
-    "nonfiction",
-    "business",
-    "economics",
-    "politics",
-    "informative",
-    "reflective",
-    "medium-paced"
-  ]
+    "adventurous",
+    "dark",
+    "emotional",
+    "hopeful",
+    "inspiring",
+    "mysterious",
+    "fast-paced"
+  ],
+  "storygraph": {
+    "plotOrCharacterDriven": "Plot",
+    "strongCharacterDevelopment": "Yes",
+    "loveableCharacters": "Yes",
+    "diverseCast": "Complicated",
+    "flawsAMainFocus": "Complicated"
+  }
 }
