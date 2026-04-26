@@ -2,7 +2,7 @@
 title: "Les Miserables: Love, Fear & Cosette"
 description: "Part 2, book 3, chapter 8 - Cosette experiences love for the first time she can remember"
 date: "2026-04-10"
-draft: true
+draft: false
 series: "les-miserables"
 part: "part-2"
 book: "book-3"
