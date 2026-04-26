@@ -795,6 +795,47 @@ All 9 findings from the audit are now @REFLECTOR-approved. Cross-session pattern
 
 ---
 
+### Journey: 2026-04-26 — Les Mis Series Scaffolding + Continuity/Draft/Live Coverage Audit
+
+**Goal:** Scaffold new Les Mis daily posts, verify continuity from Jan 1 through Apr 26, check draft status, and confirm live series-page coverage.
+
+**Commits:** None (not requested)
+
+**Steps:**
+
+1. Scaffolded `lm-110` through `lm-116` with sequential slugs/frontmatter under `src/content/blog/` for dates `2026-04-20` through `2026-04-26`.
+2. Handled date-shift clarification requests; user issued stop/undo during an ambiguous direction exchange. Net result preserved validated continuity state.
+3. Ran local continuity audit for `lm-001..lm-116`:
+   - no missing numbers
+   - no missing dates (Jan 1–Apr 26)
+   - no duplicate dates
+   - `lm-100` confirmed as `2026-04-10`
+4. Ran draft scan across Les Mis posts: `draft: true` count = 0.
+5. Verified live page coverage at `https://www.tommyokeefe.com/series/les-miserables`:
+   - no missing `lm-001..lm-116`
+   - `lm-000` intro present
+
+**Audit Result:** @REFLECTOR — Pass (after remediation)
+
+**Agents Involved:** Engineer → @REFLECTOR → @CURATOR
+
+**Evolution Recommendations (from @CURATOR):**
+
+- Enhance certified `astro-blog-series-scaffold` with a **daily-sequence mode**:
+  - detect next index/date
+  - preview N planned posts
+  - explicit confirmation gate
+  - scaffold + run validation bundle
+- Add a **Bulk Date Shift Safety Protocol** to STANDARDS.md:
+  - mandatory dry-run table (`old → new`)
+  - explicit signed-direction confirmation (`later/+N`, `earlier/-N`)
+  - scoped target preview before write
+- Add a **Stop/Undo handling** standard:
+  - immediate write halt
+  - explicit rollback file list
+
+---
+
 ## Candidate Patterns
 
 | Pattern                                    | Classification      | Skill Candidate                              | Status                                                                                                                                  |
