@@ -1,23 +1,22 @@
 {
-  "title": "The Lies of the Ajungo",
-  "author": "Moses Ose Utomi",
-  "isbn": "9781250848420",
+  "title": "Ship Of Destiny",
+  "author": "Robin Hobb",
+  "isbn": "9780008117474",
   "coverUrl": null,
-  "rating": 4.5,
+  "rating": 5,
   "tags": [
     "adventurous",
+    "challenging",
     "dark",
     "emotional",
-    "hopeful",
     "inspiring",
-    "mysterious",
-    "fast-paced"
+    "medium-paced"
   ],
   "storygraph": {
-    "plotOrCharacterDriven": "Plot",
+    "plotOrCharacterDriven": "Both",
     "strongCharacterDevelopment": "Yes",
-    "loveableCharacters": "Yes",
-    "diverseCast": "Complicated",
-    "flawsAMainFocus": "Complicated"
+    "loveableCharacters": "Complicated",
+    "diverseCast": "Yes",
+    "flawsAMainFocus": "Yes"
   }
 }
