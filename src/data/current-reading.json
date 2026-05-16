@@ -1,20 +1,18 @@
 {
-  "title": "Ship Of Destiny",
-  "author": "Robin Hobb",
-  "isbn": "9780008117474",
-  "coverUrl": "https://covers.openlibrary.org/b/id/15133638-L.jpg",
-  "rating": 5,
+  "title": "Iron Gold",
+  "author": "Pierce Brown",
+  "isbn": null,
+  "coverUrl": null,
+  "rating": 4.5,
   "tags": [
     "adventurous",
-    "challenging",
     "dark",
-    "emotional",
-    "inspiring",
-    "medium-paced"
+    "tense",
+    "fast-paced"
   ],
   "storygraph": {
-    "plotOrCharacterDriven": "Both",
-    "strongCharacterDevelopment": "Yes",
+    "plotOrCharacterDriven": "Plot",
+    "strongCharacterDevelopment": "Complicated",
     "loveableCharacters": "Complicated",
     "diverseCast": "Yes",
     "flawsAMainFocus": "Yes"
