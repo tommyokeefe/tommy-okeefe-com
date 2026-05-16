@@ -4,12 +4,7 @@
   "isbn": null,
   "coverUrl": null,
   "rating": 4.5,
-  "tags": [
-    "adventurous",
-    "dark",
-    "tense",
-    "fast-paced"
-  ],
+  "tags": ["adventurous", "dark", "tense", "fast-paced"],
   "storygraph": {
     "plotOrCharacterDriven": "Plot",
     "strongCharacterDevelopment": "Complicated",
