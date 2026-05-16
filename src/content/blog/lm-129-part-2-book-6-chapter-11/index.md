@@ -15,7 +15,7 @@ tags:
 
 Imagine now that we fast forward to 1840, closer to the time of Hugo's writing. The convent is in decline. The boarding school is gone forever, so there are no longer any young women around. The oldest women have died as well, and the convent is slowly aging out. The population is maybe 25% of what it was just a few decades earlier.
 
-Hugo uses this to point out that this was part of a larger ideological change that was happening during this time. For Hugo, this time was not necessarilly good or bad in and of itself. He talks about the necessity of the changes, but points out that if all that is left is a vacuum, maybe we're not actually done changing.
+Hugo uses this to point out that this was part of a larger ideological change that was happening during this time. For Hugo, this time was not necessarily good or bad in and of itself. He talks about the necessity of the changes, but points out that if all that is left is a vacuum, maybe we're not actually done changing.
 
 I need to think more about what Hugo says here, and the next book looks like it will provide the opportunity to do that. It seems to me that Hugo fears the vacuum of the unknown more than the oppressive structures that were being torn down. While I can agree that deconstruction can't be an end in itself, I think acting as though you must know what will be erected in the place of what you tear down is not realistic either. Sometimes we can't imagine the future until we remove some of the oppressive structures that were designed to limit our view and contain what we think is possible.
 

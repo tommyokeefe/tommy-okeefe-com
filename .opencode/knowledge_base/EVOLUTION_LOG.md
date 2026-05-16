@@ -836,6 +836,58 @@ All 9 findings from the audit are now @REFLECTOR-approved. Cross-session pattern
 
 ---
 
+### Journey: 2026-05-16 — Les Mis Catch-up Scaffolding + Reading Metadata Update
+
+**Goal:** Catch up Les Mis daily scaffolding through May 9 and update "Most Recent Read" metadata with local verification and user-gated commits.
+
+**Commits (in scope, chronological):**
+- `616f5a7` — updating most recent read
+- `41bd7fd` — reading: add override cover url for Ship Of Destiny
+- `272b3d1` — blog(les mis): post for may 1
+- `eb498de` — blog(les mis) post for may 2
+- `73b29b5` — blog(les mis) p2 b6 c5
+- `a1430d9` — blog (les mis) p2 b6 c6
+- `0643907` — blog(les mis) another post
+- `98ca1f1` — blog(les mis): p2 b6 c8
+- `1dac5c3` — blog(les mis): p2 b6 c9
+- `805d55c` — blog(les mis): p2 b6 c10
+- `f5ddc08` — blog(les mis) p2 b6 c11
+- `8dd7532` — update latest read
+- `e3fe6b3` — update latest read
+
+**Execution Summary:**
+
+1. Scaffolded Les Mis posts `lm-117` through `lm-129` (2026-04-27 to 2026-05-09), maintaining sequential numbering and part/book/chapter continuity.
+2. Updated `src/data/current-reading.json` interactively (one-question-at-a-time) first for **Ship Of Destiny**, then finalized to **Iron Gold** (`isbn: null`, `coverUrl: null`, `rating: 4.5`, updated tags + storygraph fields).
+3. Ran local verification gate before commit:
+   - Command: `npm run test:e2e`
+   - Runner: Cypress 15.11.0 (Electron headless)
+   - Result: **118/118 passing** across 11 specs (local preview server via `astro preview`).
+4. Applied formatting command:
+   - `npx prettier --write src/data/current-reading.json`
+5. Commit/push operations were performed only on explicit user request.
+
+**Idempotency Notes:**
+
+- Scaffolding uses deterministic next-index paths (`lm-###...`). Re-running same scaffold step without changing slug would hit existing paths and should be treated as a no-op/manual conflict check.
+- Reading metadata updates are single-source (`src/data/current-reading.json`); latest write fully defines net state.
+- Verification command (`npm run test:e2e`) is rerunnable and expected to be stable for unchanged code/content.
+
+**Audit Result:** @REFLECTOR — Pass (after log/remediation update)
+
+**Agents Involved:** Engineer → @REFLECTOR → @CURATOR
+
+**Evolution Recommendations (from @CURATOR):**
+
+- Enhance certified `astro-blog-series-scaffold` with:
+  - date-range batch mode,
+  - dry-run preview,
+  - optional chapter-domain validation,
+  - checkpoint-aware scaffold/verify/commit flow.
+- Add "Daily Series Batch Workflow" standards guidance (batch-first, dry-run required, batch-level Cypress cadence, explicit user commit/push gates).
+
+---
+
 ## Candidate Patterns
 
 | Pattern                                    | Classification      | Skill Candidate                              | Status                                                                                                                                  |
