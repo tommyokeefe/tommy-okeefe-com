@@ -1,6 +1,6 @@
 ---
 title: "Les Miserables: A Touch of Brightness"
-description: "Part 2, book 6, chapter 4 - in which we learn that the flipside of the dour reality we learned about in the last chapter. The children brought a touch of brightness to this dark and dreary convent."
+description: "Part 2, book 6, chapter 4 - in which we learn that the children brought a touch of brightness to this dark and dreary convent."
 date: "2026-05-02"
 draft: false
 series: "les-miserables"
