@@ -1,12 +1,12 @@
 {
-  "title": "Iron Gold",
+  "title": "Dark Age",
   "author": "Pierce Brown",
   "isbn": null,
   "coverUrl": null,
-  "rating": 4.5,
-  "tags": ["adventurous", "dark", "tense", "fast-paced"],
+  "rating": 4,
+  "tags": ["adventurous", "challenging", "dark", "sad", "medium-paced"],
   "storygraph": {
-    "plotOrCharacterDriven": "Plot",
+    "plotOrCharacterDriven": "Both",
     "strongCharacterDevelopment": "Complicated",
     "loveableCharacters": "Complicated",
     "diverseCast": "Yes",
